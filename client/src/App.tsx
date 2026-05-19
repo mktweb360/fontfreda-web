@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { LanguageProvider } from "./contexts/LanguageContext";
 import Home from "./pages/Home";
 import ResidenciaCanina from "./pages/ResidenciaCanina";
 import ResidenciaFelina from "./pages/ResidenciaFelina";
@@ -15,10 +16,10 @@ import LandingLargaEstancia from "./pages/LandingLargaEstancia";
 import LandingResidenciaCanina from "./pages/LandingResidenciaCanina";
 import LandingResidenciaFelina from "./pages/LandingResidenciaFelina";
 
-
 function Router() {
   return (
     <Switch>
+      {/* Spanish routes (default) */}
       <Route path="/" component={Home} />
       <Route path="/residencia-canina" component={ResidenciaCanina} />
       <Route path="/residencia-felina" component={ResidenciaFelina} />
@@ -26,9 +27,24 @@ function Router() {
       <Route path="/faq" component={FAQ} />
       <Route path="/larga-estancia" component={LargaEstancia} />
       <Route path="/blog" component={Blog} />
+
+      {/* English routes */}
+      <Route path="/en" component={Home} />
+      <Route path="/en/residencia-canina" component={ResidenciaCanina} />
+      <Route path="/en/residencia-felina" component={ResidenciaFelina} />
+      <Route path="/en/contacto" component={Contacto} />
+      <Route path="/en/faq" component={FAQ} />
+      <Route path="/en/larga-estancia" component={LargaEstancia} />
+      <Route path="/en/blog" component={Blog} />
+
+      {/* Google Ads Landing Pages */}
       <Route path="/ads/larga-estancia" component={LandingLargaEstancia} />
       <Route path="/ads/residencia-canina" component={LandingResidenciaCanina} />
       <Route path="/ads/residencia-felina" component={LandingResidenciaFelina} />
+      <Route path="/en/ads/larga-estancia" component={LandingLargaEstancia} />
+      <Route path="/en/ads/residencia-canina" component={LandingResidenciaCanina} />
+      <Route path="/en/ads/residencia-felina" component={LandingResidenciaFelina} />
+
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
@@ -36,23 +52,20 @@ function Router() {
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
-      </ThemeProvider>
+      <LanguageProvider>
+        <ThemeProvider
+          defaultTheme="light"
+          // switchable
+        >
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </ThemeProvider>
+      </LanguageProvider>
     </ErrorBoundary>
   );
 }

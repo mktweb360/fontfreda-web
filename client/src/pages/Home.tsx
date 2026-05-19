@@ -4,9 +4,16 @@ import HeroSection from "@/components/HeroSection";
 import ServiceCard from "@/components/ServiceCard";
 import { SchemaMarkup, localBusinessSchema, organizationSchema, createBreadcrumbSchema } from "@/components/SchemaMarkup";
 import { Heart, Leaf, Users, Check } from "lucide-react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { HrefLang } from "@/components/HrefLang";
+import { t } from "@/lib/translations";
 
 export default function Home() {
+  const { language } = useLanguage();
+  const [location] = useLocation();
+  const currentPath = location.replace(/^\/en/, "") || "/";
+
   const heroImageUrl =
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663312171860/4pSqWGuzzS8uGmjWwDrdgm/hero-home-fontfreda-MGDNNQMQU7LrDTUhhU9fq9.webp";
 
@@ -19,6 +26,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <HrefLang currentPath={currentPath} />
       <SchemaMarkup type="LocalBusiness" data={localBusinessSchema} />
       <SchemaMarkup type="Organization" data={organizationSchema} />
       <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />

@@ -2,23 +2,26 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t } from "@/lib/translations";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { language, setLanguage } = useLanguage();
 
   const navItems = [
-    { label: "Residencia Canina", href: "/residencia-canina" },
-    { label: "Residencia Felina", href: "/residencia-felina" },
-    { label: "Larga Estancia", href: "/larga-estancia" },
-    { label: "Blog", href: "/blog" },
-    { label: "Contacto", href: "/contacto" },
+    { label: language === "es" ? "Residencia Canina" : "Dog Boarding", href: language === "es" ? "/residencia-canina" : "/en/residencia-canina" },
+    { label: language === "es" ? "Residencia Felina" : "Cat Boarding", href: language === "es" ? "/residencia-felina" : "/en/residencia-felina" },
+    { label: language === "es" ? "Larga Estancia" : "Long Stay", href: language === "es" ? "/larga-estancia" : "/en/larga-estancia" },
+    { label: "Blog", href: language === "es" ? "/blog" : "/en/blog" },
+    { label: language === "es" ? "Contacto" : "Contact", href: language === "es" ? "/contacto" : "/en/contacto" },
   ];
 
   return (
     <header className="sticky top-0 z-50 bg-background border-b border-border">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/">
+        <Link href={language === "es" ? "/" : "/en"}>
           <a className="text-2xl font-bold text-primary hover:opacity-80 transition-opacity">
             Fontfreda
           </a>
@@ -35,14 +38,43 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* CTA Button */}
-        <div className="hidden md:block">
-          <Button
-            className="bg-primary hover:bg-primary/90 text-primary-foreground"
-            size="sm"
-          >
-            Contactar
-          </Button>
+        {/* Language Selector + CTA */}
+        <div className="hidden md:flex items-center gap-4">
+          {/* Language Buttons */}
+          <div className="flex items-center gap-2 border-l border-border pl-4">
+            <button
+              onClick={() => setLanguage("es")}
+              className={`px-2 py-1 text-xs font-semibold rounded transition-colors ${
+                language === "es"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-foreground hover:bg-secondary"
+              }`}
+            >
+              ES
+            </button>
+            <button
+              onClick={() => setLanguage("en")}
+              className={`px-2 py-1 text-xs font-semibold rounded transition-colors ${
+                language === "en"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-foreground hover:bg-secondary"
+              }`}
+            >
+              EN
+            </button>
+          </div>
+
+          {/* CTA Button */}
+          <Link href={language === "es" ? "/contacto" : "/en/contacto"}>
+            <a>
+              <Button
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                size="sm"
+              >
+                {language === "es" ? "Contactar" : "Contact"}
+              </Button>
+            </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -73,9 +105,44 @@ export default function Header() {
                 </a>
               </Link>
             ))}
-            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mt-4">
-              Contactar
-            </Button>
+
+            {/* Mobile Language Selector */}
+            <div className="flex gap-2 border-t border-border pt-4 mt-4">
+              <button
+                onClick={() => {
+                  setLanguage("es");
+                  setIsOpen(false);
+                }}
+                className={`flex-1 px-3 py-2 text-xs font-semibold rounded transition-colors ${
+                  language === "es"
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-background text-foreground hover:bg-background/80"
+                }`}
+              >
+                Español
+              </button>
+              <button
+                onClick={() => {
+                  setLanguage("en");
+                  setIsOpen(false);
+                }}
+                className={`flex-1 px-3 py-2 text-xs font-semibold rounded transition-colors ${
+                  language === "en"
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-background text-foreground hover:bg-background/80"
+                }`}
+              >
+                English
+              </button>
+            </div>
+
+            <Link href={language === "es" ? "/contacto" : "/en/contacto"}>
+              <a>
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mt-4">
+                  {language === "es" ? "Contactar" : "Contact"}
+                </Button>
+              </a>
+            </Link>
           </div>
         </nav>
       )}
