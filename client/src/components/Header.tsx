@@ -28,6 +28,7 @@ export default function Header() {
     { label: language === "es" ? "Residencia Canina" : "Dog Boarding", href: language === "es" ? "/residencia-canina" : "/en/residencia-canina" },
     { label: language === "es" ? "Residencia Felina" : "Cat Boarding", href: language === "es" ? "/residencia-felina" : "/en/residencia-felina" },
     { label: language === "es" ? "Larga Estancia" : "Long Stay", href: language === "es" ? "/larga-estancia" : "/en/larga-estancia" },
+    { label: language === "es" ? "Tarifas" : "Pricing", href: language === "es" ? "/tarifas" : "/en/tarifas" },
     { label: "Blog", href: language === "es" ? "/blog" : "/en/blog" },
     { label: language === "es" ? "Contacto" : "Contact", href: language === "es" ? "/contacto" : "/en/contacto" },
   ];
