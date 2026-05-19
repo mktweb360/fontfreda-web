@@ -2,11 +2,46 @@ import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import { SchemaMarkup, createServiceSchema, createFAQSchema, createBreadcrumbSchema } from "@/components/SchemaMarkup";
 import { Check, Leaf, Lightbulb, Utensils, Pill, Heart } from "lucide-react";
 
 export default function ResidenciaFelina() {
   const heroImageUrl =
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663312171860/4pSqWGuzzS8uGmjWwDrdgm/hero-residencia-felina-RYfEScYLHnRZqhCuzg8pHw.webp";
+
+  const serviceSchema = createServiceSchema(
+    "Residencia Felina",
+    "Alojamiento especializado para gatos con 180 m² de espacio, ambiente tranquilo y atención personalizada",
+    heroImageUrl
+  );
+
+  const faqSchema = createFAQSchema([
+    {
+      question: "¿Aceptan gatos con comportamiento tímido o miedoso?",
+      answer:
+        "Sí, tenemos experiencia con gatos de todos los temperamentos. Realizamos una valoración previa para asegurar que nuestro entorno es adecuado para su personalidad.",
+    },
+    {
+      question: "¿Cuáles son los requisitos de ingreso?",
+      answer:
+        "Tu gato debe estar vacunado (trivalente y leucemia al día) y desparasitado. Microchip recomendado.",
+    },
+    {
+      question: "¿Pueden estar juntos dos gatos?",
+      answer:
+        "Si viven juntos en casa, pueden estar juntos en la residencia. Si no se conocen, los mantenemos separados por su seguridad.",
+    },
+    {
+      question: "¿Qué pasa si mi gato no come bien?",
+      answer:
+        "Contamos con experiencia en gatos con apetito selectivo. Realizamos una valoración previa y nos adaptamos a sus preferencias.",
+    },
+  ]);
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://www.fontfreda.net" },
+    { name: "Residencia Felina", url: "https://www.fontfreda.net/residencia-felina" },
+  ]);
 
   const features = [
     {
@@ -66,12 +101,16 @@ export default function ResidenciaFelina() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SchemaMarkup type="Service" data={serviceSchema} />
+      <SchemaMarkup type="FAQPage" data={faqSchema} />
+      <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
+
       <Header />
 
       <main className="flex-grow">
         {/* Hero Section */}
         <HeroSection
-          title="Residencia Felina Especializada"
+          title="Residencia Felina en Barcelona - Alojamiento Especializado para Gatos"
           subtitle="Alojamiento familiar para gatos, con espacios seguros, tranquilos y adaptados a su naturaleza independiente."
           backgroundImage={heroImageUrl}
           primaryCTA={{
@@ -82,7 +121,8 @@ export default function ResidenciaFelina() {
         {/* Descripción */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-primary mb-8">
+            <h1 className="sr-only">Residencia Felina Fontfreda Barcelona</h1>
+            <h2 className="text-3xl font-bold text-primary mb-4">
               Los Gatos Merecen Espacios Pensados para Ellos
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
@@ -103,9 +143,12 @@ export default function ResidenciaFelina() {
         {/* Características */}
         <section className="py-20 bg-secondary">
           <div className="container mx-auto px-4">
-            <h2 className="text-primary mb-16 text-center">
+            <h2 className="text-3xl font-bold text-primary mb-4 text-center">
               Características Principales
             </h2>
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+              Especializado en el bienestar felino
+            </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {features.map((feature, index) => {
@@ -133,7 +176,12 @@ export default function ResidenciaFelina() {
         {/* Proceso de Ingreso */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-primary mb-12 text-center">Proceso de Ingreso</h2>
+            <h2 className="text-3xl font-bold text-primary mb-4 text-center">
+              Proceso de Ingreso
+            </h2>
+            <p className="text-center text-muted-foreground mb-12">
+              Pasos sencillos para que tu gato comience su estancia
+            </p>
 
             <div className="space-y-8">
               {[
@@ -159,7 +207,7 @@ export default function ResidenciaFelina() {
                   step: "4",
                   title: "Recogida y Entrega",
                   description:
-                    "Ofrecemos servicio de recogida y entrega a domicilio en transportín seguro.",
+                    "Ofrecemos servicio de recogida y entrega a domicilio en transportín seguro (25-30€ según zona).",
                 },
               ].map((item, index) => (
                 <div key={index} className="flex gap-6">
@@ -183,9 +231,12 @@ export default function ResidenciaFelina() {
         {/* FAQ */}
         <section className="py-20 bg-secondary">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-primary mb-12 text-center">
+            <h2 className="text-3xl font-bold text-primary mb-4 text-center">
               Preguntas Frecuentes
             </h2>
+            <p className="text-center text-muted-foreground mb-12">
+              Resuelve tus dudas sobre nuestro servicio de residencia felina
+            </p>
 
             <div className="space-y-6">
               {faqItems.map((item, index) => (
@@ -208,9 +259,12 @@ export default function ResidenciaFelina() {
         {/* Confianza */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-primary mb-12 text-center">
+            <h2 className="text-3xl font-bold text-primary mb-4 text-center">
               ¿Por Qué Elegir Fontfreda para Tu Gato?
             </h2>
+            <p className="text-center text-muted-foreground mb-12">
+              Especialización en bienestar felino
+            </p>
 
             <div className="space-y-6">
               {[
@@ -228,35 +282,10 @@ export default function ResidenciaFelina() {
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="py-20 bg-secondary">
-          <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-primary mb-12 text-center">
-              Preguntas Frecuentes - Residencia Felina
-            </h2>
-
-            <div className="space-y-6">
-              {faqItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-white border border-border rounded-lg p-6"
-                >
-                  <h3 className="font-semibold text-foreground mb-3">
-                    {item.question}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    {item.answer}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* CTA Final */}
         <section className="py-20 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-primary-foreground mb-6">
+            <h2 className="text-3xl font-bold mb-6">
               ¿Listo para Que Tu Gato Disfrute de Fontfreda?
             </h2>
             <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">

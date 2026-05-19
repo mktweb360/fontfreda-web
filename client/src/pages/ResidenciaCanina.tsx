@@ -2,12 +2,47 @@ import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import { SchemaMarkup, createServiceSchema, createFAQSchema, createBreadcrumbSchema } from "@/components/SchemaMarkup";
 import { Check, MapPin, Heart, Utensils, Pill, Users } from "lucide-react";
 import { Link } from "wouter";
 
 export default function ResidenciaCanina() {
   const heroImageUrl =
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663312171860/4pSqWGuzzS8uGmjWwDrdgm/hero-residencia-canina-8f7SDTrMfJUCX2BiRpvb8P.webp";
+
+  const serviceSchema = createServiceSchema(
+    "Residencia Canina",
+    "Alojamiento familiar para perros con paseos diarios, vigilancia 24h y atención veterinaria incluida",
+    heroImageUrl
+  );
+
+  const faqSchema = createFAQSchema([
+    {
+      question: "¿Cuál es la edad mínima para ingresar?",
+      answer:
+        "Aceptamos cachorros a partir de 3 meses de edad, siempre que estén correctamente vacunados. Para cachorros muy jóvenes, realizamos una valoración especial.",
+    },
+    {
+      question: "¿Qué pasa si mi perro tiene necesidades especiales de manejo?",
+      answer:
+        "Antes de confirmar una estancia, valoramos cada caso de forma individual para asegurar que nuestro modelo de alojamiento familiar es adecuado para las necesidades, rutinas y manejo de tu perro.",
+    },
+    {
+      question: "¿Cuáles son los requisitos de ingreso?",
+      answer:
+        "Tu perro debe estar vacunado (mínimo pentavalente, heptavalente o tos de perrera al día), desparasitado (protección externa), tener microchip y, si es necesario según normativa, contar con el seguro a terceros.",
+    },
+    {
+      question: "¿Puedo dejar a mi perro por un fin de semana?",
+      answer:
+        "Sí, aceptamos estancias puntuales. Mínimo 2 noches. Consulta disponibilidad contactando con nosotros.",
+    },
+  ]);
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://www.fontfreda.net" },
+    { name: "Residencia Canina", url: "https://www.fontfreda.net/residencia-canina" },
+  ]);
 
   const features = [
     {
@@ -62,7 +97,7 @@ export default function ResidenciaCanina() {
     {
       question: "¿Cuáles son los requisitos de ingreso?",
       answer:
-        "Tu perro debe estar vacunado (tetravalente al día), desparasitado (protección externa), tener microchip y, si es necesario según normativa, contar con el seguro a terceros correspondiente.",
+        "Tu perro debe estar vacunado (mínimo pentavalente, heptavalente o tos de perrera al día), desparasitado (protección externa), tener microchip y, si es necesario según normativa, contar con el seguro a terceros correspondiente.",
     },
     {
       question: "¿Puedo dejar a mi perro por un fin de semana?",
@@ -73,12 +108,16 @@ export default function ResidenciaCanina() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SchemaMarkup type="Service" data={serviceSchema} />
+      <SchemaMarkup type="FAQPage" data={faqSchema} />
+      <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
+
       <Header />
 
       <main className="flex-grow">
         {/* Hero Section */}
         <HeroSection
-          title="Residencia Canina en Plena Naturaleza"
+          title="Residencia Canina en Barcelona - Alojamiento Familiar para Perros"
           subtitle="Alojamiento familiar para perros, con atención cercana, espacios adaptados y estancias pensadas según las necesidades de cada animal."
           backgroundImage={heroImageUrl}
           primaryCTA={{
@@ -89,7 +128,10 @@ export default function ResidenciaCanina() {
         {/* Descripción */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-primary mb-8">Tu Perro Merece un Hogar</h2>
+            <h1 className="sr-only">Residencia Canina Fontfreda Barcelona</h1>
+            <h2 className="text-3xl font-bold text-primary mb-4">
+              Tu Perro Merece un Hogar
+            </h2>
             <p className="text-lg text-muted-foreground mb-6">
               La Residencia Canina de Fontfreda es un alojamiento familiar para
               perros que necesitan un lugar seguro y cálido mientras sus
@@ -108,9 +150,12 @@ export default function ResidenciaCanina() {
         {/* Características */}
         <section className="py-20 bg-secondary">
           <div className="container mx-auto px-4">
-            <h2 className="text-primary mb-16 text-center">
+            <h2 className="text-3xl font-bold text-primary mb-4 text-center">
               Características Principales
             </h2>
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+              Todo lo que tu perro necesita para una estancia cómoda y segura
+            </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {features.map((feature, index) => {
@@ -138,7 +183,12 @@ export default function ResidenciaCanina() {
         {/* Proceso de Ingreso */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-primary mb-12 text-center">Proceso de Ingreso</h2>
+            <h2 className="text-3xl font-bold text-primary mb-4 text-center">
+              Proceso de Ingreso
+            </h2>
+            <p className="text-center text-muted-foreground mb-12">
+              Pasos sencillos para que tu perro comience su estancia
+            </p>
 
             <div className="space-y-8">
               {[
@@ -164,7 +214,7 @@ export default function ResidenciaCanina() {
                   step: "4",
                   title: "Recogida y Entrega",
                   description:
-                    "Ofrecemos servicio de recogida y entrega a domicilio. Tu perro llega cómodo y seguro.",
+                    "Ofrecemos servicio de recogida y entrega a domicilio en Barcelona (25-30€ según zona). Tu perro llega cómodo y seguro.",
                 },
               ].map((item, index) => (
                 <div key={index} className="flex gap-6">
@@ -188,9 +238,12 @@ export default function ResidenciaCanina() {
         {/* FAQ */}
         <section className="py-20 bg-secondary">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-primary mb-12 text-center">
+            <h2 className="text-3xl font-bold text-primary mb-4 text-center">
               Preguntas Frecuentes
             </h2>
+            <p className="text-center text-muted-foreground mb-12">
+              Resuelve tus dudas sobre nuestro servicio de residencia canina
+            </p>
 
             <div className="space-y-6">
               {faqItems.map((item, index) => (
@@ -213,9 +266,12 @@ export default function ResidenciaCanina() {
         {/* Confianza */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-primary mb-12 text-center">
+            <h2 className="text-3xl font-bold text-primary mb-4 text-center">
               ¿Por Qué Elegir Fontfreda?
             </h2>
+            <p className="text-center text-muted-foreground mb-12">
+              Experiencia, dedicación y amor por los animales
+            </p>
 
             <div className="space-y-6">
               {[
@@ -233,35 +289,10 @@ export default function ResidenciaCanina() {
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="py-20 bg-secondary">
-          <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-primary mb-12 text-center">
-              Preguntas Frecuentes - Residencia Canina
-            </h2>
-
-            <div className="space-y-6">
-              {faqItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-white border border-border rounded-lg p-6"
-                >
-                  <h3 className="font-semibold text-foreground mb-3">
-                    {item.question}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    {item.answer}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* CTA Final */}
         <section className="py-20 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-primary-foreground mb-6">
+            <h2 className="text-3xl font-bold mb-6">
               ¿Listo para Que Tu Perro Disfrute de Fontfreda?
             </h2>
             <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
