@@ -2,6 +2,7 @@ import express from "express";
 import { createServer } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
+import { sendContactEmail, sendReservaEmail, type ContactFormData, type ReservaFormData } from "./email";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -9,6 +10,58 @@ const __dirname = path.dirname(__filename);
 async function startServer() {
   const app = express();
   const server = createServer(app);
+
+  // Middleware
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
+
+  // API endpoints for form submissions
+  app.post("/api/contact", async (req, res) => {
+    try {
+      const data: ContactFormData = req.body;
+
+      // Validate required fields
+      if (!data.nombre || !data.email || !data.telefono || !data.asunto || !data.mensaje) {
+        return res.status(400).json({ error: "Missing required fields" });
+      }
+
+      // Send emails
+      await sendContactEmail(data);
+
+      res.json({ success: true, message: "Consulta enviada correctamente" });
+    } catch (error) {
+      console.error("Error sending contact email:", error);
+      res.status(500).json({ error: "Error al enviar la consulta" });
+    }
+  });
+
+  app.post("/api/reserva", async (req, res) => {
+    try {
+      const data: ReservaFormData = req.body;
+
+      // Validate required fields
+      if (
+        !data.nombre ||
+        !data.email ||
+        !data.telefono ||
+        !data.servicio ||
+        !data.fechaEntrada ||
+        !data.fechaSalida ||
+        !data.nombreMascota ||
+        !data.tipoMascota
+      ) {
+        return res.status(400).json({ error: "Missing required fields" });
+      }
+
+      // Send emails
+      await sendReservaEmail(data);
+
+      res.json({ success: true, message: "Solicitud de reserva enviada correctamente" });
+    } catch (error) {
+      console.error("Error sending reserva email:", error);
+      res.status(500).json({ error: "Error al enviar la solicitud de reserva" });
+    }
+  });
 
   // Serve static files from dist/public in production
   const staticPath =

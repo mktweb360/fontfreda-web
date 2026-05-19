@@ -263,8 +263,19 @@ export default function Contacto() {
     setIsSubmitting(true);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Form submitted:", formData);
+      const response = await fetch("/api/reserva", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al enviar la solicitud");
+      }
+
+      const result = await response.json();
       toast.success(lang.form.success);
 
       setFormData({
@@ -283,6 +294,7 @@ export default function Contacto() {
       });
       setShowConfirmModal(false);
     } catch (error) {
+      console.error("Error submitting form:", error);
       toast.error(lang.form.error);
     } finally {
       setIsSubmitting(false);

@@ -1,17 +1,24 @@
 {
   "build_command": "pnpm run build",
-  "capabilities": [],
+  "capabilities": [
+    "db",
+    "server",
+    "user"
+  ],
   "dev_command": "pnpm run dev",
-  "env_vars": {},
+  "env_vars": {
+    "DATABASE_URL": "mysql://2ahJwdeY13pVcru.969aa6082ef2:4Dzv1lNPT598CTp6AolR@gateway03.us-east-1.prod.aws.tidbcloud.com:4000/4pSqWGuzzS8uGmjWwDrdgm?ssl={\"rejectUnauthorized\":true}",
+    "DRIZZLE_DATABASE_URL": "mysql://2ahJwdeY13pVcru.969aa6082ef2:4Dzv1lNPT598CTp6AolR@gateway03.us-east-1.prod.aws.tidbcloud.com:4000/4pSqWGuzzS8uGmjWwDrdgm?ssl={\"rejectUnauthorized\":true}"
+  },
   "experiments": [
     "no_db_push"
   ],
   "git_remote": {
     "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663312171860/4pSqWGuzzS8uGmjWwDrdgm",
-    "access_key_id": "ASIAZV3A2ECZPYAXIZTY",
-    "secret_access_key": "5q5TtMy0rVK2mpK3YKwj1yB3aGhSazvPHTcrUaSm",
-    "session_token": "IQoJb3JpZ2luX2VjEAgaCXVzLWVhc3QtMSJHMEUCIQDcyvGnDD+EuNrd8C0wvUy/6szjNylQO3M43z4v0Wy2HAIgKdbe2xxvMFwvYFxzuZENzEN2swVR2olSUE9NY1JIDHwq/wMI0f//////////ARAEGgw2NjUzODYwOTg4NjYiDL/puKlW5BSTBKkzJSrTA5rgDRtq72jH+XJSWynGRjQdnwd4G7b1ck5qT8R7pcrEBQmOMd84OAVtC0tRXOZWwqVe2CKN0zgH0M1losr4tb3wqJrxboapPi3Uot4boTi4t2tIAkGQIiV1gIdj44IiJyZmkWwHid0GAI/9u6JpVfJykEGWZdyFfsMgsDNn9T5rWZctUiwcWMvJm8k0luX80ZWd2qLBMk97yUFEl2qEF3+Rc6hVYeVNkyUdtYciOIEEEt0GWzv0ZFs6mjaKTGk/OmNyX7FMtYrS/HBi2wNBoGNjMmlqjC5dFqpBIJPLIVI65YITOVhHtdOUZgTppLbm1OeIMSKeaHjabkuabwNeI27FWufG0NhK1n/tMKoZiVoFyOcDEilUdYgVdlzy4MTvu54X7+6C+/VjzBwJjZWkjHAE828PWQRwPbrk4WLmnpb7xhBh4H53nAKXIk7zMYDlPQgq0/2tLF3y9K3Zc5mxaRqBoyS8wDE8Nc7ReZgAwJOvw1BooxkTt629U0eOy1iK7o/xHgPBXZdT/H92047zLz6ao6YwsTUrMUm22TmYbQ9zba2JA59DAzl28TI0h3dpeqHAJy6bdYDWcJshn6KDEmHG3ZMMCa4dvWp7Xi0/6M5CkbB4MOKosNAGOp0BrgqYnUrWU2FapKQj5+v2BaJtuuWA+5wGeUVY2yJgeS5HPo8KyWV7lfniIzvrGx1wQauDDUhjXTWZcF7GzYohid6hqMfgnHRYWPqyDFLko96PH32mi6eu7OaCUvqcxOwsIWPHl9Yf+Jh2D3OIU0eAUiLZvqkVws0I/6c5gWH+iLX0XGTXnObUPaJWITr6Ld3M5Cj/WfEQy8NpIAfVVw==",
-    "expiration": "2026-05-19T19:42:26.000Z"
+    "access_key_id": "ASIAZV3A2ECZFGHJBA2Z",
+    "secret_access_key": "7TYqIoFC0JMjptLz3C+6RncX9i+qYZlFN8eDnDOS",
+    "session_token": "IQoJb3JpZ2luX2VjEBIaCXVzLWVhc3QtMSJHMEUCIQDfo5v/9Cggy7U2/HXpsdI3WTrU1tMYjaK+kctkIatQLgIgJSxxS0aUKyTN0ZQ4XDENU2R8+Or+2JeSNZ2JZSk1Wlgq/wMI2v//////////ARAEGgw2NjUzODYwOTg4NjYiDE836UXyfG3vjoF1fSrTA8Cxq7VIVdN4WNmLK1z08yElvekH87uU6hgDED6Gqf/SihKKmEldZ6zBMFYFBMlPmGdN75AYbNGP0nbWGkIJXMyTCv4WdktDqBfpdQR3qKPzwZIYymrBa6z+f5mdFeQx8TwfdI78/jQt17w+OXuRxe+KeWBJgiBWslk00o67UnkaIUisB/GBhzsDnvBjbwWgaCsAvrkww/a+lEGQphrLz2DZwHVUhd327wqgHebzDs6lnDt5uYz+0rWlw58qYis7GRgD3XV/DZ9BLCCmn3IOQT4ezZC8/rBV3MBb3poHk/qyfRklVDjW4/YY3iyDZyuQV7EzWoKV7VPYBhRy8wpZ1IkZ9jF+TKKzwBvM3oLz6SgLgAr+L29AhEtBAbsYV/U6r1PeXp3Bv5SivtPU4ZNRuC0/oELl/ltjhpXqzklyMvXFIsrLFJYZe+emBwppKuxSXbEIp3wXdg048lnmPc2iHRtiPCwML1nRVjAgbm08+Cs7YxzwutnYeiO3czBkPApWlIKoy8UFx1jSeHxymCzZMVOIFRNZJAZtU7CoNZ+Iv1IT13dSuyl4j7SBOHZYtMIENbyofN1tzFqLv4bukUlw8vXSTuWxregYY+2ErQn2FHyzLCSgMMKzstAGOp0BGddKXyOrrxhA9hSsfylKiLRN5U6jNyWOcBci3D8VDnvAtrmMULm7RdNXi4POXbZsejTLZiDGRCFuHyix7Kzwi35aRQJ/RfnpRMOua0Yp8uJ5i3Or3D6RFRsTH05Cym3ZGKbSzM1a401NbmmGOjejXnr2AAhOQj8/V/znvE7eFj7Zb1s/2g/jzJSFzXC1Qe34/uu49+2RmUKwaUNzVg==",
+    "expiration": "2026-05-20T05:11:30.000Z"
   },
   "name": "fontfreda-web",
   "path": "/home/ubuntu/fontfreda-web",
@@ -23,6 +30,10 @@
     "OAUTH_SERVER_URL": "https://api.manus.im",
     "OWNER_NAME": "José Marcos Galindo",
     "OWNER_OPEN_ID": "bF5eCbBwhxAT86bUbUfjmt",
+    "SMTP_HOST": "mail.fontfreda.net",
+    "SMTP_PASSWORD": "Lu1s@ff-mailw3b5",
+    "SMTP_PORT": "993",
+    "SMTP_USER": "info@fontfreda.net",
     "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
     "VITE_ANALYTICS_WEBSITE_ID": "fa7efffb-8d4d-49a1-bfdd-60ea8bd3590b",
     "VITE_APP_ID": "4pSqWGuzzS8uGmjWwDrdgm",
