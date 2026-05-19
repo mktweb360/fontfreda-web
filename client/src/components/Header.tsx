@@ -29,6 +29,7 @@ export default function Header() {
     { label: language === "es" ? "Residencia Felina" : "Cat Boarding", href: language === "es" ? "/residencia-felina" : "/en/residencia-felina" },
     { label: language === "es" ? "Larga Estancia" : "Long Stay", href: language === "es" ? "/larga-estancia" : "/en/larga-estancia" },
     { label: language === "es" ? "Tarifas" : "Pricing", href: language === "es" ? "/tarifas" : "/en/tarifas" },
+    { label: language === "es" ? "Instalaciones" : "Facilities", href: language === "es" ? "/instalaciones" : "/en/instalaciones" },
     { label: "Blog", href: language === "es" ? "/blog" : "/en/blog" },
     { label: language === "es" ? "Contacto" : "Contact", href: language === "es" ? "/contacto" : "/en/contacto" },
   ];

@@ -12,6 +12,7 @@ import Contacto from "./pages/Contacto";
 import FAQ from "./pages/FAQ";
 import LargaEstancia from "./pages/LargaEstancia";
 import Blog from "./pages/Blog";
+import Instalaciones from "./pages/Instalaciones";
 import LandingLargaEstancia from "./pages/LandingLargaEstancia";
 import LandingResidenciaCanina from "./pages/LandingResidenciaCanina";
 import LandingResidenciaFelina from "./pages/LandingResidenciaFelina";
@@ -37,8 +38,12 @@ function Router() {
       <Route path="/en/contacto" component={Contacto} />
       <Route path="/en/faq" component={FAQ} />
       <Route path="/en/larga-estancia" component={LargaEstancia} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/tarifas" component={Tarifas} />
+      <Route path="/instalaciones" component={Instalaciones} />
       <Route path="/en/blog" component={Blog} />
       <Route path="/en/tarifas" component={Tarifas} />
+      <Route path="/en/instalaciones" component={Instalaciones} />
 
       {/* Google Ads Landing Pages */}
       <Route path="/ads/larga-estancia" component={LandingLargaEstancia} />
