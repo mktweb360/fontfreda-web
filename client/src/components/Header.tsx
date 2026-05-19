@@ -27,6 +27,7 @@ export default function Header() {
   const navItems = [
     { label: language === "es" ? "Residencia Canina" : "Dog Boarding", href: language === "es" ? "/residencia-canina" : "/en/residencia-canina" },
     { label: language === "es" ? "Residencia Felina" : "Cat Boarding", href: language === "es" ? "/residencia-felina" : "/en/residencia-felina" },
+    { label: language === "es" ? "Guardería Canina" : "Dog Daycare", href: language === "es" ? "/guarderia" : "/en/guarderia" },
     { label: language === "es" ? "Larga Estancia" : "Long Stay", href: language === "es" ? "/larga-estancia" : "/en/larga-estancia" },
     { label: language === "es" ? "Tarifas" : "Pricing", href: language === "es" ? "/tarifas" : "/en/tarifas" },
     { label: language === "es" ? "Instalaciones" : "Facilities", href: language === "es" ? "/instalaciones" : "/en/instalaciones" },

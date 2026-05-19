@@ -163,6 +163,81 @@ export default function Instalaciones() {
     },
   ];
 
+  const faqItems: FAQItem[] = [
+    {
+      id: "seguridad-1",
+      question_es: "¿Cómo garantizan la seguridad de las mascotas en los parques?",
+      question_en: "How do you ensure pet safety in the parks?",
+      answer_es: "Contamos con vigilancia profesional constante, vallas de seguridad certificadas, y protocolos de emergencia. Todos nuestros cuidadores están entrenados en primeros auxilios veterinarios.",
+      answer_en: "We have constant professional supervision, certified safety fencing, and emergency protocols. All our caregivers are trained in veterinary first aid.",
+      category: "seguridad",
+    },
+    {
+      id: "seguridad-2",
+      question_es: "¿Qué sucede en caso de emergencia médica?",
+      question_en: "What happens in case of medical emergency?",
+      answer_es: "Disponemos de servicio veterinario en las instalaciones y protocolo de atención inmediata. Contactamos al propietario y al veterinario del animal de forma simultánea.",
+      answer_en: "We have veterinary service on-site and immediate care protocol. We contact the owner and the animal's veterinarian simultaneously.",
+      category: "seguridad",
+    },
+    {
+      id: "seguridad-3",
+      question_es: "¿Cómo se previenen peleas entre animales?",
+      question_en: "How do you prevent fights between animals?",
+      answer_es: "Realizamos evaluación comportamental previa, supervisión constante durante la socialización, y separamos animales incompatibles. Contamos con zonas de socialización controlada.",
+      answer_en: "We conduct behavioral assessment beforehand, constant supervision during socialization, and separate incompatible animals. We have controlled socialization zones.",
+      category: "seguridad",
+    },
+    {
+      id: "cuidado-1",
+      question_es: "¿Cómo se administran medicamentos y alimentos especiales?",
+      question_en: "How are medications and special foods administered?",
+      answer_es: "Registramos todos los medicamentos y dietas especiales. Nuestro equipo administra medicamentos según prescripción veterinaria con registro detallado de cada dosis.",
+      answer_en: "We record all medications and special diets. Our team administers medications according to veterinary prescription with detailed dosage records.",
+      category: "cuidado",
+    },
+    {
+      id: "cuidado-2",
+      question_es: "¿Cuál es la rutina diaria de ejercicio para los perros?",
+      question_en: "What is the daily exercise routine for dogs?",
+      answer_es: "Los perros realizan 5 paseos diarios en nuestros 5 parques de 400-600 m² cada uno. Combinamos ejercicio físico, estimulación mental y tiempo de descanso según la edad y energía del animal.",
+      answer_en: "Dogs have 5 daily walks in our 5 parks of 400-600 m² each. We combine physical exercise, mental stimulation and rest time according to the animal's age and energy.",
+      category: "cuidado",
+    },
+    {
+      id: "cuidado-3",
+      question_es: "¿Cómo se garantiza la higiene y limpieza?",
+      question_en: "How is hygiene and cleanliness guaranteed?",
+      answer_es: "Realizamos limpieza diaria de todas las áreas, desinfección regular, y disponemos de servicio de baño profesional. Mantenemos estándares de higiene veterinaria.",
+      answer_en: "We perform daily cleaning of all areas, regular disinfection, and have professional bathing service. We maintain veterinary hygiene standards.",
+      category: "cuidado",
+    },
+    {
+      id: "comodidad-1",
+      question_es: "¿Cómo son los espacios de descanso para los gatos?",
+      question_en: "What are the rest spaces like for cats?",
+      answer_es: "Disponemos de 180 m² de espacio interior especializado para gatos con zonas de descanso elevadas, escondites, enriquecimiento ambiental y separación de perros.",
+      answer_en: "We have 180 m² of specialized interior space for cats with elevated rest areas, hiding spots, environmental enrichment and separation from dogs.",
+      category: "comodidad",
+    },
+    {
+      id: "comodidad-2",
+      question_es: "¿Cuál es la temperatura y ventilación de las instalaciones?",
+      question_en: "What is the temperature and ventilation of the facilities?",
+      answer_es: "Mantenemos temperatura controlada (18-22°C en invierno, 20-24°C en verano) con ventilación natural y sistemas de aire acondicionado. Monitoreo constante de confort.",
+      answer_en: "We maintain controlled temperature (18-22°C in winter, 20-24°C in summer) with natural ventilation and air conditioning systems. Constant comfort monitoring.",
+      category: "comodidad",
+    },
+    {
+      id: "comodidad-3",
+      question_es: "¿Pueden los propietarios visitar a sus mascotas?",
+      question_en: "Can owners visit their pets?",
+      answer_es: "Sí, ofrecemos visitas programadas con previa coordinación. También compartimos fotos y videos diarios para que sigas la rutina de tu mascota.",
+      answer_en: "Yes, we offer scheduled visits with prior coordination. We also share daily photos and videos so you can follow your pet's routine.",
+      category: "comodidad",
+    },
+  ];
+
   const content = {
     es: {
       title: "Instalaciones - Fontfreda",
@@ -394,6 +469,73 @@ export default function Instalaciones() {
           </div>
         </div>
       )}
+
+      {/* FAQ Section */}
+      <section className="py-12 md:py-16 bg-secondary">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2 text-center">
+            {lang.faq.title}
+          </h2>
+          <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+            {lang.faq.subtitle}
+          </p>
+
+          {/* FAQ Category Filter */}
+          <div className="flex flex-wrap gap-3 justify-center mb-12">
+            {(Object.keys(lang.faq.categories) as Array<keyof typeof lang.faq.categories>).map((key) => (
+              <Button
+                key={key}
+                onClick={() => setFaqCategory(key as any)}
+                variant={faqCategory === key ? "default" : "outline"}
+                className={`${
+                  faqCategory === key
+                    ? "bg-primary text-primary-foreground"
+                    : "border-border text-foreground hover:bg-background"
+                }`}
+              >
+                {lang.faq.categories[key]}
+              </Button>
+            ))}
+          </div>
+
+          {/* FAQ Items */}
+          <div className="max-w-3xl mx-auto space-y-4">
+            {(faqCategory === "todos"
+              ? faqItems
+              : faqItems.filter((item) => item.category === faqCategory)
+            ).map((item) => (
+              <div
+                key={item.id}
+                className="border border-border rounded-lg bg-background overflow-hidden transition-all duration-300"
+              >
+                <button
+                  onClick={() =>
+                    setExpandedFAQ(expandedFAQ === item.id ? null : item.id)
+                  }
+                  className="w-full px-6 py-4 flex items-center justify-between hover:bg-secondary transition-colors"
+                >
+                  <h3 className="text-lg font-semibold text-foreground text-left">
+                    {language === "en" ? item.question_en : item.question_es}
+                  </h3>
+                  <ChevronDown
+                    className={`w-5 h-5 text-primary transition-transform duration-300 ${
+                      expandedFAQ === item.id ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {expandedFAQ === item.id && (
+                  <div className="px-6 py-4 bg-secondary border-t border-border">
+                    <p className="text-muted-foreground">
+                      {language === "en" ? item.answer_en : item.answer_es}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>

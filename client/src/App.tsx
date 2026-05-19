@@ -18,6 +18,7 @@ import LandingLargaEstancia from "./pages/LandingLargaEstancia";
 import LandingResidenciaCanina from "./pages/LandingResidenciaCanina";
 import LandingResidenciaFelina from "./pages/LandingResidenciaFelina";
 import Tarifas from "./pages/Tarifas";
+import Guarderia from "./pages/Guarderia";
 
 function Router() {
   return (
@@ -31,6 +32,7 @@ function Router() {
       <Route path="/larga-estancia" component={LargaEstancia} />
       <Route path="/blog" component={Blog} />
       <Route path="/tarifas" component={Tarifas} />
+      <Route path="/guarderia" component={Guarderia} />
 
       {/* English routes */}
       <Route path="/en" component={Home} />
@@ -45,6 +47,7 @@ function Router() {
       <Route path="/en/blog" component={Blog} />
       <Route path="/en/tarifas" component={Tarifas} />
       <Route path="/en/instalaciones" component={Instalaciones} />
+      <Route path="/en/guarderia" component={Guarderia} />
 
       {/* Google Ads Landing Pages */}
       <Route path="/ads/larga-estancia" component={LandingLargaEstancia} />

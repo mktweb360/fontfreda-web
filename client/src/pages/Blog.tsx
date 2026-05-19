@@ -88,6 +88,66 @@ const blogPosts: BlogPost[] = [
     category: "Residencia",
     slug: "beneficios-larga-estancia",
   },
+  {
+    id: "7",
+    title: "Comportamiento de perros en residencia: qué esperar",
+    excerpt:
+      "Conoce cómo se comportan los perros en una residencia familiar y qué cambios puedes notar al recoger a tu mascota.",
+    content:
+      "Es normal que los perros muestren cambios de comportamiento después de una estancia en residencia. Algunos pueden estar más cansados (lo cual es positivo), otros más sociables, y algunos necesitarán un período de readaptación. Estos cambios suelen ser temporales y reflejan el bienestar y la estimulación que han recibido.",
+    author: "admin",
+    date: "06 May 2026",
+    category: "Perros",
+    slug: "comportamiento-perros-residencia",
+  },
+  {
+    id: "8",
+    title: "Preparar a tu gato para la residencia felina",
+    excerpt:
+      "Consejos prácticos para preparar a tu gato antes de su estancia en una residencia felina especializada.",
+    content:
+      "Antes de llevar a tu gato a una residencia felina, es importante familiarizarlo con cambios gradualmente. Lleva objetos con tu olor, mantén la calma durante la entrega, y proporciona información detallada sobre sus hábitos, preferencias y necesidades especiales. Una buena comunicación con los cuidadores garantiza una experiencia positiva.",
+    author: "admin",
+    date: "05 May 2026",
+    category: "Gatos",
+    slug: "preparar-gato-residencia",
+  },
+  {
+    id: "9",
+    title: "Vacunación en perros: guía completa",
+    excerpt:
+      "Todo lo que necesitas saber sobre las vacunas obligatorias y recomendadas para tu perro.",
+    content:
+      "Las vacunas son esenciales para la salud de tu perro. La pentavalente protege contra parvovirus, moquillo y hepatitis. La heptavalente añade protección contra leptospirosis. La vacuna de la tos de perrera es recomendada para perros que socializan frecuentemente. Consulta con tu veterinario sobre el calendario de vacunación adecuado.",
+    author: "admin",
+    date: "04 May 2026",
+    category: "Salud",
+    slug: "vacunacion-perros-guia",
+  },
+  {
+    id: "10",
+    title: "Desparasitación externa: pipetas y collares",
+    excerpt:
+      "Guía sobre los mejores métodos para proteger a tu mascota contra parásitos externos.",
+    content:
+      "Los parásitos externos como pulgas y garrapatas pueden causar problemas graves. Las pipetas mensuales y los collares antiparasitarios son métodos efectivos. En verano, la doble protección es recomendada. Consulta con tu veterinario sobre las opciones más adecuadas para tu mascota según su edad y peso.",
+    author: "admin",
+    date: "03 May 2026",
+    category: "Salud",
+    slug: "desparasitacion-externa",
+  },
+  {
+    id: "11",
+    title: "Socialización de cachorros: importancia y métodos",
+    excerpt:
+      "Aprende por qué la socialización temprana es crucial para el desarrollo de tu cachorro.",
+    content:
+      "La socialización durante los primeros meses de vida es fundamental para que el cachorro desarrolle confianza y habilidades sociales. Exponerlo a diferentes personas, animales, sonidos y ambientes de forma positiva previene miedos y comportamientos agresivos. Una guardería canina es un excelente lugar para socializar.",
+    author: "admin",
+    date: "02 May 2026",
+    category: "Perros",
+    slug: "socializacion-cachorros",
+  },
 ];
 
 export default function Blog() {
