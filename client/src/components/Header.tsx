@@ -1,13 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import { Link } from "wouter";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { t } from "@/lib/translations";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const { language, setLanguage } = useLanguage();
+  const [language, setLanguageState] = useState<"es" | "en">("es");
+  const [location] = useLocation();
+
+  // Get language from URL on mount
+  useEffect(() => {
+    const path = window.location.pathname;
+    const lang = path.startsWith("/en") ? "en" : "es";
+    setLanguageState(lang);
+  }, [location]);
+
+  const setLanguage = (lang: "es" | "en") => {
+    setLanguageState(lang);
+    localStorage.setItem("language", lang);
+    // Redirect to appropriate language path
+    const currentPath = window.location.pathname;
+    const newPath = currentPath.replace(/^\/(en|es)/, `/${lang}`);
+    window.location.href = newPath || `/${lang}`;
+  };
 
   const navItems = [
     { label: language === "es" ? "Residencia Canina" : "Dog Boarding", href: language === "es" ? "/residencia-canina" : "/en/residencia-canina" },
