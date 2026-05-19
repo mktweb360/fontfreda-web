@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { SchemaMarkup, createBreadcrumbSchema } from "@/components/SchemaMarkup";
 import { HrefLang } from "@/components/HrefLang";
 import { Button } from "@/components/ui/button";
-import { X, ChevronLeft, ChevronRight, Trees, Home, Stethoscope } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Trees, Home, Stethoscope, ChevronDown } from "lucide-react";
 import { useLocation } from "wouter";
 import { useState } from "react";
 
@@ -17,6 +17,15 @@ interface GalleryItem {
   image: string;
   details_es?: string;
   details_en?: string;
+}
+
+interface FAQItem {
+  id: string;
+  question_es: string;
+  question_en: string;
+  answer_es: string;
+  answer_en: string;
+  category: "seguridad" | "cuidado" | "comodidad";
 }
 
 export default function Instalaciones() {
@@ -33,6 +42,8 @@ export default function Instalaciones() {
   const [selectedCategory, setSelectedCategory] = useState<"todos" | "parques" | "interiores" | "servicios">("todos");
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [expandedFAQ, setExpandedFAQ] = useState<string | null>(null);
+  const [faqCategory, setFaqCategory] = useState<"todos" | "seguridad" | "cuidado" | "comodidad">("todos");
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: language === "es" ? "Inicio" : "Home", url: "https://www.fontfreda.net" },
@@ -168,6 +179,16 @@ export default function Instalaciones() {
         prev: "Anterior",
         next: "Siguiente",
       },
+      faq: {
+        title: "Preguntas Frecuentes",
+        subtitle: "Resolvemos tus dudas sobre el cuidado y seguridad de tu mascota",
+        categories: {
+          todos: "Todas",
+          seguridad: "Seguridad",
+          cuidado: "Cuidado",
+          comodidad: "Comodidad",
+        },
+      },
     },
     en: {
       title: "Facilities - Fontfreda",
@@ -183,6 +204,16 @@ export default function Instalaciones() {
         close: "Close",
         prev: "Previous",
         next: "Next",
+      },
+      faq: {
+        title: "Frequently Asked Questions",
+        subtitle: "We answer your questions about pet care and safety",
+        categories: {
+          todos: "All",
+          seguridad: "Safety",
+          cuidado: "Care",
+          comodidad: "Comfort",
+        },
       },
     },
   };

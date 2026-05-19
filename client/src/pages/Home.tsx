@@ -19,7 +19,7 @@ export default function Home() {
   };
   const language = getLanguage();
 
-  const heroImageUrl = "/manus-storage/parque-natural-altpenedes_70de3e48.jpg";
+  const heroImageUrl = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663312171860/frDiNoHWtmwIGPdl.jpg";
   const instalacionesImageUrl = "/manus-storage/instalaciones-residencia-fontfreda_7a4b62ca.jpg";
 
   const breadcrumbSchema = createBreadcrumbSchema([
