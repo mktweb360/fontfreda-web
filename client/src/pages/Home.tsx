@@ -5,14 +5,19 @@ import ServiceCard from "@/components/ServiceCard";
 import { SchemaMarkup, localBusinessSchema, organizationSchema, createBreadcrumbSchema } from "@/components/SchemaMarkup";
 import { Heart, Leaf, Users, Check } from "lucide-react";
 import { Link, useLocation } from "wouter";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { HrefLang } from "@/components/HrefLang";
-import { t } from "@/lib/translations";
 
 export default function Home() {
-  const { language } = useLanguage();
   const [location] = useLocation();
   const currentPath = location.replace(/^\/en/, "") || "/";
+  
+  // Safely get language from localStorage or URL
+  const getLanguage = () => {
+    if (typeof window === "undefined") return "es";
+    const path = window.location.pathname;
+    return path.startsWith("/en") ? "en" : "es";
+  };
+  const language = getLanguage();
 
   const heroImageUrl =
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663312171860/4pSqWGuzzS8uGmjWwDrdgm/hero-home-fontfreda-MGDNNQMQU7LrDTUhhU9fq9.webp";
