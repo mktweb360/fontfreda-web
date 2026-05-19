@@ -19,11 +19,8 @@ export default function Home() {
   };
   const language = getLanguage();
 
-  const heroImageUrl =
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663312171860/4pSqWGuzzS8uGmjWwDrdgm/hero-home-fontfreda-MGDNNQMQU7LrDTUhhU9fq9.webp";
-
-  const instalacionesImageUrl =
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663312171860/4pSqWGuzzS8uGmjWwDrdgm/instalaciones-preview-L6fA77DHd35iuLbmqHvLPY.webp";
+  const heroImageUrl = "/manus-storage/parque-natural-altpenedes_70de3e48.jpg";
+  const instalacionesImageUrl = "/manus-storage/instalaciones-residencia-fontfreda_7a4b62ca.jpg";
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", url: "https://www.fontfreda.net" },

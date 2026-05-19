@@ -8,7 +8,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* About */}
           <div>
-            <h3 className="font-bold text-lg text-primary mb-4">Fontfreda</h3>
+            <img 
+              src="/manus-storage/logo-residencia-fontfreda-footer_4b8799e6.jpg" 
+              alt="Fontfreda" 
+              className="h-10 w-auto mb-4"
+            />
             <p className="text-sm text-muted-foreground">
               Alojamiento familiar para perros y gatos en plena naturaleza, con atención cercana y espacios adaptados.
             </p>

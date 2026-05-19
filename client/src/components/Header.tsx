@@ -37,8 +37,12 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href={language === "es" ? "/" : "/en"}>
-          <a className="text-2xl font-bold text-primary hover:opacity-80 transition-opacity">
-            Fontfreda
+          <a className="hover:opacity-80 transition-opacity">
+            <img 
+              src="/manus-storage/logo-residencia-fontfreda-header_0aeae8de.jpg" 
+              alt="Fontfreda - Residencia Canina y Felina" 
+              className="h-12 w-auto"
+            />
           </a>
         </Link>
 
