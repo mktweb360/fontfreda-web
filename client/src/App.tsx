@@ -20,6 +20,7 @@ import LandingResidenciaCanina from "./pages/LandingResidenciaCanina";
 import LandingResidenciaFelina from "./pages/LandingResidenciaFelina";
 import Tarifas from "./pages/Tarifas";
 import Guarderia from "./pages/Guarderia";
+import GuarderiaEnCasa from "./pages/GuarderiaEnCasa";
 import PoliticaCookies from "./pages/PoliticaCookies";
 import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
 import AvisoLegal from "./pages/AvisoLegal";
@@ -38,6 +39,7 @@ function Router() {
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/tarifas" component={Tarifas} />
       <Route path="/guarderia" component={Guarderia} />
+      <Route path="/guarderia-canina-dentro-de-casa" component={GuarderiaEnCasa} />
 
       {/* English routes */}
       <Route path="/en" component={Home} />
@@ -54,6 +56,7 @@ function Router() {
       <Route path="/en/tarifas" component={Tarifas} />
       <Route path="/en/instalaciones" component={Instalaciones} />
       <Route path="/en/guarderia" component={Guarderia} />
+      <Route path="/en/guarderia-canina-dentro-de-casa" component={GuarderiaEnCasa} />
 
       {/* Legal Pages */}
       <Route path="/politica-cookies" component={PoliticaCookies} />

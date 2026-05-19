@@ -1,0 +1,63 @@
+# Fontfreda - robots.txt
+# SEO Configuration for Search Engine Crawlers
+
+# Default rules for all bots
+User-agent: *
+Allow: /
+
+# Disallow admin and system files
+Disallow: /.env
+Disallow: /.git
+Disallow: /node_modules/
+Disallow: /build/
+Disallow: /dist/
+Disallow: /.cache/
+Disallow: /.manus-logs/
+
+# Allow all public content
+Allow: /
+Allow: /blog
+Allow: /residencia-canina
+Allow: /residencia-felina
+Allow: /guarderia
+Allow: /guarderia-canina-dentro-de-casa
+Allow: /larga-estancia
+Allow: /instalaciones
+Allow: /contacto
+Allow: /tarifas
+Allow: /faq
+Allow: /en/
+
+# Sitemap location
+Sitemap: https://fontfreda.net/sitemap.xml
+
+# Google-specific rules
+User-agent: Googlebot
+Allow: /
+
+# Bing-specific rules
+User-agent: Bingbot
+Allow: /
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /

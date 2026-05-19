@@ -25,11 +25,9 @@
 - [x] Google Maps integration en Contacto/Instalaciones
 - [x] Auditoría de diseño responsive (móvil, tablet, desktop)
 
-## Pendiente
-
-- [ ] Optimización final de imágenes
-- [ ] Pruebas finales de SEO
-- [ ] Preparación para FTP upload a SiteGround
+- [x] Optimización final de imágenes
+- [x] Pruebas finales de SEO
+- [x] Preparación para FTP upload a SiteGround
 
 ## Notas
 
@@ -37,3 +35,13 @@
 - Soporta filtrado por categoría y límite de artículos
 - Usa lógica local de detección de lenguaje para evitar errores de contexto
 - Próximo paso: crear rutas dinámicas para artículos individuales del blog
+
+
+## Nuevas Optimizaciones
+
+- [x] Crear redirects 301 en .htaccess
+- [x] Optimizar robots.txt para SEO
+- [x] Crear archivo .md para lectura de IAs
+- [x] Agregar banners de conversión en artículos del blog
+- [x] Verificar e implementar servicio de Guardería Canina Dentro de Casa
+- [ ] Optimizar campaña de Google Ads (ID 946-240-2340)

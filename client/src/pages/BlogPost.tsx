@@ -2,6 +2,7 @@ import { useLocation } from "wouter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RecentBlogPosts from "@/components/RecentBlogPosts";
+import BlogConversionBanner from "@/components/BlogConversionBanner";
 import { SchemaMarkup, createBreadcrumbSchema } from "@/components/SchemaMarkup";
 import { HrefLang } from "@/components/HrefLang";
 import { Calendar, User, ArrowLeft } from "lucide-react";
@@ -169,6 +170,9 @@ export default function BlogPost() {
             </div>
           </div>
         </section>
+
+        {/* Conversion Banner */}
+        <BlogConversionBanner language={language as "es" | "en"} category={post.category} />
 
         {/* Related Articles */}
         {relatedPosts.length > 0 && (
