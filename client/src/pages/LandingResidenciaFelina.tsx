@@ -1,8 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Check, Heart, Home, Moon, Shield, Zap } from "lucide-react";
 import { useState } from "react";
+import FloatingCTA from "@/components/FloatingCTA";
+import Footer from "@/components/Footer";
 
 export default function LandingResidenciaFelina() {
+  const getLanguage = () => {
+    if (typeof window === "undefined") return "es";
+    const path = window.location.pathname;
+    return path.startsWith("/en") ? "en" : "es";
+  };
+  const language = getLanguage();
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
@@ -67,7 +75,7 @@ export default function LandingResidenciaFelina() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-b from-primary/10 to-background">
         <div className="container mx-auto px-4">
@@ -433,6 +441,8 @@ export default function LandingResidenciaFelina() {
           </div>
         </div>
       </section>
+      <FloatingCTA language={language as 'es' | 'en'} contactUrl={language === 'en' ? '/en/contacto' : '/contacto'} />
+      <Footer />
     </div>
   );
 }
