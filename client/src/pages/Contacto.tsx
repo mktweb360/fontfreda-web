@@ -51,6 +51,7 @@ export default function Contacto() {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: language === "es" ? "Inicio" : "Home", url: "https://www.fontfreda.net" },
@@ -104,6 +105,13 @@ export default function Contacto() {
         submitting: "Enviando...",
         success: "¡Solicitud enviada! Nos pondremos en contacto pronto.",
         error: "Error al enviar la solicitud. Intenta de nuevo.",
+      },
+      modal: {
+        title: "Confirma tu Reserva",
+        subtitle: "Revisa los datos antes de enviar",
+        confirm: "Confirmar y Enviar",
+        cancel: "Volver a Editar",
+        dias: "Días de estancia",
       },
       validation: {
         nombreRequired: "El nombre es requerido",
@@ -162,6 +170,13 @@ export default function Contacto() {
         submitting: "Sending...",
         success: "Request sent! We'll contact you soon.",
         error: "Error sending request. Try again.",
+      },
+      modal: {
+        title: "Confirm Your Reservation",
+        subtitle: "Review your details before sending",
+        confirm: "Confirm and Send",
+        cancel: "Back to Edit",
+        dias: "Stay duration",
       },
       validation: {
         nombreRequired: "Name is required",
@@ -233,7 +248,7 @@ export default function Contacto() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validateForm()) {
@@ -241,6 +256,10 @@ export default function Contacto() {
       return;
     }
 
+    setShowConfirmModal(true);
+  };
+
+  const handleConfirmSubmit = async () => {
     setIsSubmitting(true);
 
     try {
@@ -262,11 +281,19 @@ export default function Contacto() {
         requisitosEspeciales: "",
         mensaje: "",
       });
+      setShowConfirmModal(false);
     } catch (error) {
       toast.error(lang.form.error);
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const calculateDays = () => {
+    if (!formData.fechaEntrada || !formData.fechaSalida) return 0;
+    const entrada = new Date(formData.fechaEntrada);
+    const salida = new Date(formData.fechaSalida);
+    return Math.ceil((salida.getTime() - entrada.getTime()) / (1000 * 60 * 60 * 24));
   };
 
   const getTodayDate = () => {
@@ -610,6 +637,141 @@ export default function Contacto() {
             </div>
           </div>
         </section>
+        {/* Confirmation Modal */}
+        {showConfirmModal && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <div className="bg-background rounded-lg border border-border max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Modal Header */}
+              <div className="sticky top-0 bg-secondary border-b border-border p-6">
+                <h2 className="text-2xl font-bold text-primary mb-1">
+                  {lang.modal.title}
+                </h2>
+                <p className="text-muted-foreground">
+                  {lang.modal.subtitle}
+                </p>
+              </div>
+
+              {/* Modal Content */}
+              <div className="p-6 space-y-6">
+                {/* Contact Info */}
+                <div>
+                  <h3 className="text-lg font-semibold text-primary mb-3">
+                    {lang.form.sections.contact}
+                  </h3>
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <p className="text-muted-foreground">{lang.form.fields.nombre.label}</p>
+                      <p className="font-medium text-foreground">{formData.nombre}</p>
+                    </div>
+                    <div>
+                      <p className="text-muted-foreground">{lang.form.fields.email.label}</p>
+                      <p className="font-medium text-foreground">{formData.email}</p>
+                    </div>
+                    <div>
+                      <p className="text-muted-foreground">{lang.form.fields.telefono.label}</p>
+                      <p className="font-medium text-foreground">{formData.telefono}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Reservation Info */}
+                <div>
+                  <h3 className="text-lg font-semibold text-primary mb-3">
+                    {lang.form.sections.reservation}
+                  </h3>
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <p className="text-muted-foreground">{lang.form.fields.servicio.label}</p>
+                      <p className="font-medium text-foreground">
+                        {lang.form.services[formData.servicio as keyof typeof lang.form.services]}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-muted-foreground">{lang.modal.dias}</p>
+                      <p className="font-medium text-foreground">{calculateDays()} {language === "es" ? "días" : "days"}</p>
+                    </div>
+                    <div>
+                      <p className="text-muted-foreground">{lang.form.fields.fechaEntrada.label}</p>
+                      <p className="font-medium text-foreground">{formData.fechaEntrada}</p>
+                    </div>
+                    <div>
+                      <p className="text-muted-foreground">{lang.form.fields.fechaSalida.label}</p>
+                      <p className="font-medium text-foreground">{formData.fechaSalida}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Pet Info */}
+                <div>
+                  <h3 className="text-lg font-semibold text-primary mb-3">
+                    {lang.form.sections.pet}
+                  </h3>
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <p className="text-muted-foreground">{lang.form.fields.nombreMascota.label}</p>
+                      <p className="font-medium text-foreground">{formData.nombreMascota}</p>
+                    </div>
+                    <div>
+                      <p className="text-muted-foreground">{lang.form.fields.tipoMascota.label}</p>
+                      <p className="font-medium text-foreground">
+                        {lang.form.petTypes[formData.tipoMascota as keyof typeof lang.form.petTypes]}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-muted-foreground">{lang.form.fields.raza.label}</p>
+                      <p className="font-medium text-foreground">{formData.raza || "-"}</p>
+                    </div>
+                    <div>
+                      <p className="text-muted-foreground">{lang.form.fields.edad.label}</p>
+                      <p className="font-medium text-foreground">{formData.edad || "-"}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Special Requirements */}
+                {(formData.requisitosEspeciales || formData.mensaje) && (
+                  <div>
+                    <h3 className="text-lg font-semibold text-primary mb-3">
+                      {lang.form.sections.special}
+                    </h3>
+                    <div className="space-y-3 text-sm">
+                      {formData.requisitosEspeciales && (
+                        <div>
+                          <p className="text-muted-foreground">{lang.form.fields.requisitosEspeciales.label}</p>
+                          <p className="font-medium text-foreground">{formData.requisitosEspeciales}</p>
+                        </div>
+                      )}
+                      {formData.mensaje && (
+                        <div>
+                          <p className="text-muted-foreground">{lang.form.fields.mensaje.label}</p>
+                          <p className="font-medium text-foreground">{formData.mensaje}</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Modal Footer */}
+              <div className="sticky bottom-0 bg-secondary border-t border-border p-6 flex gap-3">
+                <Button
+                  onClick={() => setShowConfirmModal(false)}
+                  variant="outline"
+                  className="flex-1"
+                >
+                  {lang.modal.cancel}
+                </Button>
+                <Button
+                  onClick={handleConfirmSubmit}
+                  disabled={isSubmitting}
+                  className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  {isSubmitting ? lang.form.submitting : lang.modal.confirm}
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </main>
 
       <Footer />
