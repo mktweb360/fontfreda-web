@@ -1,277 +1,612 @@
-import { Button } from "@/components/ui/button";
-import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { Mail, MapPin, Phone, Clock } from "lucide-react";
+import Footer from "@/components/Footer";
+import { SchemaMarkup, createBreadcrumbSchema } from "@/components/SchemaMarkup";
+import { HrefLang } from "@/components/HrefLang";
+import { Button } from "@/components/ui/button";
+import { Mail, Phone, MapPin, AlertCircle, Check } from "lucide-react";
+import { Link, useLocation } from "wouter";
 import { useState } from "react";
+import { toast } from "sonner";
+
+interface FormData {
+  nombre: string;
+  email: string;
+  telefono: string;
+  servicio: string;
+  fechaEntrada: string;
+  fechaSalida: string;
+  nombreMascota: string;
+  tipoMascota: string;
+  raza: string;
+  edad: string;
+  requisitosEspeciales: string;
+  mensaje: string;
+}
 
 export default function Contacto() {
-  const [formData, setFormData] = useState({
+  const [location] = useLocation();
+  const currentPath = location.replace(/^\/en/, "") || "/contacto";
+
+  const getLanguage = () => {
+    if (typeof window === "undefined") return "es";
+    const path = window.location.pathname;
+    return path.startsWith("/en") ? "en" : "es";
+  };
+  const language = getLanguage();
+
+  const [formData, setFormData] = useState<FormData>({
     nombre: "",
     email: "",
     telefono: "",
-    tipoMascota: "perro",
+    servicio: "residencia-canina",
+    fechaEntrada: "",
+    fechaSalida: "",
     nombreMascota: "",
+    tipoMascota: "perro",
+    raza: "",
+    edad: "",
+    requisitosEspeciales: "",
     mensaje: "",
   });
 
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: language === "es" ? "Inicio" : "Home", url: "https://www.fontfreda.net" },
+    { name: language === "es" ? "Contacto" : "Contact", url: "https://www.fontfreda.net/contacto" },
+  ]);
+
+  const content = {
+    es: {
+      title: "Contacto - Fontfreda",
+      heading: "Contacta con Nosotros",
+      subtitle: "Solicita una valoración personalizada o reserva tu plaza ahora",
+      contactInfo: [
+        { icon: Phone, label: "Teléfono", value: "(+34) 93 779 03 11" },
+        { icon: Mail, label: "Email", value: "info@fontfreda.net" },
+        { icon: MapPin, label: "Ubicación", value: "Alt Penedès, Barcelona" },
+      ],
+      form: {
+        title: "Formulario de Reserva",
+        subtitle: "Completa el formulario para solicitar una valoración personalizada",
+        sections: {
+          contact: "Datos de Contacto",
+          reservation: "Detalles de la Reserva",
+          pet: "Información de la Mascota",
+          special: "Requisitos Especiales",
+        },
+        fields: {
+          nombre: { label: "Nombre completo", placeholder: "Tu nombre" },
+          email: { label: "Email", placeholder: "tu@email.com" },
+          telefono: { label: "Teléfono", placeholder: "+34 123 456 789" },
+          servicio: { label: "Servicio", placeholder: "Selecciona un servicio" },
+          fechaEntrada: { label: "Fecha de entrada", placeholder: "Selecciona fecha" },
+          fechaSalida: { label: "Fecha de salida", placeholder: "Selecciona fecha" },
+          nombreMascota: { label: "Nombre de la mascota", placeholder: "Nombre" },
+          tipoMascota: { label: "Tipo de mascota", placeholder: "Selecciona tipo" },
+          raza: { label: "Raza", placeholder: "Raza de la mascota" },
+          edad: { label: "Edad", placeholder: "Ej: 3 años" },
+          requisitosEspeciales: { label: "Requisitos especiales", placeholder: "Medicamentos, alergias, comportamiento especial..." },
+          mensaje: { label: "Mensaje adicional", placeholder: "Cuéntanos más sobre tu mascota..." },
+        },
+        services: {
+          "residencia-canina": "Residencia Canina",
+          "residencia-felina": "Residencia Felina",
+          "larga-estancia": "Larga Estancia",
+          "guarderia-canina": "Guardería Canina",
+        },
+        petTypes: {
+          perro: "Perro",
+          gato: "Gato",
+        },
+        submit: "Solicitar Valoración",
+        submitting: "Enviando...",
+        success: "¡Solicitud enviada! Nos pondremos en contacto pronto.",
+        error: "Error al enviar la solicitud. Intenta de nuevo.",
+      },
+      validation: {
+        nombreRequired: "El nombre es requerido",
+        emailRequired: "El email es requerido",
+        emailInvalid: "El email no es válido",
+        telefonoRequired: "El teléfono es requerido",
+        fechaEntradaRequired: "La fecha de entrada es requerida",
+        fechaSalidaRequired: "La fecha de salida es requerida",
+        fechaInvalida: "La fecha de salida debe ser posterior a la de entrada",
+        nombreMascotaRequired: "El nombre de la mascota es requerido",
+      },
+    },
+    en: {
+      title: "Contact - Fontfreda",
+      heading: "Contact Us",
+      subtitle: "Request a personalized assessment or book your spot now",
+      contactInfo: [
+        { icon: Phone, label: "Phone", value: "(+34) 93 779 03 11" },
+        { icon: Mail, label: "Email", value: "info@fontfreda.net" },
+        { icon: MapPin, label: "Location", value: "Alt Penedès, Barcelona" },
+      ],
+      form: {
+        title: "Reservation Form",
+        subtitle: "Fill out the form to request a personalized assessment",
+        sections: {
+          contact: "Contact Information",
+          reservation: "Reservation Details",
+          pet: "Pet Information",
+          special: "Special Requirements",
+        },
+        fields: {
+          nombre: { label: "Full name", placeholder: "Your name" },
+          email: { label: "Email", placeholder: "your@email.com" },
+          telefono: { label: "Phone", placeholder: "+34 123 456 789" },
+          servicio: { label: "Service", placeholder: "Select a service" },
+          fechaEntrada: { label: "Check-in date", placeholder: "Select date" },
+          fechaSalida: { label: "Check-out date", placeholder: "Select date" },
+          nombreMascota: { label: "Pet name", placeholder: "Name" },
+          tipoMascota: { label: "Pet type", placeholder: "Select type" },
+          raza: { label: "Breed", placeholder: "Pet breed" },
+          edad: { label: "Age", placeholder: "E.g: 3 years" },
+          requisitosEspeciales: { label: "Special requirements", placeholder: "Medications, allergies, special behavior..." },
+          mensaje: { label: "Additional message", placeholder: "Tell us more about your pet..." },
+        },
+        services: {
+          "residencia-canina": "Dog Boarding",
+          "residencia-felina": "Cat Boarding",
+          "larga-estancia": "Long Stay",
+          "guarderia-canina": "Dog Daycare",
+        },
+        petTypes: {
+          perro: "Dog",
+          gato: "Cat",
+        },
+        submit: "Request Assessment",
+        submitting: "Sending...",
+        success: "Request sent! We'll contact you soon.",
+        error: "Error sending request. Try again.",
+      },
+      validation: {
+        nombreRequired: "Name is required",
+        emailRequired: "Email is required",
+        emailInvalid: "Email is not valid",
+        telefonoRequired: "Phone is required",
+        fechaEntradaRequired: "Check-in date is required",
+        fechaSalidaRequired: "Check-out date is required",
+        fechaInvalida: "Check-out date must be after check-in date",
+        nombreMascotaRequired: "Pet name is required",
+      },
+    },
+  };
+
+  const lang = language === "en" ? content.en : content.es;
+
+  const validateForm = (): boolean => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.nombre.trim()) {
+      newErrors.nombre = lang.validation.nombreRequired;
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = lang.validation.emailRequired;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = lang.validation.emailInvalid;
+    }
+
+    if (!formData.telefono.trim()) {
+      newErrors.telefono = lang.validation.telefonoRequired;
+    }
+
+    if (!formData.fechaEntrada) {
+      newErrors.fechaEntrada = lang.validation.fechaEntradaRequired;
+    }
+
+    if (!formData.fechaSalida) {
+      newErrors.fechaSalida = lang.validation.fechaSalidaRequired;
+    }
+
+    if (formData.fechaEntrada && formData.fechaSalida) {
+      if (new Date(formData.fechaSalida) <= new Date(formData.fechaEntrada)) {
+        newErrors.fechaSalida = lang.validation.fechaInvalida;
+      }
+    }
+
+    if (!formData.nombreMascota.trim()) {
+      newErrors.nombreMascota = lang.validation.nombreMascotaRequired;
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar el formulario
-    console.log("Formulario enviado:", formData);
-    // Mostrar mensaje de éxito
-    alert("¡Gracias por tu mensaje! Nos pondremos en contacto pronto.");
-    setFormData({
-      nombre: "",
-      email: "",
-      telefono: "",
-      tipoMascota: "perro",
-      nombreMascota: "",
-      mensaje: "",
-    });
+
+    if (!validateForm()) {
+      toast.error(lang.form.error);
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log("Form submitted:", formData);
+      toast.success(lang.form.success);
+
+      setFormData({
+        nombre: "",
+        email: "",
+        telefono: "",
+        servicio: "residencia-canina",
+        fechaEntrada: "",
+        fechaSalida: "",
+        nombreMascota: "",
+        tipoMascota: "perro",
+        raza: "",
+        edad: "",
+        requisitosEspeciales: "",
+        mensaje: "",
+      });
+    } catch (error) {
+      toast.error(lang.form.error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const getTodayDate = () => {
+    const today = new Date();
+    return today.toISOString().split("T")[0];
   };
 
   return (
     <div className="min-h-screen flex flex-col">
+      <HrefLang currentPath={currentPath} />
+      <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
+
       <Header />
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="py-20 bg-secondary border-b border-border">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-primary mb-4">Contacta con Fontfreda</h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Nos encantaría conocer a tu mascota y ayudarte a encontrar la mejor
-              opción de alojamiento familiar.
+        <section className="bg-gradient-to-b from-primary/10 to-background py-12 md:py-16">
+          <div className="container mx-auto px-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+              {lang.heading}
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              {lang.subtitle}
             </p>
           </div>
         </section>
 
-        {/* Contenido Principal */}
-        <section className="py-20 bg-background">
+        {/* Contact Info Cards */}
+        <section className="py-12 md:py-16">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-              {/* Formulario */}
-              <div className="lg:col-span-2">
-                <h2 className="text-primary mb-8">Envíanos un Mensaje</h2>
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Nombre */}
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Nombre *
-                    </label>
-                    <input
-                      type="text"
-                      name="nombre"
-                      value={formData.nombre}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                      placeholder="Tu nombre"
-                    />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+              {lang.contactInfo.map((info, idx) => {
+                const Icon = info.icon;
+                return (
+                  <div key={idx} className="bg-secondary rounded-lg p-6 border border-border text-center">
+                    <Icon className="w-8 h-8 text-primary mx-auto mb-4" />
+                    <h3 className="font-semibold text-foreground mb-2">
+                      {info.label}
+                    </h3>
+                    <p className="text-muted-foreground">{info.value}</p>
                   </div>
-
-                  {/* Email */}
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                      placeholder="tu@email.com"
-                    />
-                  </div>
-
-                  {/* Teléfono */}
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Teléfono *
-                    </label>
-                    <input
-                      type="tel"
-                      name="telefono"
-                      value={formData.telefono}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                      placeholder="+34 93 XXX XX XX"
-                    />
-                  </div>
-
-                  {/* Tipo de Mascota */}
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Tipo de Mascota *
-                    </label>
-                    <select
-                      name="tipoMascota"
-                      value={formData.tipoMascota}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                    >
-                      <option value="perro">Perro</option>
-                      <option value="gato">Gato</option>
-                      <option value="ambos">Ambos</option>
-                    </select>
-                  </div>
-
-                  {/* Nombre de la Mascota */}
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Nombre de la Mascota
-                    </label>
-                    <input
-                      type="text"
-                      name="nombreMascota"
-                      value={formData.nombreMascota}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                      placeholder="Nombre de tu mascota"
-                    />
-                  </div>
-
-                  {/* Mensaje */}
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Mensaje *
-                    </label>
-                    <textarea
-                      name="mensaje"
-                      value={formData.mensaje}
-                      onChange={handleChange}
-                      required
-                      rows={5}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                      placeholder="Cuéntanos sobre tu mascota y sus necesidades..."
-                    />
-                    <p className="text-xs text-muted-foreground mt-2">
-                      Cuéntanos un poco sobre tu mascota: edad, temperamento,
-                      necesidades especiales o cualquier información que creas
-                      relevante.
-                    </p>
-                  </div>
-
-                  {/* Botón Enviar */}
-                  <Button
-                    type="submit"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-base"
-                  >
-                    Enviar Mensaje
-                  </Button>
-                </form>
-              </div>
-
-              {/* Información de Contacto */}
-              <div className="lg:col-span-1">
-                <h2 className="text-primary mb-8">Información de Contacto</h2>
-
-                <div className="space-y-8">
-                  {/* Teléfono */}
-                  <div className="flex gap-4">
-                    <Phone className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">
-                        Teléfono
-                      </h3>
-                      <a
-                        href="tel:+34937790311"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        +34 93 779 03 11
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Email */}
-                  <div className="flex gap-4">
-                    <Mail className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">
-                        Email
-                      </h3>
-                      <a
-                        href="mailto:info@fontfreda.net"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        info@fontfreda.net
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Ubicación */}
-                  <div className="flex gap-4">
-                    <MapPin className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">
-                        Ubicación
-                      </h3>
-                      <p className="text-muted-foreground">
-                        Alt Penedés
-                        <br />
-                        Barcelona, España
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Horarios */}
-                  <div className="flex gap-4">
-                    <Clock className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">
-                        Horarios
-                      </h3>
-                      <p className="text-muted-foreground">
-                        Lunes a Domingo
-                        <br />
-                        9:00 - 20:00
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* WhatsApp */}
-                  <div className="pt-4 border-t border-border">
-                    <a
-                      href="https://wa.me/34937790311"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block w-full"
-                    >
-                      <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
-                        Contactar por WhatsApp
-                      </Button>
-                    </a>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        {/* Mapa (Placeholder) */}
-        <section className="py-20 bg-secondary">
-          <div className="container mx-auto px-4">
-            <h2 className="text-primary mb-8 text-center">Ubicación</h2>
-            <div className="w-full h-96 bg-muted rounded-lg flex items-center justify-center">
-              <p className="text-muted-foreground">
-                Mapa interactivo - Alt Penedés, Barcelona
+        {/* Contact Form */}
+        <section className="py-12 md:py-16 bg-secondary">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="bg-background rounded-lg border border-border p-8">
+              <h2 className="text-3xl font-bold text-primary mb-2">
+                {lang.form.title}
+              </h2>
+              <p className="text-muted-foreground mb-8">
+                {lang.form.subtitle}
               </p>
+
+              <form onSubmit={handleSubmit} className="space-y-8">
+                {/* Contact Section */}
+                <div>
+                  <h3 className="text-lg font-semibold text-primary mb-4">
+                    {lang.form.sections.contact}
+                  </h3>
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-2">
+                        {lang.form.fields.nombre.label}
+                      </label>
+                      <input
+                        type="text"
+                        name="nombre"
+                        value={formData.nombre}
+                        onChange={handleChange}
+                        placeholder={lang.form.fields.nombre.placeholder}
+                        className={`w-full px-4 py-2 rounded-lg border ${
+                          errors.nombre
+                            ? "border-destructive bg-destructive/5"
+                            : "border-border"
+                        } bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary`}
+                      />
+                      {errors.nombre && (
+                        <div className="flex items-center gap-2 mt-1 text-destructive text-sm">
+                          <AlertCircle className="w-4 h-4" />
+                          {errors.nombre}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-2">
+                        {lang.form.fields.email.label}
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder={lang.form.fields.email.placeholder}
+                        className={`w-full px-4 py-2 rounded-lg border ${
+                          errors.email
+                            ? "border-destructive bg-destructive/5"
+                            : "border-border"
+                        } bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary`}
+                      />
+                      {errors.email && (
+                        <div className="flex items-center gap-2 mt-1 text-destructive text-sm">
+                          <AlertCircle className="w-4 h-4" />
+                          {errors.email}
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-2">
+                        {lang.form.fields.telefono.label}
+                      </label>
+                      <input
+                        type="tel"
+                        name="telefono"
+                        value={formData.telefono}
+                        onChange={handleChange}
+                        placeholder={lang.form.fields.telefono.placeholder}
+                        className={`w-full px-4 py-2 rounded-lg border ${
+                          errors.telefono
+                            ? "border-destructive bg-destructive/5"
+                            : "border-border"
+                        } bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary`}
+                      />
+                      {errors.telefono && (
+                        <div className="flex items-center gap-2 mt-1 text-destructive text-sm">
+                          <AlertCircle className="w-4 h-4" />
+                          {errors.telefono}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Reservation Section */}
+                <div>
+                  <h3 className="text-lg font-semibold text-primary mb-4">
+                    {lang.form.sections.reservation}
+                  </h3>
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-2">
+                        {lang.form.fields.servicio.label}
+                      </label>
+                      <select
+                        name="servicio"
+                        value={formData.servicio}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                      >
+                        {Object.entries(lang.form.services).map(([key, value]) => (
+                          <option key={key} value={key}>
+                            {value}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-foreground mb-2">
+                          {lang.form.fields.fechaEntrada.label}
+                        </label>
+                        <input
+                          type="date"
+                          name="fechaEntrada"
+                          value={formData.fechaEntrada}
+                          onChange={handleChange}
+                          min={getTodayDate()}
+                          className={`w-full px-4 py-2 rounded-lg border ${
+                            errors.fechaEntrada
+                              ? "border-destructive bg-destructive/5"
+                              : "border-border"
+                          } bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary`}
+                        />
+                        {errors.fechaEntrada && (
+                          <div className="flex items-center gap-2 mt-1 text-destructive text-sm">
+                            <AlertCircle className="w-4 h-4" />
+                            {errors.fechaEntrada}
+                          </div>
+                        )}
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-foreground mb-2">
+                          {lang.form.fields.fechaSalida.label}
+                        </label>
+                        <input
+                          type="date"
+                          name="fechaSalida"
+                          value={formData.fechaSalida}
+                          onChange={handleChange}
+                          min={formData.fechaEntrada || getTodayDate()}
+                          className={`w-full px-4 py-2 rounded-lg border ${
+                            errors.fechaSalida
+                              ? "border-destructive bg-destructive/5"
+                              : "border-border"
+                          } bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary`}
+                        />
+                        {errors.fechaSalida && (
+                          <div className="flex items-center gap-2 mt-1 text-destructive text-sm">
+                            <AlertCircle className="w-4 h-4" />
+                            {errors.fechaSalida}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Pet Section */}
+                <div>
+                  <h3 className="text-lg font-semibold text-primary mb-4">
+                    {lang.form.sections.pet}
+                  </h3>
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-2">
+                        {lang.form.fields.nombreMascota.label}
+                      </label>
+                      <input
+                        type="text"
+                        name="nombreMascota"
+                        value={formData.nombreMascota}
+                        onChange={handleChange}
+                        placeholder={lang.form.fields.nombreMascota.placeholder}
+                        className={`w-full px-4 py-2 rounded-lg border ${
+                          errors.nombreMascota
+                            ? "border-destructive bg-destructive/5"
+                            : "border-border"
+                        } bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary`}
+                      />
+                      {errors.nombreMascota && (
+                        <div className="flex items-center gap-2 mt-1 text-destructive text-sm">
+                          <AlertCircle className="w-4 h-4" />
+                          {errors.nombreMascota}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-foreground mb-2">
+                          {lang.form.fields.tipoMascota.label}
+                        </label>
+                        <select
+                          name="tipoMascota"
+                          value={formData.tipoMascota}
+                          onChange={handleChange}
+                          className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                        >
+                          {Object.entries(lang.form.petTypes).map(([key, value]) => (
+                            <option key={key} value={key}>
+                              {value}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-foreground mb-2">
+                          {lang.form.fields.raza.label}
+                        </label>
+                        <input
+                          type="text"
+                          name="raza"
+                          value={formData.raza}
+                          onChange={handleChange}
+                          placeholder={lang.form.fields.raza.placeholder}
+                          className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-foreground mb-2">
+                          {lang.form.fields.edad.label}
+                        </label>
+                        <input
+                          type="text"
+                          name="edad"
+                          value={formData.edad}
+                          onChange={handleChange}
+                          placeholder={lang.form.fields.edad.placeholder}
+                          className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Special Requirements */}
+                <div>
+                  <h3 className="text-lg font-semibold text-primary mb-4">
+                    {lang.form.sections.special}
+                  </h3>
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-2">
+                        {lang.form.fields.requisitosEspeciales.label}
+                      </label>
+                      <textarea
+                        name="requisitosEspeciales"
+                        value={formData.requisitosEspeciales}
+                        onChange={handleChange}
+                        placeholder={lang.form.fields.requisitosEspeciales.placeholder}
+                        rows={3}
+                        className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-2">
+                        {lang.form.fields.mensaje.label}
+                      </label>
+                      <textarea
+                        name="mensaje"
+                        value={formData.mensaje}
+                        onChange={handleChange}
+                        placeholder={lang.form.fields.mensaje.placeholder}
+                        rows={4}
+                        className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Submit Button */}
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 font-semibold"
+                >
+                  {isSubmitting ? lang.form.submitting : lang.form.submit}
+                </Button>
+              </form>
             </div>
           </div>
         </section>
