@@ -9,9 +9,8 @@ export default function Header() {
   const navItems = [
     { label: "Residencia Canina", href: "/residencia-canina" },
     { label: "Residencia Felina", href: "/residencia-felina" },
-    { label: "Guardería Canina", href: "/guarderia-canina" },
-    { label: "Instalaciones", href: "/instalaciones" },
-    { label: "FAQ", href: "/faq" },
+    { label: "Larga Estancia", href: "/larga-estancia" },
+    { label: "Blog", href: "/blog" },
     { label: "Contacto", href: "/contacto" },
   ];
 

@@ -233,6 +233,31 @@ export default function ResidenciaCanina() {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section className="py-20 bg-secondary">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-primary mb-12 text-center">
+              Preguntas Frecuentes - Residencia Canina
+            </h2>
+
+            <div className="space-y-6">
+              {faqItems.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white border border-border rounded-lg p-6"
+                >
+                  <h3 className="font-semibold text-foreground mb-3">
+                    {item.question}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    {item.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA Final */}
         <section className="py-20 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4 text-center">

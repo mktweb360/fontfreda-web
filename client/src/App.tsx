@@ -9,6 +9,8 @@ import ResidenciaCanina from "./pages/ResidenciaCanina";
 import ResidenciaFelina from "./pages/ResidenciaFelina";
 import Contacto from "./pages/Contacto";
 import FAQ from "./pages/FAQ";
+import LargaEstancia from "./pages/LargaEstancia";
+import Blog from "./pages/Blog";
 
 
 function Router() {
@@ -19,6 +21,8 @@ function Router() {
       <Route path="/residencia-felina" component={ResidenciaFelina} />
       <Route path="/contacto" component={Contacto} />
       <Route path="/faq" component={FAQ} />
+      <Route path="/larga-estancia" component={LargaEstancia} />
+      <Route path="/blog" component={Blog} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
