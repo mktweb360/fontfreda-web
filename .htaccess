@@ -1,0 +1,83 @@
+# Redirecciones 301 para migración SEO de fontfreda.net
+
+# Habilitar reescritura de URL
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Redirecciones de páginas antiguas a nuevas URLs
+  
+  # Alojamiento
+  RewriteRule ^alojamiento-mascotas/?$ /residencia-canina [R=301,L]
+  RewriteRule ^hotel-canino/?$ /residencia-canina [R=301,L]
+  RewriteRule ^residencia-canina-larga-estancia/?$ /larga-estancia [R=301,L]
+  RewriteRule ^guarderia-canina-dentro-de-casa/?$ /guarderia [R=301,L]
+  
+  # Servicios
+  RewriteRule ^recogida-y-entrega-a-domicilio/?$ /tarifas [R=301,L]
+  RewriteRule ^transporte/?$ /tarifas [R=301,L]
+  
+  # Blog
+  RewriteRule ^blog/como-cuidar-a-mi-perro-en-verano/?$ /blog [R=301,L]
+  RewriteRule ^blog/es-bueno-convivir-con-mascotas-durante-el-embarazo/?$ /blog [R=301,L]
+  RewriteRule ^blog/cuanto-tiempo-puedo-dejar-a-mi-gato-solo/?$ /blog [R=301,L]
+  RewriteRule ^blog/sindrome-de-pica-en-mascotas/?$ /blog [R=301,L]
+  RewriteRule ^blog/como-dejar-a-mi-cachorro-solo-en-casa/?$ /blog [R=301,L]
+  
+  # Páginas legales
+  RewriteRule ^politica-privacidad/?$ /politica-privacidad [R=301,L]
+  RewriteRule ^politica-cookies/?$ /politica-cookies [R=301,L]
+  RewriteRule ^preguntas-frecuentes/?$ /contacto [R=301,L]
+  RewriteRule ^opiniones/?$ /contacto [R=301,L]
+  
+  # Contacto
+  RewriteRule ^contacto-mascotas/?$ /contacto [R=301,L]
+  
+  # Instalaciones
+  RewriteRule ^instalaciones-residencia/?$ /instalaciones [R=301,L]
+  
+  # Tarifas
+  RewriteRule ^tarifas-residencia/?$ /tarifas [R=301,L]
+  RewriteRule ^precios-alojamiento/?$ /tarifas [R=301,L]
+  
+  # Versión en inglés
+  RewriteRule ^en/alojamiento-mascotas/?$ /en/residencia-canina [R=301,L]
+  RewriteRule ^en/hotel-canino/?$ /en/residencia-canina [R=301,L]
+  RewriteRule ^en/residencia-canina-larga-estancia/?$ /en/larga-estancia [R=301,L]
+  RewriteRule ^en/guarderia-canina-dentro-de-casa/?$ /en/guarderia [R=301,L]
+  RewriteRule ^en/recogida-y-entrega-a-domicilio/?$ /en/tarifas [R=301,L]
+  RewriteRule ^en/transporte/?$ /en/tarifas [R=301,L]
+  
+  # Evitar redirecciones en bucle
+  RewriteCond %{ENV:REDIRECT_STATUS} ^$
+  
+  # Reescritura para React Router (SPA)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ /index.html [QSA,L]
+</IfModule>
+
+# Compresión GZIP
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Cache del navegador
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/html "access plus 1 week"
+</IfModule>
+
+# Headers de seguridad
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

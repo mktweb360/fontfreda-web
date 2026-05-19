@@ -42,9 +42,9 @@ export default function Header() {
         <Link href={language === "es" ? "/" : "/en"}>
           <a className="hover:opacity-80 transition-opacity">
             <img 
-              src="/manus-storage/logo-residencia-fontfreda-header_0aeae8de.jpg" 
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663312171860/ygmDlwnzdJPjzQEa.png" 
               alt="Fontfreda - Residencia Canina y Felina" 
-              className="h-12 w-auto"
+              className="h-12 w-auto bg-transparent"
             />
           </a>
         </Link>

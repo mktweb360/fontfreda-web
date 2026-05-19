@@ -9,9 +9,9 @@ export default function Footer() {
           {/* About */}
           <div>
             <img 
-              src="/manus-storage/logo-residencia-fontfreda-footer_4b8799e6.jpg" 
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663312171860/bgwiNGuCssyOGZsN.png" 
               alt="Fontfreda" 
-              className="h-10 w-auto mb-4"
+              className="h-10 w-auto mb-4 bg-transparent"
             />
             <p className="text-sm text-muted-foreground">
               Alojamiento familiar para perros y gatos en plena naturaleza, con atención cercana y espacios adaptados.
@@ -72,20 +72,25 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Política de Privacidad
-                </a>
+                <Link href="/politica-privacidad">
+                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                    Política de Privacidad
+                  </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Política de Cookies
-                </a>
+                <Link href="/politica-cookies">
+                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                    Política de Cookies
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/aviso-legal">
+                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                    Aviso Legal
+                  </a>
+                </Link>
               </li>
             </ul>
           </div>

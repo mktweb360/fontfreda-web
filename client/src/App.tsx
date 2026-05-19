@@ -19,6 +19,9 @@ import LandingResidenciaCanina from "./pages/LandingResidenciaCanina";
 import LandingResidenciaFelina from "./pages/LandingResidenciaFelina";
 import Tarifas from "./pages/Tarifas";
 import Guarderia from "./pages/Guarderia";
+import PoliticaCookies from "./pages/PoliticaCookies";
+import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
+import AvisoLegal from "./pages/AvisoLegal";
 
 function Router() {
   return (
@@ -48,6 +51,14 @@ function Router() {
       <Route path="/en/tarifas" component={Tarifas} />
       <Route path="/en/instalaciones" component={Instalaciones} />
       <Route path="/en/guarderia" component={Guarderia} />
+
+      {/* Legal Pages */}
+      <Route path="/politica-cookies" component={PoliticaCookies} />
+      <Route path="/en/politica-cookies" component={PoliticaCookies} />
+      <Route path="/politica-privacidad" component={PoliticaPrivacidad} />
+      <Route path="/en/politica-privacidad" component={PoliticaPrivacidad} />
+      <Route path="/aviso-legal" component={AvisoLegal} />
+      <Route path="/en/aviso-legal" component={AvisoLegal} />
 
       {/* Google Ads Landing Pages */}
       <Route path="/ads/larga-estancia" component={LandingLargaEstancia} />

@@ -3,7 +3,8 @@ import Footer from "@/components/Footer";
 import { SchemaMarkup, createBreadcrumbSchema } from "@/components/SchemaMarkup";
 import { HrefLang } from "@/components/HrefLang";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, AlertCircle, Check, ChevronDown } from "lucide-react";
+import { Mail, Phone, MapPin, AlertCircle, Check } from "lucide-react";
+import SmoothAccordion from "@/components/SmoothAccordion";
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -52,6 +53,7 @@ export default function Contacto() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [expandedFaq, setExpandedFaq] = useState<string | null>(null);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const breadcrumbSchema = createBreadcrumbSchema([
@@ -803,109 +805,80 @@ export default function Contacto() {
               {language === 'es' ? 'Preguntas Frecuentes sobre Reservas' : 'Frequently Asked Questions'}
             </h2>
 
-            <div className="space-y-4">
-              {/* Vacunación */}
-              <div className="bg-white rounded-lg border border-border overflow-hidden">
-                <button
-                  onClick={() => setShowConfirmModal(false)}
-                  className="w-full p-6 text-left hover:bg-secondary/50 transition-colors flex justify-between items-center"
-                >
-                  <h3 className="font-semibold text-foreground text-lg">
-                    {language === 'es' ? '¿Qué vacunas necesita mi perro?' : 'What vaccines does my dog need?'}
-                  </h3>
-                  <ChevronDown className="w-5 h-5 text-primary" />
-                </button>
-                <div className="px-6 pb-6 text-muted-foreground border-t border-border">
-                  <p className="mb-3">
-                    {language === 'es'
-                      ? 'Recomendamos que tu perro tenga al menos:'
-                      : 'We recommend your dog has at least:'}
-                  </p>
-                  <ul className="list-disc list-inside space-y-2 ml-2">
-                    <li>{language === 'es' ? 'Vacuna Pentavalente' : 'Pentavalent vaccine'}</li>
-                    <li>{language === 'es' ? 'Vacuna Heptavalente' : 'Heptavalent vaccine'}</li>
-                    <li>{language === 'es' ? 'Vacuna contra la Tos de las Perreras' : 'Kennel Cough vaccine'}</li>
-                  </ul>
-                  <p className="mt-4 text-sm italic">
-                    {language === 'es'
-                      ? 'En verano, recomendamos doble protección contra parásitos externos (pipeta + collar).'
-                      : 'In summer, we recommend double protection against external parasites (pipette + collar).'}
-                  </p>
-                </div>
-              </div>
-
-              {/* Reserva Confirmación */}
-              <div className="bg-white rounded-lg border border-border overflow-hidden">
-                <button
-                  onClick={() => setShowConfirmModal(false)}
-                  className="w-full p-6 text-left hover:bg-secondary/50 transition-colors flex justify-between items-center"
-                >
-                  <h3 className="font-semibold text-foreground text-lg">
-                    {language === 'es' ? '¿Cuándo se confirma la reserva?' : 'When is the reservation confirmed?'}
-                  </h3>
-                  <ChevronDown className="w-5 h-5 text-primary" />
-                </button>
-                <div className="px-6 pb-6 text-muted-foreground border-t border-border">
-                  <p className="font-semibold text-foreground mb-2">
-                    {language === 'es'
-                      ? '⚠️ Información Importante:'
-                      : '⚠️ Important Information:'}
-                  </p>
-                  <p>
-                    {language === 'es'
-                      ? 'Ninguna reserva tiene efecto hasta que no sea confirmada por Fontfreda. Tras recibir tu solicitud, nuestro equipo realizará una valoración personalizada de tu mascota para asegurar que nuestro modelo de alojamiento familiar es adecuado para sus necesidades, rutinas y manejo. Te contactaremos en menos de 24 horas.'
-                      : 'No reservation is effective until confirmed by Fontfreda. After receiving your request, our team will conduct a personalized assessment of your pet to ensure that our family accommodation model is suitable for their needs, routines, and handling. We will contact you within 24 hours.'}
-                  </p>
-                </div>
-              </div>
-
-              {/* Compatibilidad */}
-              <div className="bg-white rounded-lg border border-border overflow-hidden">
-                <button
-                  onClick={() => setShowConfirmModal(false)}
-                  className="w-full p-6 text-left hover:bg-secondary/50 transition-colors flex justify-between items-center"
-                >
-                  <h3 className="font-semibold text-foreground text-lg">
-                    {language === 'es'
-                      ? '¿Todos los perros pueden alojarse en Fontfreda?'
-                      : 'Can all dogs stay at Fontfreda?'}
-                  </h3>
-                  <ChevronDown className="w-5 h-5 text-primary" />
-                </button>
-                <div className="px-6 pb-6 text-muted-foreground border-t border-border">
-                  <p className="mb-3">
-                    {language === 'es'
-                      ? 'Nuestro modelo de alojamiento familiar funciona mejor con perros que se adaptan bien a la convivencia en casa y pueden disfrutar de la socialización con otros perros en nuestros parques. Valoramos cada caso de forma individual para asegurar la compatibilidad y el bienestar de todos.'
-                      : 'Our family accommodation model works best with dogs that adapt well to living in a home environment and can enjoy socialization with other dogs in our parks. We assess each case individually to ensure compatibility and the well-being of all.'}
-                  </p>
-                  <p className="text-sm italic">
-                    {language === 'es'
-                      ? 'Si tu perro tiene necesidades especiales de manejo o comportamiento, cuéntanos en el formulario. Nuestro equipo evaluará si podemos ofrecerle la mejor experiencia.'
-                      : 'If your dog has special handling or behavioral needs, tell us in the form. Our team will assess if we can provide the best experience.'}
-                  </p>
-                </div>
-              </div>
-
-              {/* Recogida y Entrega */}
-              <div className="bg-white rounded-lg border border-border overflow-hidden">
-                <button
-                  onClick={() => setShowConfirmModal(false)}
-                  className="w-full p-6 text-left hover:bg-secondary/50 transition-colors flex justify-between items-center"
-                >
-                  <h3 className="font-semibold text-foreground text-lg">
-                    {language === 'es' ? '¿Incluye recogida y entrega?' : 'Is pickup and delivery included?'}
-                  </h3>
-                  <ChevronDown className="w-5 h-5 text-primary" />
-                </button>
-                <div className="px-6 pb-6 text-muted-foreground border-t border-border">
-                  <p>
-                    {language === 'es'
-                      ? 'Sí, ofrecemos recogida y entrega a Barcelona capital por las mañanas. El precio es de 25-30€ según la zona. También puedes traer y recoger tu perro directamente en nuestras instalaciones en Alt Penedès.'
-                      : 'Yes, we offer pickup and delivery to Barcelona city center in the mornings. The price is €25-30 depending on the area. You can also bring and pick up your dog directly at our facilities in Alt Penedès.'}
-                  </p>
-                </div>
-              </div>
-            </div>
+            <SmoothAccordion
+              items={[
+                {
+                  id: 'vaccines',
+                  title: language === 'es' ? '¿Qué vacunas necesita mi perro?' : 'What vaccines does my dog need?',
+                  content: (
+                    <div>
+                      <p className="mb-3">
+                        {language === 'es'
+                          ? 'Recomendamos que tu perro tenga al menos:'
+                          : 'We recommend your dog has at least:'}
+                      </p>
+                      <ul className="list-disc list-inside space-y-2 ml-2">
+                        <li>{language === 'es' ? 'Vacuna Pentavalente' : 'Pentavalent vaccine'}</li>
+                        <li>{language === 'es' ? 'Vacuna Heptavalente' : 'Heptavalent vaccine'}</li>
+                        <li>{language === 'es' ? 'Vacuna contra la Tos de las Perreras' : 'Kennel Cough vaccine'}</li>
+                      </ul>
+                      <p className="mt-4 text-sm italic">
+                        {language === 'es'
+                          ? 'En verano, recomendamos doble protección contra parásitos externos (pipeta + collar).'
+                          : 'In summer, we recommend double protection against external parasites (pipette + collar).'}
+                      </p>
+                    </div>
+                  ),
+                },
+                {
+                  id: 'confirmation',
+                  title: language === 'es' ? '¿Cuándo se confirma la reserva?' : 'When is the reservation confirmed?',
+                  content: (
+                    <div>
+                      <p className="font-semibold text-foreground mb-2">
+                        {language === 'es'
+                          ? '⚠️ Información Importante:'
+                          : '⚠️ Important Information:'}
+                      </p>
+                      <p>
+                        {language === 'es'
+                          ? 'Ninguna reserva tiene efecto hasta que no sea confirmada por Fontfreda. Tras recibir tu solicitud, nuestro equipo realizará una valoración personalizada de tu mascota para asegurar que nuestro modelo de alojamiento familiar es adecuado para sus necesidades, rutinas y manejo. Te contactaremos en menos de 24 horas.'
+                          : 'No reservation is effective until confirmed by Fontfreda. After receiving your request, our team will conduct a personalized assessment of your pet to ensure that our family accommodation model is suitable for their needs, routines, and handling. We will contact you within 24 hours.'}
+                      </p>
+                    </div>
+                  ),
+                },
+                {
+                  id: 'compatibility',
+                  title: language === 'es' ? '¿Todos los perros pueden alojarse en Fontfreda?' : 'Can all dogs stay at Fontfreda?',
+                  content: (
+                    <div>
+                      <p className="mb-3">
+                        {language === 'es'
+                          ? 'Nuestro modelo de alojamiento familiar funciona mejor con perros que se adaptan bien a la convivencia en casa y pueden disfrutar de la socialización con otros perros en nuestros parques. Valoramos cada caso de forma individual para asegurar la compatibilidad y el bienestar de todos.'
+                          : 'Our family accommodation model works best with dogs that adapt well to living in a home environment and can enjoy socialization with other dogs in our parks. We assess each case individually to ensure compatibility and the well-being of all.'}
+                      </p>
+                      <p className="text-sm italic">
+                        {language === 'es'
+                          ? 'Si tu perro tiene necesidades especiales de manejo o comportamiento, cuéntanos en el formulario. Nuestro equipo evaluará si podemos ofrecerle la mejor experiencia.'
+                          : 'If your dog has special handling or behavioral needs, tell us in the form. Our team will assess if we can provide the best experience.'}
+                      </p>
+                    </div>
+                  ),
+                },
+                {
+                  id: 'delivery',
+                  title: language === 'es' ? '¿Incluye recogida y entrega?' : 'Is pickup and delivery included?',
+                  content: (
+                    <p>
+                      {language === 'es'
+                        ? 'Sí, ofrecemos recogida y entrega a Barcelona capital por las mañanas. El precio es de 25-30€ según la zona. También puedes traer y recoger tu perro directamente en nuestras instalaciones en Alt Penedès.'
+                        : 'Yes, we offer pickup and delivery to Barcelona city center in the mornings. The price is €25-30 depending on the area. You can also bring and pick up your dog directly at our facilities in Alt Penedès.'}
+                    </p>
+                  ),
+                },
+              ]}
+            />
           </div>
         </section>
       </main>
