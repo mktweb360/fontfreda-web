@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 interface SchemaMarkupProps {
-  type: "LocalBusiness" | "FAQPage" | "Service" | "Organization" | "BreadcrumbList";
+  type: "LocalBusiness" | "FAQPage" | "Service" | "Organization" | "BreadcrumbList" | "BlogPosting";
   data: Record<string, any>;
 }
 

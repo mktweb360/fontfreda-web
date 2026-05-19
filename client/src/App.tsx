@@ -13,6 +13,7 @@ import Contacto from "./pages/Contacto";
 import FAQ from "./pages/FAQ";
 import LargaEstancia from "./pages/LargaEstancia";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Instalaciones from "./pages/Instalaciones";
 import LandingLargaEstancia from "./pages/LandingLargaEstancia";
 import LandingResidenciaCanina from "./pages/LandingResidenciaCanina";
@@ -34,6 +35,7 @@ function Router() {
       <Route path="/faq" component={FAQ} />
       <Route path="/larga-estancia" component={LargaEstancia} />
       <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/tarifas" component={Tarifas} />
       <Route path="/guarderia" component={Guarderia} />
 
@@ -48,6 +50,7 @@ function Router() {
       <Route path="/tarifas" component={Tarifas} />
       <Route path="/instalaciones" component={Instalaciones} />
       <Route path="/en/blog" component={Blog} />
+      <Route path="/en/blog/:slug" component={BlogPost} />
       <Route path="/en/tarifas" component={Tarifas} />
       <Route path="/en/instalaciones" component={Instalaciones} />
       <Route path="/en/guarderia" component={Guarderia} />

@@ -881,6 +881,63 @@ export default function Contacto() {
             />
           </div>
         </section>
+
+        {/* Google Maps Section */}
+        <section className="py-12 md:py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-primary mb-8 text-center">
+              {language === 'es' ? 'Ubicación de Nuestras Instalaciones' : 'Our Facilities Location'}
+            </h2>
+            <div className="bg-secondary rounded-lg overflow-hidden shadow-lg border border-border">
+              <div className="w-full h-96 md:h-[500px]">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  allowFullScreen={true}
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps/embed?pb=41.5667,-1.8833&zoom=15&q=Finca+Can+Farigola,+Gelida,+Barcelona"
+                ></iframe>
+              </div>
+            </div>
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-secondary rounded-lg p-6 border border-border text-center">
+                <MapPin className="w-8 h-8 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold text-foreground mb-2">
+                  {language === 'es' ? 'Dirección' : 'Address'}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  Finca Can Farigola<br />
+                  08790 Gelida, Barcelona<br />
+                  España
+                </p>
+              </div>
+              <div className="bg-secondary rounded-lg p-6 border border-border text-center">
+                <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold text-foreground mb-2">
+                  {language === 'es' ? 'Teléfono' : 'Phone'}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  <a href="tel:+34937790311" className="hover:text-primary transition-colors">
+                    +34 93 779 03 11
+                  </a>
+                </p>
+              </div>
+              <div className="bg-secondary rounded-lg p-6 border border-border text-center">
+                <Mail className="w-8 h-8 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold text-foreground mb-2">
+                  {language === 'es' ? 'Email' : 'Email'}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  <a href="mailto:info@fontfreda.net" className="hover:text-primary transition-colors">
+                    info@fontfreda.net
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />

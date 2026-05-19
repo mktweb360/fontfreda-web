@@ -20,15 +20,13 @@
 - [x] Sistema de cache en memoria para optimizar Page Speed
 - [x] Integración de RecentBlogPosts en Home.tsx
 
-## En Progreso
-
-- [ ] Páginas de artículos individuales del blog (/blog/:slug)
-- [ ] Artículos relacionados por categoría en páginas de blog
-- [ ] Google Maps integration en Contacto/Instalaciones
+- [x] Páginas de artículos individuales del blog (/blog/:slug)
+- [x] Artículos relacionados por categoría en páginas de blog
+- [x] Google Maps integration en Contacto/Instalaciones
+- [x] Auditoría de diseño responsive (móvil, tablet, desktop)
 
 ## Pendiente
 
-- [ ] Auditoría de diseño responsive (móvil, tablet, desktop)
 - [ ] Optimización final de imágenes
 - [ ] Pruebas finales de SEO
 - [ ] Preparación para FTP upload a SiteGround
