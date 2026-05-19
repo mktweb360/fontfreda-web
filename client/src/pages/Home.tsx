@@ -2,10 +2,12 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import ServiceCard from "@/components/ServiceCard";
+import RecentBlogPosts from "@/components/RecentBlogPosts";
 import { SchemaMarkup, localBusinessSchema, organizationSchema, createBreadcrumbSchema } from "@/components/SchemaMarkup";
 import { Heart, Leaf, Users, Check } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { HrefLang } from "@/components/HrefLang";
+import { blogPosts } from "./Blog";
 
 export default function Home() {
   const [location] = useLocation();
@@ -313,6 +315,11 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Últimos Artículos del Blog */}
+        <div>
+          <RecentBlogPosts posts={blogPosts} limit={3} showViewAll={true} />
+        </div>
       </main>
 
       <Footer />

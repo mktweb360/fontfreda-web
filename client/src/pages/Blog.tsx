@@ -150,6 +150,8 @@ const blogPosts: BlogPost[] = [
   },
 ];
 
+export { blogPosts };
+
 export default function Blog() {
   return (
     <div className="min-h-screen flex flex-col">
