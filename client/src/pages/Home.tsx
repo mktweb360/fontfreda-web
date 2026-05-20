@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import ServiceCard from "@/components/ServiceCard";
 import RecentBlogPosts from "@/components/RecentBlogPosts";
+import NewsletterSubscription from "@/components/NewsletterSubscription";
 import { SchemaMarkup, localBusinessSchema, organizationSchema, createBreadcrumbSchema } from "@/components/SchemaMarkup";
 import { Heart, Leaf, Users, Check } from "lucide-react";
 import { Link, useLocation } from "wouter";
@@ -313,6 +314,13 @@ export default function Home() {
                 WhatsApp: +34 93 779 03 11
               </a>
             </div>
+          </div>
+        </section>
+
+        {/* Newsletter Subscription */}
+        <section className="py-20 bg-gradient-to-r from-blue-50 to-blue-100">
+          <div className="container mx-auto px-4">
+            <NewsletterSubscription variant="modal" />
           </div>
         </section>
 

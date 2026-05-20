@@ -15,15 +15,16 @@
   ],
   "git_remote": {
     "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663312171860/4pSqWGuzzS8uGmjWwDrdgm",
-    "access_key_id": "ASIAZV3A2ECZFGHJBA2Z",
-    "secret_access_key": "7TYqIoFC0JMjptLz3C+6RncX9i+qYZlFN8eDnDOS",
-    "session_token": "IQoJb3JpZ2luX2VjEBIaCXVzLWVhc3QtMSJHMEUCIQDfo5v/9Cggy7U2/HXpsdI3WTrU1tMYjaK+kctkIatQLgIgJSxxS0aUKyTN0ZQ4XDENU2R8+Or+2JeSNZ2JZSk1Wlgq/wMI2v//////////ARAEGgw2NjUzODYwOTg4NjYiDE836UXyfG3vjoF1fSrTA8Cxq7VIVdN4WNmLK1z08yElvekH87uU6hgDED6Gqf/SihKKmEldZ6zBMFYFBMlPmGdN75AYbNGP0nbWGkIJXMyTCv4WdktDqBfpdQR3qKPzwZIYymrBa6z+f5mdFeQx8TwfdI78/jQt17w+OXuRxe+KeWBJgiBWslk00o67UnkaIUisB/GBhzsDnvBjbwWgaCsAvrkww/a+lEGQphrLz2DZwHVUhd327wqgHebzDs6lnDt5uYz+0rWlw58qYis7GRgD3XV/DZ9BLCCmn3IOQT4ezZC8/rBV3MBb3poHk/qyfRklVDjW4/YY3iyDZyuQV7EzWoKV7VPYBhRy8wpZ1IkZ9jF+TKKzwBvM3oLz6SgLgAr+L29AhEtBAbsYV/U6r1PeXp3Bv5SivtPU4ZNRuC0/oELl/ltjhpXqzklyMvXFIsrLFJYZe+emBwppKuxSXbEIp3wXdg048lnmPc2iHRtiPCwML1nRVjAgbm08+Cs7YxzwutnYeiO3czBkPApWlIKoy8UFx1jSeHxymCzZMVOIFRNZJAZtU7CoNZ+Iv1IT13dSuyl4j7SBOHZYtMIENbyofN1tzFqLv4bukUlw8vXSTuWxregYY+2ErQn2FHyzLCSgMMKzstAGOp0BGddKXyOrrxhA9hSsfylKiLRN5U6jNyWOcBci3D8VDnvAtrmMULm7RdNXi4POXbZsejTLZiDGRCFuHyix7Kzwi35aRQJ/RfnpRMOua0Yp8uJ5i3Or3D6RFRsTH05Cym3ZGKbSzM1a401NbmmGOjejXnr2AAhOQj8/V/znvE7eFj7Zb1s/2g/jzJSFzXC1Qe34/uu49+2RmUKwaUNzVg==",
-    "expiration": "2026-05-20T05:11:30.000Z"
+    "access_key_id": "ASIAZV3A2ECZKOWFWZFA",
+    "secret_access_key": "TKYSL5RM0yevNsiHsiWpFk55QREoPkP3/mG+h7iK",
+    "session_token": "IQoJb3JpZ2luX2VjECMaCXVzLWVhc3QtMSJGMEQCIFNddPhbfHgPIgVUN+hbdLzR7mzL+AqHqpZDsv0FuofcAiBOUe0PXMIj8xlTjd4XXnMpSEZIOjkqxv3xIiQ9TjmQ9Sr/Awjs//////////8BEAQaDDY2NTM4NjA5ODg2NiIMyMpJwuIBQKJIrKzvKtMD/G76g4JwJjVNhbJUk4JeQu/4jVPaEJTmwTPKj523x67USLDqm+JPdKU4o2Iu4IrYGzUCx+HCQtusVKWRoSyakvD6UYHZuuFm/yu+3M0ZrWDFLqUJAgIJSNCKtdsm/nXu+Scpbdv9nK0u5bah+DpRPlmpweAA67D9csKvcMCSz3IkVn9nzssN4HVpmbDy7xjJ0TTVgGIrTdpiSbNJFClopaiu69AaVHGQFy3PvEPbnKYwSxaOO+Yf2MA+xCU6Yh7wwV+vgqEFF1NOSEIV7SVU3BaBcnkET+2CNcA+S4VE+XIhGNxw9IIIJpfwVLhsmx/MkW7dwSBwuaCoQPQv3yHa5sGCeqzryO45F+mmYm2lrLVBnB8pEuCZkaUfy4Az3h/3qy3+2bKFKHf4aWSNrR3f7eiKxZh49NNUofULoj5LRlerAtDHK1F49QTwvrILySvc1WMzDZBzw9AslRnaFvGQpkG9tyuvitGwXVH1alPECqMmh4XfJbSJ+dv4QfSJUqNsyuyKR7l+ErDHwiqKPgS0IYd6ArUTqO4n6m3t7BnA3FxZUap2fvbFlV7bHIWFjWjbEJK9fpNUa5crFZhEns6dgmXuMmdzrd1SN5CX3PYbpEKBkbowkqi20AY6ngEJq4HAM0d6J4warWu3Y3lwG5CKWN9IRn9L9po2u1N0nSS3USRanb/JEElDhVLDwXVvh5OrCf7sl8WVFBsHjEGWb4fGyVLSLwD/MjSudmLeb2L5s5eIqi3x3J0K5JX4OhRBeNAKisFKudbvW6R7usthNI3h3aCVqPqPmX/rurhfb90HyPKFKXR61jl9DyZWFB+JlvA391aHH4g0Vv1htA==",
+    "expiration": "2026-05-20T22:59:30.000Z"
   },
   "name": "fontfreda-web",
   "path": "/home/ubuntu/fontfreda-web",
   "port": 3000,
   "secrets": {
+    "BREVO_API_KEY": "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",
     "BUILT_IN_FORGE_API_KEY": "hbysqfhyo7irCfQuQfuZet",
     "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
     "JWT_SECRET": "kAwjraLD62KChF2N7949ih",

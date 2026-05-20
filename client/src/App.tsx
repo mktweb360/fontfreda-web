@@ -21,6 +21,7 @@ import LandingResidenciaFelina from "./pages/LandingResidenciaFelina";
 import Tarifas from "./pages/Tarifas";
 import Guarderia from "./pages/Guarderia";
 import GuarderiaEnCasa from "./pages/GuarderiaEnCasa";
+import ConfirmarNewsletter from "./pages/ConfirmarNewsletter";
 import PoliticaCookies from "./pages/PoliticaCookies";
 import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
 import AvisoLegal from "./pages/AvisoLegal";
@@ -57,6 +58,10 @@ function Router() {
       <Route path="/en/instalaciones" component={Instalaciones} />
       <Route path="/en/guarderia" component={Guarderia} />
       <Route path="/en/guarderia-canina-dentro-de-casa" component={GuarderiaEnCasa} />
+
+      {/* Newsletter */}
+      <Route path="/confirmar-newsletter" component={ConfirmarNewsletter} />
+      <Route path="/en/confirmar-newsletter" component={ConfirmarNewsletter} />
 
       {/* Legal Pages */}
       <Route path="/politica-cookies" component={PoliticaCookies} />
