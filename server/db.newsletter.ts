@@ -11,10 +11,10 @@ const pool = mysql.createPool({
 });
 
 const database = {
-  async execute(query: string, params: any[] = []) {
+  async execute(query: string, params: any[] = []): Promise<any> {
     const connection = await pool.getConnection();
     try {
-      const [results] = await connection.execute(query, params);
+      const [results] = await connection.execute(query, params) as any;
       return results;
     } finally {
       connection.release();
@@ -242,6 +242,6 @@ export const newsletterDb = {
       [startDate, endDate, endDate]
     );
 
-    return result[0] || {};
+    return (result && result.length > 0) ? (result as any[])[0] : {};
   },
 };

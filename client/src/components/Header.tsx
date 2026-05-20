@@ -39,23 +39,19 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-background border-b border-border">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href={language === "es" ? "/" : "/en"}>
-          <a className="hover:opacity-80 transition-opacity">
-            <img 
-              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663312171860/ygmDlwnzdJPjzQEa.png" 
-              alt="Fontfreda - Residencia Canina y Felina" 
-              className="h-12 w-auto bg-transparent"
-            />
-          </a>
+        <Link href={language === "es" ? "/" : "/en"} className="hover:opacity-80 transition-opacity">
+          <img 
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663312171860/ygmDlwnzdJPjzQEa.png" 
+            alt="Fontfreda - Residencia Canina y Felina" 
+            className="h-12 w-auto bg-transparent"
+          />
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href}>
-              <a className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-                {item.label}
-              </a>
+            <Link key={item.href} href={item.href} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+              {item.label}
             </Link>
           ))}
         </nav>
@@ -88,14 +84,12 @@ export default function Header() {
 
           {/* CTA Button */}
           <Link href={language === "es" ? "/contacto" : "/en/contacto"}>
-            <a>
-              <Button
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                size="sm"
-              >
-                {language === "es" ? "Contactar" : "Contact"}
-              </Button>
-            </a>
+            <Button
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              size="sm"
+            >
+              {language === "es" ? "Contactar" : "Contact"}
+            </Button>
           </Link>
         </div>
 
@@ -118,13 +112,8 @@ export default function Header() {
         <nav className="md:hidden border-t border-border bg-secondary">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             {navItems.map((item) => (
-              <Link key={item.href} href={item.href}>
-                <a
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </a>
+              <Link key={item.href} href={item.href} className="text-sm font-medium text-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>
+                {item.label}
               </Link>
             ))}
 
