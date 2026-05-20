@@ -70,8 +70,7 @@ export default function RecentBlogPosts({
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {recentPosts.map((post) => (
-            <Link key={post.id} href={`/blog/${post.slug}`}>
-              <a className="group h-full">
+            <Link key={post.id} href={`/blog/${post.slug}`} className="group h-full block">
                 <article className="h-full bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col">
                   {/* Imagen del artículo */}
                   {post.image && (
@@ -114,7 +113,6 @@ export default function RecentBlogPosts({
                     </div>
                   </div>
                 </article>
-              </a>
             </Link>
           ))}
         </div>
@@ -122,11 +120,9 @@ export default function RecentBlogPosts({
         {/* Ver más artículos */}
         {showViewAll && (
           <div className="mt-8 text-center">
-            <Link href="/blog">
-              <a className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors">
-                {t.viewMore}
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </a>
+            <Link href="/blog" className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+              {t.viewMore}
+              <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </div>
         )}

@@ -317,12 +317,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Newsletter Subscription */}
-        <section className="py-20 bg-gradient-to-r from-blue-50 to-blue-100">
+        {/* Newsletter Subscription - OCULTO POR AHORA */}
+        {/* <section className="py-20 bg-gradient-to-r from-blue-50 to-blue-100">
           <div className="container mx-auto px-4">
             <NewsletterSubscription variant="modal" />
           </div>
-        </section>
+        </section> */}
 
         {/* Últimos Artículos del Blog */}
         <div>

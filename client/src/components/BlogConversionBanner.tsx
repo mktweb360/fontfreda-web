@@ -87,16 +87,12 @@ export default function BlogConversionBanner({
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href={serviceLink}>
-                <a className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors">
-                  {t.cta}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
+              <Link href={serviceLink} className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                {t.cta}
+                <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
-              <Link href={language === "en" ? "/en/contacto" : "/contacto"}>
-                <a className="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition-colors">
-                  {t.contact}
-                </a>
+              <Link href={language === "en" ? "/en/contacto" : "/contacto"} className="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition-colors">
+                {t.contact}
               </Link>
             </div>
           </div>
