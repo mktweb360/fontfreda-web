@@ -13,21 +13,39 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Get language from URL or localStorage
+    // Detect language from URL path
     const path = window.location.pathname;
-    const pathLang = path.startsWith("/en") ? "en" : "es";
-    const savedLang = (localStorage.getItem("language") as Language) || pathLang;
-    setLanguageState(savedLang);
+    const pathLang: Language = path.startsWith("/en") ? "en" : "es";
+    setLanguageState(pathLang);
+    localStorage.setItem("language", pathLang);
     setMounted(true);
   }, []);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("language", lang);
-    // Redirect to appropriate language path
+
+    // Build new path based on selected language
     const currentPath = window.location.pathname;
-    const newPath = currentPath.replace(/^\/(en|es)/, `/${lang}`);
-    window.location.href = newPath || `/${lang}`;
+    let pathWithoutLang = currentPath;
+
+    // Strip existing language prefix
+    if (currentPath.startsWith("/en/")) {
+      pathWithoutLang = currentPath.substring(3); // Remove "/en"
+    } else if (currentPath === "/en") {
+      pathWithoutLang = "/";
+    }
+
+    // Build new path - Spanish is at root, English is at /en/
+    let newPath: string;
+    if (lang === "es") {
+      newPath = pathWithoutLang || "/";
+    } else {
+      // English
+      newPath = pathWithoutLang === "/" ? "/en" : `/en${pathWithoutLang}`;
+    }
+
+    window.location.href = newPath;
   };
 
   if (!mounted) {

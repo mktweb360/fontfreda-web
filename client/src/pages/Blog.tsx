@@ -218,12 +218,10 @@ export default function Blog() {
                     </div>
 
                     {/* Read More Link */}
-                    <Link href={`/blog/${post.slug}`}>
-                      <a className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
+                    <Link href={`/blog/${post.slug}`} className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
                         Leer más
                         <ArrowRight className="w-4 h-4" />
-                      </a>
-                    </Link>
+                      </Link>
                   </div>
                 </article>
               ))}

@@ -452,11 +452,9 @@ export default function Tarifas() {
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               {lang.ctaSubtitle}
             </p>
-            <Link href={language === "es" ? "/contacto" : "/en/contacto"}>
-              <a className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-semibold transition-colors">
+            <Link href={language === "es" ? "/contacto" : "/en/contacto"} className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-semibold transition-colors">
                 {language === "es" ? "Contactar Ahora" : "Contact Now"}
-              </a>
-            </Link>
+              </Link>
           </div>
         </section>
       </main>

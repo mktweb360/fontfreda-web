@@ -165,11 +165,9 @@ export default function Home() {
                   <span className="text-foreground">Atención veterinaria incluida</span>
                 </li>
               </ul>
-              <Link href="/larga-estancia">
-                <a className="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+              <Link href="/larga-estancia" className="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
                   Más Información
-                </a>
-              </Link>
+                </Link>
             </div>
           </div>
         </section>
@@ -226,11 +224,9 @@ export default function Home() {
             </div>
 
             <div className="text-center mt-12">
-              <Link href="/opiniones">
-                <a className="text-primary font-semibold hover:underline">
+              <Link href="/opiniones" className="text-primary font-semibold hover:underline">
                   Ver todas las opiniones →
-                </a>
-              </Link>
+                </Link>
             </div>
           </div>
         </section>
@@ -272,11 +268,9 @@ export default function Home() {
                     <span className="text-foreground">Vigilancia 24 horas</span>
                   </li>
                 </ul>
-                <Link href="/instalaciones">
-                  <a className="inline-block mt-6 text-primary font-semibold hover:underline">
+                <Link href="/instalaciones" className="inline-block mt-6 text-primary font-semibold hover:underline">
                     Conocer más sobre nuestras instalaciones →
-                  </a>
-                </Link>
+                  </Link>
               </div>
               <div className="rounded-lg overflow-hidden">
                 <img
@@ -300,11 +294,9 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contacto">
-                <a className="inline-block bg-primary-foreground text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary-foreground/90 transition-colors">
+              <Link href="/contacto" className="inline-block bg-primary-foreground text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary-foreground/90 transition-colors">
                   Solicitar Valoración
-                </a>
-              </Link>
+                </Link>
               <a
                 href="https://wa.me/34937790311"
                 target="_blank"

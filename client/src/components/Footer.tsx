@@ -23,32 +23,24 @@ export default function Footer() {
             <h4 className="font-semibold text-foreground mb-4">Servicios</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/residencia-canina">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/residencia-canina" className="text-muted-foreground hover:text-primary transition-colors">
                     Residencia Canina
-                  </a>
-                </Link>
+                  </Link>
               </li>
               <li>
-                <Link href="/residencia-felina">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/residencia-felina" className="text-muted-foreground hover:text-primary transition-colors">
                     Residencia Felina
-                  </a>
-                </Link>
+                  </Link>
               </li>
               <li>
-                <Link href="/guarderia-canina">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/guarderia-canina" className="text-muted-foreground hover:text-primary transition-colors">
                     Guardería Canina
-                  </a>
-                </Link>
+                  </Link>
               </li>
               <li>
-                <Link href="/instalaciones">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/instalaciones" className="text-muted-foreground hover:text-primary transition-colors">
                     Instalaciones
-                  </a>
-                </Link>
+                  </Link>
               </li>
             </ul>
           </div>
@@ -58,39 +50,29 @@ export default function Footer() {
             <h4 className="font-semibold text-foreground mb-4">Información</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/faq">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/faq" className="text-muted-foreground hover:text-primary transition-colors">
                     Preguntas Frecuentes
-                  </a>
-                </Link>
+                  </Link>
               </li>
               <li>
-                <Link href="/contacto">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/contacto" className="text-muted-foreground hover:text-primary transition-colors">
                     Contacto
-                  </a>
-                </Link>
+                  </Link>
               </li>
               <li>
-                <Link href="/politica-privacidad">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/politica-privacidad" className="text-muted-foreground hover:text-primary transition-colors">
                     Política de Privacidad
-                  </a>
-                </Link>
+                  </Link>
               </li>
               <li>
-                <Link href="/politica-cookies">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/politica-cookies" className="text-muted-foreground hover:text-primary transition-colors">
                     Política de Cookies
-                  </a>
-                </Link>
+                  </Link>
               </li>
               <li>
-                <Link href="/aviso-legal">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/aviso-legal" className="text-muted-foreground hover:text-primary transition-colors">
                     Aviso Legal
-                  </a>
-                </Link>
+                  </Link>
               </li>
             </ul>
           </div>

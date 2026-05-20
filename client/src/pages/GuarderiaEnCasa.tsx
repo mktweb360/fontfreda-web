@@ -271,12 +271,10 @@ export default function GuarderiaEnCasa() {
               </h1>
               <p className="text-xl text-muted-foreground mb-8">{t.subtitle}</p>
               <p className="text-lg text-foreground mb-8">{t.description}</p>
-              <Link href={language === "en" ? "/en/contacto" : "/contacto"}>
-                <a className="inline-flex items-center px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+              <Link href={language === "en" ? "/en/contacto" : "/contacto"} className="inline-flex items-center px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors">
                   {t.contactCTA}
                   <ArrowRight className="w-5 h-5 ml-2" />
-                </a>
-              </Link>
+                </Link>
             </div>
           </div>
         </section>
@@ -427,12 +425,10 @@ export default function GuarderiaEnCasa() {
               <p className="text-lg text-muted-foreground mb-8">
                 {t.contactSubtitle}
               </p>
-              <Link href={language === "en" ? "/en/contacto" : "/contacto"}>
-                <a className="inline-flex items-center px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+              <Link href={language === "en" ? "/en/contacto" : "/contacto"} className="inline-flex items-center px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors">
                   {t.contactCTA}
                   <ArrowRight className="w-5 h-5 ml-2" />
-                </a>
-              </Link>
+                </Link>
             </div>
           </div>
         </section>

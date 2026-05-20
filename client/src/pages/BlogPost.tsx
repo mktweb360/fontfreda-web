@@ -40,12 +40,10 @@ export default function BlogPost() {
               ? "Lo sentimos, el artículo que buscas no existe."
               : "Sorry, the article you are looking for does not exist."}
           </p>
-          <Link href={language === "es" ? "/blog" : "/en/blog"}>
-            <a className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+          <Link href={language === "es" ? "/blog" : "/en/blog"} className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors">
               <ArrowLeft className="w-4 h-4 mr-2" />
               {language === "es" ? "Volver al Blog" : "Back to Blog"}
-            </a>
-          </Link>
+            </Link>
         </main>
         <Footer />
       </div>
@@ -122,12 +120,10 @@ export default function BlogPost() {
         {/* Article Header */}
         <section className="py-12 bg-secondary border-b border-border">
           <div className="container mx-auto px-4">
-            <Link href={language === "es" ? "/blog" : "/en/blog"}>
-              <a className="inline-flex items-center text-primary hover:text-primary/80 transition-colors mb-6">
+            <Link href={language === "es" ? "/blog" : "/en/blog"} className="inline-flex items-center text-primary hover:text-primary/80 transition-colors mb-6">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 {t.backToBlog}
-              </a>
-            </Link>
+              </Link>
 
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
               {post.title}
