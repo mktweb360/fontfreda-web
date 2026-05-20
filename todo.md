@@ -44,4 +44,15 @@
 - [x] Crear archivo .md para lectura de IAs
 - [x] Agregar banners de conversión en artículos del blog
 - [x] Verificar e implementar servicio de Guardería Canina Dentro de Casa
-- [ ] Optimizar campaña de Google Ads (ID 946-240-2340)
+- [x] Auditoría de campaña de Google Ads (ID 946-240-2340) completada - Reporte y recomendaciones entregados
+- [ ] Aplicación real de cambios en Google Ads pendiente de acceso operativo a la cuenta
+- [ ] Verificar y corregir tracking de conversiones de Google Ads en el sitio (código duplicado detectado)
+
+## Correcciones de Idiomas y SEO
+
+- [x] Corregir error <a> anidado en TODOS los componentes (9 archivos)
+- [x] Traducir al inglés 5 páginas (ResidenciaCanina, ResidenciaFelina, FAQ, LargaEstancia, Blog)
+- [x] Corregir etiquetas hreflang con URLs reales
+- [x] Corregir LanguageContext para switch correcto de idiomas
+- [x] Traducir Footer.tsx completamente
+- [x] Reemplazar "mascota"/"pet" por "perro y gato"/"dog and cat" en translations.ts
