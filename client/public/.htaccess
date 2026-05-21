@@ -108,7 +108,7 @@
     Deny from all
 </FilesMatch>
 
-# Security headers
+# Security & Cache-Control headers
 <IfModule mod_headers.c>
     # Prevent clickjacking
     Header always set X-Frame-Options "SAMEORIGIN"
@@ -121,6 +121,23 @@
     
     # Referrer policy
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions Policy (formerly Feature-Policy)
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    
+    # Cache-Control headers for static assets (immutable)
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|woff|woff2|ttf|otf|eot)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    # HTML: no cache to ensure fresh content
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+    </FilesMatch>
 </IfModule>
 
 # ===== CHARSET =====
