@@ -75,6 +75,6 @@ export function initWebVitalsMonitoring() {
 // Declaración de tipo para gtag
 declare global {
   interface Window {
-    gtag?: ((command: string, eventName: string, eventData: Record<string, any>) => void) | undefined;
+    gtag?: any;
   }
 }
