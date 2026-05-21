@@ -2,6 +2,7 @@ import { useLocation } from "wouter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SchemaMarkup, createBreadcrumbSchema } from "@/components/SchemaMarkup";
+import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
 import {
   Home,
@@ -105,7 +106,7 @@ export default function GuarderiaEnCasa() {
   const translations = {
     es: {
       title: "Guardería Canina Dentro de Casa",
-      subtitle: "Cuidado personalizado en el hogar de tu mascota",
+      subtitle: "Cuidado personalizado en el hogar de tu perro o gato",
       description:
         "Servicio de guardería profesional donde nuestros cuidadores se desplazan a tu hogar para cuidar a tu perro con atención personalizada.",
       benefits: [
@@ -177,7 +178,7 @@ export default function GuarderiaEnCasa() {
     },
     en: {
       title: "In-Home Dog Daycare",
-      subtitle: "Personalized care in your pet's home",
+      subtitle: "Personalized care in your dog or cat's home",
       description:
         "Professional daycare service where our caregivers come to your home to care for your dog with personalized attention.",
       benefits: [
@@ -253,6 +254,13 @@ export default function GuarderiaEnCasa() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title={language === "en" ? "Indoor Dog Daycare | Heated Indoor Box | Fontfreda" : "Guardería Canina Dentro de Casa | Box Interior Calefactado | Fontfreda"}
+        description={language === "en" ? "Indoor dog daycare with interior box and heating. Individual room with heating inside the house. Ideal for older dogs, cold-sensitive dogs or with special needs." : "Guardería canina dentro de casa con box interior y calefacción. Habitación individual con calefacción dentro de casa. Ideal para perros mayores, friolentos o con necesidades especiales."}
+        keywords={language === "en" ? "indoor dog daycare, heated indoor box, individual room dogs heating, daycare for senior dogs" : "guardería canina dentro casa, box interior calefactado, habitación individual perros calefacción, guardería perros mayores"}
+        canonical={language === "en" ? "https://www.fontfreda.net/en/guarderia-canina-dentro-de-casa" : "https://www.fontfreda.net/guarderia-canina-dentro-de-casa"}
+        language={language === "en" ? "en" : "es"}
+      />
       <HrefLang currentPath={currentPath} />
       <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
 

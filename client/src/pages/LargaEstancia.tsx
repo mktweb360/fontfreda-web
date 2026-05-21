@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import { HrefLang } from "@/components/HrefLang";
+import { SEO } from "@/components/SEO";
 import { Check, Home, Heart, Users, DollarSign, Shield, Leaf } from "lucide-react";
 import { useState } from "react";
 import { useLocation } from "wouter";
@@ -149,6 +150,13 @@ export default function LargaEstancia() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title={isEnglish ? "Long-Term Stays for Dogs and Cats | Monthly Boarding | Fontfreda" : "Larga Estancia para Perros y Gatos | Estancias Mensuales | Fontfreda"}
+        description={isEnglish ? "Long-term stays for dogs and cats in Barcelona. Stays of months or indefinite with special rates. Ideal for business trips, hospitalizations or temporary situations." : "Larga estancia para perros y gatos en Barcelona. Estancias de meses o indefinidas con tarifas especiales. Ideal para viajes laborales, hospitalizaciones o situaciones temporales."}
+        keywords={isEnglish ? "long-term dog boarding, long-term cat boarding, monthly dog kennel, extended pet accommodation, indefinite pet stay" : "larga estancia perros, larga estancia gatos, residencia mensual perros, alojamiento prolongado perros y gatos, residencia indefinida"}
+        canonical={isEnglish ? "https://www.fontfreda.net/en/larga-estancia" : "https://www.fontfreda.net/larga-estancia"}
+        language={isEnglish ? "en" : "es"}
+      />
       <HrefLang currentPath={currentPath} />
       <Header />
 
@@ -219,7 +227,16 @@ export default function LargaEstancia() {
               </div>
 
               <div className="rounded-lg overflow-hidden shadow-lg">
-                <img src={instalacionesImageUrl} alt="Fontfreda" className="w-full h-auto object-cover" />
+                <img
+                  src={instalacionesImageUrl}
+                  alt="Residencia Fontfreda - Larga estancia para perros y gatos en Barcelona"
+                  title="Residencia Fontfreda - Larga estancia"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                  className="w-full h-auto object-cover"
+                />
               </div>
             </div>
           </div>

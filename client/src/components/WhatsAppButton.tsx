@@ -13,8 +13,8 @@ export default function WhatsAppButton() {
 
   const phoneNumber = "+34937790311";
   const messages = {
-    es: "Hola Fontfreda, me gustaría conocer más sobre vuestros servicios de residencia para mascotas.",
-    en: "Hello Fontfreda, I would like to know more about your pet boarding services.",
+    es: "Hola Fontfreda, me gustaría conocer más sobre vuestros servicios de residencia para perros y gatos.",
+    en: "Hello Fontfreda, I would like to know more about your dog and cat boarding services.",
   };
 
   const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, "")}?text=${encodeURIComponent(

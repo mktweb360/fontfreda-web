@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SchemaMarkup, createBreadcrumbSchema } from "@/components/SchemaMarkup";
+import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
 import { Check, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
@@ -29,12 +30,12 @@ export default function Tarifas() {
       services: [
         {
           name: "Residencia Canina",
-          description: "Alojamiento para perros con atención personalizada",
+          description: "Alojamiento para perros con atención personalizada. Descuentos para 2 o más perros.",
           prices: [
-            { duration: "1-3 noches", price: "€25/noche" },
-            { duration: "4-7 noches", price: "€22/noche" },
-            { duration: "8-14 noches", price: "€20/noche" },
-            { duration: "15+ noches", price: "€18/noche" },
+            { duration: "Box exterior", price: "€20/día" },
+            { duration: "Box interior con calefacción", price: "€28/día" },
+            { duration: "Habitación individual con calefacción", price: "€40/día" },
+            { duration: "Cachorros (<10 meses)", price: "€21/día" },
           ],
           features: [
             "5 paseos diarios",
@@ -48,12 +49,12 @@ export default function Tarifas() {
         },
         {
           name: "Residencia Felina",
-          description: "Espacio especializado para gatos con total libertad",
+          description: "Espacio especializado para gatos con total libertad. Descuentos para 2 o más gatos.",
           prices: [
-            { duration: "1-3 noches", price: "€20/noche" },
-            { duration: "4-7 noches", price: "€18/noche" },
-            { duration: "8-14 noches", price: "€16/noche" },
-            { duration: "15+ noches", price: "€14/noche" },
+            { duration: "Gatos adultos", price: "€18/día" },
+            { duration: "Gatitos (<10 meses)", price: "€19/día" },
+            { duration: "2+ gatos (cada uno)", price: "Consultar descuento" },
+            { duration: "Larga estancia", price: "Consultar tarifa especial" },
           ],
           features: [
             "180 m² de espacio interior",
@@ -153,7 +154,7 @@ export default function Tarifas() {
         },
       ],
       cta: "Solicitar Presupuesto Personalizado",
-      ctaSubtitle: "¿Tienes dudas sobre tarifas? Contacta con nosotros para un presupuesto personalizado según las necesidades de tu mascota.",
+      ctaSubtitle: "¿Tienes dudas sobre tarifas? Contacta con nosotros para un presupuesto personalizado según las necesidades de tu perro o gato.",
     },
     en: {
       title: "Pricing - Dog and Cat Boarding",
@@ -162,12 +163,12 @@ export default function Tarifas() {
       services: [
         {
           name: "Dog Boarding",
-          description: "Pet accommodation with personalized attention",
+          description: "Dog accommodation with personalized attention. Discounts for 2 or more dogs.",
           prices: [
-            { duration: "1-3 nights", price: "€25/night" },
-            { duration: "4-7 nights", price: "€22/night" },
-            { duration: "8-14 nights", price: "€20/night" },
-            { duration: "15+ nights", price: "€18/night" },
+            { duration: "Outdoor box", price: "€20/day" },
+            { duration: "Indoor box with heating", price: "€28/day" },
+            { duration: "Individual room with heating", price: "€40/day" },
+            { duration: "Puppies (<10 months)", price: "€21/day" },
           ],
           features: [
             "5 daily walks",
@@ -181,12 +182,12 @@ export default function Tarifas() {
         },
         {
           name: "Cat Boarding",
-          description: "Specialized space for cats with total freedom",
+          description: "Specialized space for cats with total freedom. Discounts for 2 or more cats.",
           prices: [
-            { duration: "1-3 nights", price: "€20/night" },
-            { duration: "4-7 nights", price: "€18/night" },
-            { duration: "8-14 nights", price: "€16/night" },
-            { duration: "15+ nights", price: "€14/night" },
+            { duration: "Adult cats", price: "€18/day" },
+            { duration: "Kittens (<10 months)", price: "€19/day" },
+            { duration: "2+ cats (each)", price: "Ask for discount" },
+            { duration: "Long stay", price: "Special rate available" },
           ],
           features: [
             "180 m² indoor space",
@@ -286,7 +287,7 @@ export default function Tarifas() {
         },
       ],
       cta: "Request Custom Quote",
-      ctaSubtitle: "Have questions about pricing? Contact us for a custom quote based on your pet's needs.",
+      ctaSubtitle: "Have questions about pricing? Contact us for a custom quote based on your dog or cat's needs.",
     },
   };
 
@@ -294,6 +295,13 @@ export default function Tarifas() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title={language === "en" ? "Dog and Cat Boarding Rates | 2026 Prices | Fontfreda" : "Tarifas Residencia Canina y Felina | Precios 2026 | Fontfreda"}
+        description={language === "en" ? "Dog boarding rates from €20/day (outdoor box), €28 (indoor with heating), €40 (individual). Cats from €18/day. Discounts for multiple dogs and long-term stays." : "Tarifas residencia canina desde 20€/día (box exterior), 28€ (interior con calefacción), 40€ (individual). Gatos desde 18€/día. Descuentos para múltiples perros y larga estancia."}
+        keywords={language === "en" ? "dog boarding rates, pet accommodation prices, cat boarding rates, daycare prices, boarding discounts" : "tarifas residencia canina, precios alojamiento perros, tarifas residencia felina, precios guardería, descuentos residencia"}
+        canonical={language === "en" ? "https://www.fontfreda.net/en/tarifas" : "https://www.fontfreda.net/tarifas"}
+        language={language === "en" ? "en" : "es"}
+      />
       <HrefLang currentPath={currentPath} />
       <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
 

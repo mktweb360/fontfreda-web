@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import RecentBlogPosts from "@/components/RecentBlogPosts";
 import BlogConversionBanner from "@/components/BlogConversionBanner";
 import { SchemaMarkup, createBreadcrumbSchema } from "@/components/SchemaMarkup";
+import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
 import { Calendar, User, ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
@@ -108,8 +109,23 @@ export default function BlogPost() {
 
   const t = translations[language as keyof typeof translations] || translations.es;
 
+  const canonical = `https://www.fontfreda.net${language === "en" ? "/en" : ""}/blog/${post.slug}`;
+  const seoKeywords = `${post.category}, ${post.title}, perros y gatos, blog Fontfreda, residencia canina, residencia felina`;
+
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title={`${post.title} | Blog Fontfreda`}
+        description={post.excerpt}
+        keywords={seoKeywords}
+        canonical={canonical}
+        language={language as "es" | "en"}
+        ogType="article"
+        ogImage={post.image || "https://www.fontfreda.net/wp-content/uploads/2016/12/cat-and-dog-slide2.jpg"}
+        author={post.author}
+        publishedTime={post.date}
+        modifiedTime={post.date}
+      />
       <HrefLang currentPath={currentPath} />
       <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
       <SchemaMarkup type="BlogPosting" data={blogPostSchema} />
@@ -152,6 +168,12 @@ export default function BlogPost() {
               <img
                 src={post.image}
                 alt={post.title}
+                title={post.title}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                width="800"
+                height="384"
                 className="w-full h-96 object-cover rounded-lg mb-8"
               />
             )}

@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SchemaMarkup, createBreadcrumbSchema } from "@/components/SchemaMarkup";
+import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
 import { Button } from "@/components/ui/button";
 import { X, ChevronLeft, ChevronRight, Trees, Home, Stethoscope, ChevronDown } from "lucide-react";
@@ -166,8 +167,8 @@ export default function Instalaciones() {
   const faqItems: FAQItem[] = [
     {
       id: "seguridad-1",
-      question_es: "¿Cómo garantizan la seguridad de las mascotas en los parques?",
-      question_en: "How do you ensure pet safety in the parks?",
+      question_es: "¿Cómo garantizan la seguridad de los perros y gatos en los parques?",
+      question_en: "How do you ensure dog and cat safety in the parks?",
       answer_es: "Contamos con vigilancia profesional constante, vallas de seguridad certificadas, y protocolos de emergencia. Todos nuestros cuidadores están entrenados en primeros auxilios veterinarios.",
       answer_en: "We have constant professional supervision, certified safety fencing, and emergency protocols. All our caregivers are trained in veterinary first aid.",
       category: "seguridad",
@@ -230,10 +231,10 @@ export default function Instalaciones() {
     },
     {
       id: "comodidad-3",
-      question_es: "¿Pueden los propietarios visitar a sus mascotas?",
-      question_en: "Can owners visit their pets?",
-      answer_es: "Sí, ofrecemos visitas programadas con previa coordinación. También compartimos fotos y videos diarios para que sigas la rutina de tu mascota.",
-      answer_en: "Yes, we offer scheduled visits with prior coordination. We also share daily photos and videos so you can follow your pet's routine.",
+      question_es: "¿Pueden los propietarios visitar a sus perros o gatos?",
+      question_en: "Can owners visit their dogs or cats?",
+      answer_es: "Sí, ofrecemos visitas programadas con previa coordinación. También compartimos fotos y videos diarios para que sigas la rutina de tu perro o gato.",
+      answer_en: "Yes, we offer scheduled visits with prior coordination. We also share daily photos and videos so you can follow your dog or cat's routine.",
       category: "comodidad",
     },
   ];
@@ -242,7 +243,7 @@ export default function Instalaciones() {
     es: {
       title: "Instalaciones - Fontfreda",
       heading: "Nuestras Instalaciones",
-      subtitle: "Descubre los espacios donde cuidamos a tu mascota",
+      subtitle: "Descubre los espacios donde cuidamos a tu perro o gato",
       categories: {
         todos: "Todas",
         parques: "Parques de Recreo",
@@ -256,7 +257,7 @@ export default function Instalaciones() {
       },
       faq: {
         title: "Preguntas Frecuentes",
-        subtitle: "Resolvemos tus dudas sobre el cuidado y seguridad de tu mascota",
+        subtitle: "Resolvemos tus dudas sobre el cuidado y seguridad de tu perro o gato",
         categories: {
           todos: "Todas",
           seguridad: "Seguridad",
@@ -268,7 +269,7 @@ export default function Instalaciones() {
     en: {
       title: "Facilities - Fontfreda",
       heading: "Our Facilities",
-      subtitle: "Discover the spaces where we care for your pet",
+      subtitle: "Discover the spaces where we care for your dog or cat",
       categories: {
         todos: "All",
         parques: "Recreation Parks",
@@ -282,7 +283,7 @@ export default function Instalaciones() {
       },
       faq: {
         title: "Frequently Asked Questions",
-        subtitle: "We answer your questions about pet care and safety",
+        subtitle: "We answer your questions about dog and cat care and safety",
         categories: {
           todos: "All",
           seguridad: "Safety",
@@ -345,6 +346,13 @@ export default function Instalaciones() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title={language === "en" ? "Fontfreda Facilities | Dog and Cat Boarding Gallery" : "Instalaciones Fontfreda | Galería de Residencia Canina y Felina"}
+        description={language === "en" ? "Discover Residencia Fontfreda facilities: 5 parks of 400-600m², 180m² exclusively for cats, individual rooms, natural spring water and 24h surveillance." : "Conoce las instalaciones de Residencia Fontfreda: 5 parques de 400-600m², 180m² exclusivos para gatos, habitaciones individuales, agua natural de manantial y vigilancia 24h."}
+        keywords={language === "en" ? "dog boarding facilities, dog parks, cat residence spaces, Fontfreda residence gallery" : "instalaciones residencia canina, parques perros, espacios gatos residencia, galería residencia Fontfreda"}
+        canonical={language === "en" ? "https://www.fontfreda.net/en/instalaciones" : "https://www.fontfreda.net/instalaciones"}
+        language={language === "en" ? "en" : "es"}
+      />
       <HrefLang currentPath={currentPath} />
       <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
 
@@ -395,6 +403,11 @@ export default function Instalaciones() {
                     <img
                       src={item.image}
                       alt={getTitle(item)}
+                      title={getTitle(item)}
+                      loading="lazy"
+                      decoding="async"
+                      width="400"
+                      height="300"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-300 flex items-end p-4">
@@ -431,6 +444,11 @@ export default function Instalaciones() {
               <img
                 src={selectedImage.image}
                 alt={getTitle(selectedImage)}
+                title={getTitle(selectedImage)}
+                loading="eager"
+                decoding="async"
+                width="800"
+                height="600"
                 className="w-full h-auto rounded-lg"
               />
 

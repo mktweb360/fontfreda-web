@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { HrefLang } from "@/components/HrefLang";
+import { SEO } from "@/components/SEO";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { useLocation, Link } from "wouter";
@@ -99,6 +100,13 @@ export default function FAQ() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title={isEnglish ? "Frequently Asked Questions | Dog and Cat Boarding FAQ | Fontfreda" : "Preguntas Frecuentes | FAQ Residencia Canina y Felina | Fontfreda"}
+        description={isEnglish ? "Answers to the most frequent questions about our dog and cat boarding. Requirements, hours, vaccines, prior assessments, pickup services and more." : "Respuestas a las preguntas más frecuentes sobre nuestra residencia canina y felina. Requisitos, horarios, vacunas, valoraciones previas, servicios de recogida y más."}
+        keywords={isEnglish ? "dog boarding FAQ, dog boarding requirements, cat boarding vaccines, boarding hours" : "preguntas frecuentes residencia perros, requisitos residencia canina, vacunas residencia gatos, horarios residencia"}
+        canonical={isEnglish ? "https://www.fontfreda.net/en/faq" : "https://www.fontfreda.net/faq"}
+        language={isEnglish ? "en" : "es"}
+      />
       <HrefLang currentPath={currentPath} />
       <Header />
 

@@ -5,6 +5,7 @@ import ServiceCard from "@/components/ServiceCard";
 import RecentBlogPosts from "@/components/RecentBlogPosts";
 import NewsletterSubscription from "@/components/NewsletterSubscription";
 import { SchemaMarkup, localBusinessSchema, organizationSchema, createBreadcrumbSchema } from "@/components/SchemaMarkup";
+import { SEO } from "@/components/SEO";
 import { Heart, Leaf, Users, Check } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { HrefLang } from "@/components/HrefLang";
@@ -29,8 +30,30 @@ export default function Home() {
     { name: "Home", url: "https://www.fontfreda.net" },
   ]);
 
+  const seoData = {
+    es: {
+      title: "Residencia Fontfreda | Residencia Canina y Felina en Barcelona",
+      description: "Residencia canina y felina en Barcelona con alojamiento familiar en plena naturaleza. 5 paseos diarios, atención personalizada, atención veterinaria y 180m² exclusivos para gatos.",
+      keywords: "residencia canina Barcelona, residencia felina, alojamiento perros y gatos, guardería canina, larga estancia perros, residencia Gelida, Alt Penedès",
+    },
+    en: {
+      title: "Fontfreda | Dog and Cat Boarding in Barcelona",
+      description: "Dog and cat boarding in Barcelona with family accommodation in nature. 5 daily walks, personalized attention, veterinary care and 180m² exclusively for cats.",
+      keywords: "dog boarding Barcelona, cat boarding, pet accommodation Barcelona, dog kennel, long-term pet boarding, Gelida residence",
+    },
+  };
+  const seo = seoData[language as "es" | "en"];
+  const canonical = language === "en" ? "https://www.fontfreda.net/en" : "https://www.fontfreda.net/";
+
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        canonical={canonical}
+        language={language as "es" | "en"}
+      />
       <HrefLang currentPath={currentPath} />
       <SchemaMarkup type="LocalBusiness" data={localBusinessSchema} />
       <SchemaMarkup type="Organization" data={organizationSchema} />
@@ -55,12 +78,12 @@ export default function Home() {
         {/* Propuesta de Valor */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
-            <h1 className="sr-only">Residencia Fontfreda - Alojamiento Familiar para Mascotas en Barcelona</h1>
+            <h1 className="sr-only">Residencia Fontfreda - Alojamiento Familiar para Perros y Gatos en Barcelona</h1>
             <h2 className="text-3xl lg:text-4xl font-bold text-center text-primary mb-4">
-              Alojamiento Familiar para Mascotas
+              Alojamiento Familiar para Perros y Gatos
             </h2>
             <p className="text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto">
-              Ubicada en el Alt Penedès, nuestra residencia canina y felina ofrece alojamiento familiar en naturaleza pura. Cada mascota recibe atención personalizada, vigilancia 24h, paseos diarios supervisados y cuidados veterinarios incluidos.
+              Ubicada en el Alt Penedès, nuestra residencia canina y felina ofrece alojamiento familiar en naturaleza pura. Cada perro o gato recibe atención personalizada, vigilancia 24h, paseos diarios supervisados y cuidados veterinarios incluidos.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -73,7 +96,7 @@ export default function Home() {
                   Un Hogar, No una Jaula
                 </h3>
                 <p className="text-muted-foreground">
-                  Tu mascota vive como parte de la familia, dentro de nuestra casa, rodeada de cuidado y cariño.
+                  Tu perro o gato vive como parte de la familia, dentro de nuestra casa, rodeada de cuidado y cariño.
                 </p>
               </div>
 
@@ -110,10 +133,10 @@ export default function Home() {
         <section className="py-20 bg-secondary">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl lg:text-4xl font-bold text-center text-primary mb-4">
-              Servicios de Alojamiento para Mascotas
+              Servicios de Alojamiento para Perros y Gatos
             </h2>
             <p className="text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto">
-              Ofrecemos diferentes opciones de alojamiento adaptadas a las necesidades de tu mascota
+              Ofrecemos diferentes opciones de alojamiento adaptadas a las necesidades de tu perro o gato
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -145,7 +168,7 @@ export default function Home() {
                 Residencia Canina de Larga Estancia
               </h3>
               <p className="text-foreground mb-6">
-                Nos ocupamos de tu mascota durante todo el tiempo que necesites. Precios especiales para estancias de meses o años.
+                Nos ocupamos de tu perro o gato durante todo el tiempo que necesites. Precios especiales para estancias de meses o años.
               </p>
               <ul className="space-y-2 mb-6">
                 <li className="flex gap-2">
@@ -275,7 +298,12 @@ export default function Home() {
               <div className="rounded-lg overflow-hidden">
                 <img
                   src={instalacionesImageUrl}
-                  alt="Instalaciones de Residencia Fontfreda"
+                  alt="Instalaciones de Residencia Fontfreda - Espacios para perros y gatos en Barcelona"
+                  title="Instalaciones de Residencia Fontfreda"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="384"
                   className="w-full h-96 object-cover rounded-lg"
                 />
               </div>
@@ -287,10 +315,10 @@ export default function Home() {
         <section className="py-20 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-              ¿Listo para que tu mascota disfrute?
+              ¿Listo para que tu perro o gato disfrute?
             </h2>
             <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-              Contacta con nosotros hoy mismo. Realizamos una valoración previa individual para asegurar que nuestro modelo de alojamiento familiar es adecuado para tu mascota.
+              Contacta con nosotros hoy mismo. Realizamos una valoración previa individual para asegurar que nuestro modelo de alojamiento familiar es adecuado para tu perro o gato.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

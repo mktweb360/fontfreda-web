@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SchemaMarkup, createBreadcrumbSchema } from "@/components/SchemaMarkup";
+import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
 import { Clock, Users, Heart, Shield, Zap, CheckCircle } from "lucide-react";
 import { useLocation } from "wouter";
@@ -240,6 +241,13 @@ export default function Guarderia() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title={language === "en" ? "Dog Daycare in Barcelona | Hours 9:00-15:30 | Fontfreda" : "Guardería Canina en Barcelona | Horario 9:00-15:30 | Fontfreda"}
+        description={language === "en" ? "Dog daycare in Barcelona. Hours 9:00-12:30 and 14:00-15:30. Outdoor box €20, indoor with heating €28, individual room €40. Special rates for puppies." : "Guardería canina en Barcelona. Horario 9:00-12:30 y 14:00-15:30. Box exterior 20€, interior con calefacción 28€, habitación individual 40€. Tarifas especiales para cachorros."}
+        keywords={language === "en" ? "dog daycare Barcelona, dog daycare Gelida, daily dog care, dog daycare with heating" : "guardería canina Barcelona, guardería perros Gelida, daycare perros, cuidado perros día, guardería con calefacción"}
+        canonical={language === "en" ? "https://www.fontfreda.net/en/guarderia" : "https://www.fontfreda.net/guarderia"}
+        language={language === "en" ? "en" : "es"}
+      />
       <HrefLang currentPath={currentPath} />
       <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
 

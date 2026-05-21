@@ -23,7 +23,7 @@ export default function PoliticaPrivacidad() {
         },
         {
           heading: "2. Datos que recopilamos",
-          text: "Recopilamos datos personales que proporcionas voluntariamente a través de nuestros formularios de contacto y reserva, incluyendo nombre, email, teléfono e información sobre tu mascota.",
+          text: "Recopilamos datos personales que proporcionas voluntariamente a través de nuestros formularios de contacto y reserva, incluyendo nombre, email, teléfono e información sobre tu perro o gato.",
         },
         {
           heading: "3. Cómo utilizamos tus datos",

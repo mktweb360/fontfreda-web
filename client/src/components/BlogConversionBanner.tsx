@@ -35,7 +35,7 @@ export default function BlogConversionBanner({
 
   const content = {
     es: {
-      title: "¿Necesitas cuidado profesional para tu mascota?",
+      title: "¿Necesitas cuidado profesional para tu perro o gato?",
       subtitle:
         "En Fontfreda ofrecemos servicios especializados con atención personalizada",
       benefits: [
@@ -48,7 +48,7 @@ export default function BlogConversionBanner({
       contact: "O contacta con nosotros",
     },
     en: {
-      title: "Does your pet need professional care?",
+      title: "Does your dog or cat need professional care?",
       subtitle:
         "At Fontfreda we offer specialized services with personalized attention",
       benefits: [

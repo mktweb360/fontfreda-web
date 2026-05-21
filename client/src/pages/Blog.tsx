@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { HrefLang } from "@/components/HrefLang";
+import { SEO } from "@/components/SEO";
 import { Calendar, User, ArrowRight } from "lucide-react";
 import { Link, useLocation } from "wouter";
 
@@ -198,6 +199,13 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title={isEnglish ? "Fontfreda Blog | Tips on Dog and Cat Care" : "Blog Fontfreda | Consejos sobre Cuidado de Perros y Gatos"}
+        description={isEnglish ? "Blog with articles on dog and cat care. Tips on behavior, health, nutrition, travel, adoption and animal welfare. By industry professionals." : "Blog con artículos sobre cuidado de perros y gatos. Consejos de comportamiento, salud, alimentación, viajes, adopción y bienestar animal. Por profesionales del sector."}
+        keywords={isEnglish ? "dog and cat blog, dog tips, cat care, dog behavior, cat welfare, veterinary blog" : "blog perros y gatos, consejos perros, cuidado gatos, comportamiento canino, bienestar felino, blog veterinario"}
+        canonical={isEnglish ? "https://www.fontfreda.net/en/blog" : "https://www.fontfreda.net/blog"}
+        language={isEnglish ? "en" : "es"}
+      />
       <HrefLang currentPath={currentPath} />
       <Header />
 

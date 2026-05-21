@@ -55,7 +55,12 @@ export default function Footer() {
           <div>
             <img
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663312171860/bgwiNGuCssyOGZsN.png"
-              alt="Fontfreda"
+              alt="Logo Residencia Fontfreda - Residencia canina y felina en Barcelona"
+              title="Residencia Fontfreda"
+              loading="lazy"
+              decoding="async"
+              width="160"
+              height="40"
               className="h-10 w-auto mb-4 bg-transparent"
             />
             <p className="text-sm text-muted-foreground">{t.about}</p>

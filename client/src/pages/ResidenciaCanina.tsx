@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import { SchemaMarkup, createServiceSchema, createFAQSchema, createBreadcrumbSchema } from "@/components/SchemaMarkup";
+import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
 import { Check, MapPin, Heart, Utensils, Pill, Users } from "lucide-react";
 import { useLocation } from "wouter";
@@ -208,8 +209,29 @@ export default function ResidenciaCanina() {
 
   const featureIcons = [MapPin, Utensils, Heart, Pill, Users, Heart];
 
+  const seoTitle = isEnglish
+    ? "Dog Boarding in Barcelona | Family Accommodation for Dogs | Fontfreda"
+    : "Residencia Canina en Barcelona | Alojamiento Familiar para Perros | Fontfreda";
+  const seoDescription = isEnglish
+    ? "Family boarding for dogs in Barcelona. Individual rooms, 5 daily walks in nature, 24h supervision and veterinary care included. Short and long stays."
+    : "Residencia canina familiar en Barcelona. Habitaciones individuales, 5 paseos diarios en naturaleza, vigilancia 24h y atención veterinaria incluida. Estancias cortas y largas.";
+  const seoKeywords = isEnglish
+    ? "dog boarding Barcelona, family dog accommodation, dog kennel Gelida, dog hotel Alt Penedès, daily walks for dogs"
+    : "residencia canina Barcelona, alojamiento familiar perros, residencia perros Gelida, hotel canino Alt Penedès, paseos diarios perros, residencia canina con piscina";
+  const canonical = isEnglish
+    ? "https://www.fontfreda.net/en/residencia-canina"
+    : "https://www.fontfreda.net/residencia-canina";
+
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+        keywords={seoKeywords}
+        canonical={canonical}
+        language={isEnglish ? "en" : "es"}
+        ogImage={heroImageUrl}
+      />
       <HrefLang currentPath={currentPath} />
       <SchemaMarkup type="Service" data={serviceSchema} />
       <SchemaMarkup type="FAQPage" data={faqSchema} />

@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SchemaMarkup, createBreadcrumbSchema } from "@/components/SchemaMarkup";
+import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, AlertCircle, Check } from "lucide-react";
@@ -325,6 +326,13 @@ export default function Contacto() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title={language === "en" ? "Contact Fontfreda | Book Dog and Cat Boarding | Barcelona" : "Contacto Fontfreda | Reserva Residencia Canina y Felina | Barcelona"}
+        description={language === "en" ? "Contact Residencia Fontfreda in Gelida, Barcelona. Book by phone, WhatsApp or form. Personalized attention and quick response. Pickup services available." : "Contacta con Residencia Fontfreda en Gelida, Barcelona. Reserva por teléfono, WhatsApp o formulario. Atención personalizada y respuesta rápida. Servicios de recogida disponibles."}
+        keywords={language === "en" ? "contact dog boarding, book pet accommodation Barcelona, Fontfreda residence phone, residence WhatsApp" : "contacto residencia canina, reserva alojamiento perros gatos Barcelona, teléfono residencia Fontfreda, WhatsApp residencia"}
+        canonical={language === "en" ? "https://www.fontfreda.net/en/contacto" : "https://www.fontfreda.net/contacto"}
+        language={language === "en" ? "en" : "es"}
+      />
       <HrefLang currentPath={currentPath} />
       <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
 

@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import { SchemaMarkup, createServiceSchema, createFAQSchema, createBreadcrumbSchema } from "@/components/SchemaMarkup";
+import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
 import { Check, Leaf, Lightbulb, Utensils, Pill, Heart } from "lucide-react";
 import { useLocation } from "wouter";
@@ -124,6 +125,13 @@ export default function ResidenciaFelina() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title={isEnglish ? "Cat Boarding in Barcelona | 180m² Exclusive for Cats | Fontfreda" : "Residencia Felina en Barcelona | 180m² Exclusivos para Gatos | Fontfreda"}
+        description={isEnglish ? "Cat boarding in Barcelona with 180m² exclusively for cats. Spaces separated from dogs, personalized attention, quiet and safe environment. Book now." : "Residencia felina en Barcelona con 180m² exclusivos para gatos. Espacios separados de perros, atención personalizada, ambiente tranquilo y seguro. Reserva ahora."}
+        keywords={isEnglish ? "cat boarding Barcelona, cat hotel Barcelona, cat residence Gelida, feline accommodation, cat care vacation" : "residencia felina Barcelona, hotel gatos Barcelona, residencia gatos Gelida, alojamiento felino, cuidado gatos vacaciones"}
+        canonical={isEnglish ? "https://www.fontfreda.net/en/residencia-felina" : "https://www.fontfreda.net/residencia-felina"}
+        language={isEnglish ? "en" : "es"}
+      />
       <HrefLang currentPath={currentPath} />
       <SchemaMarkup type="Service" data={serviceSchema} />
       <SchemaMarkup type="FAQPage" data={faqSchema} />

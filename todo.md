@@ -56,3 +56,21 @@
 - [x] Corregir LanguageContext para switch correcto de idiomas
 - [x] Traducir Footer.tsx completamente
 - [x] Reemplazar "mascota"/"pet" por "perro y gato"/"dog and cat" en translations.ts
+
+
+## Auditoría y Optimización On-Page Completa
+
+- [ ] Auditoría inicial del estado actual de SEO on-page en todas las páginas
+- [ ] Optimizar etiquetado HTML: title, meta description, h1-h6 en todas las páginas
+- [ ] Optimizar Open Graph y Twitter Cards en todas las páginas
+- [ ] Optimizar Schema Markup JSON-LD por tipo de página (LocalBusiness, Service, BlogPosting, FAQPage, BreadcrumbList)
+- [ ] Optimizar contenido textual con keywords objetivo por página
+- [ ] Optimizar enlaces internos (linkin) y externos (outlink)
+- [ ] Optimizar imágenes: lazy loading, alt descriptivos, title, dimensiones, formato WebP
+- [ ] Optimizar tiempos de carga y configuración de caché
+- [ ] Optimizar textos destacados y CTAs
+- [ ] Verificar y mejorar sección FAQ con Schema FAQPage
+- [ ] Verificar Call to Actions en todas las páginas
+- [ ] Verificar integración GA4, GTM, Google Ads y Search Console
+- [ ] Verificar funcionamiento de formularios, WhatsApp y teléfono de contacto
+- [ ] Generar reporte final de auditoría y optimización on-page
