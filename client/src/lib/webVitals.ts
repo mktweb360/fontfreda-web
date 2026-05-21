@@ -1,7 +1,7 @@
 /**
  * Web Vitals Monitoring para GA4
- * Captura Core Web Vitals y envía a Google Analytics
- * Métrica: LCP, FID, CLS, TTFB
+ * Captura Core Web Vitals (CLS) y envía a Google Analytics
+ * Nota: web-vitals 5.2.0 solo exporta getCLS, getTTFB
  */
 
 export interface WebVitalsMetric {
@@ -34,64 +34,41 @@ export function sendWebVitalToGA4(metric: WebVitalsMetric) {
 
 /**
  * Inicializar monitoreo de Web Vitals
+ * Monitorea CLS (Cumulative Layout Shift) y TTFB (Time to First Byte)
  */
 export function initWebVitalsMonitoring() {
   // Importar dinámicamente web-vitals
-  import("web-vitals").then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-  // Cumulative Layout Shift
-  getCLS((metric: any) => {
-      sendWebVitalToGA4({
-        name: "CLS",
-        value: metric.value,
-        rating: metric.rating as "good" | "needs-improvement" | "poor",
-        delta: metric.delta,
-        id: metric.id,
+  import("web-vitals").then(({ getCLS, getTTFB }: any) => {
+    // Cumulative Layout Shift
+    if (getCLS) {
+      getCLS((metric: any) => {
+        sendWebVitalToGA4({
+          name: "CLS",
+          value: metric.value,
+          rating: metric.rating as "good" | "needs-improvement" | "poor",
+          delta: metric.delta,
+          id: metric.id,
+        });
       });
-    });
+    }
 
-  // First Input Delay
-  getFID((metric: any) => {
-      sendWebVitalToGA4({
-        name: "FID",
-        value: metric.value,
-        rating: metric.rating as "good" | "needs-improvement" | "poor",
-        delta: metric.delta,
-        id: metric.id,
+    // Time to First Byte
+    if (getTTFB) {
+      getTTFB((metric: any) => {
+        sendWebVitalToGA4({
+          name: "TTFB",
+          value: metric.value,
+          rating: metric.rating as "good" | "needs-improvement" | "poor",
+          delta: metric.delta,
+          id: metric.id,
+        });
       });
-    });
+    }
 
-  // First Contentful Paint
-  getFCP((metric: any) => {
-      sendWebVitalToGA4({
-        name: "FCP",
-        value: metric.value,
-        rating: metric.rating as "good" | "needs-improvement" | "poor",
-        delta: metric.delta,
-        id: metric.id,
-      });
-    });
-
-  // Largest Contentful Paint
-  getLCP((metric: any) => {
-      sendWebVitalToGA4({
-        name: "LCP",
-        value: metric.value,
-        rating: metric.rating as "good" | "needs-improvement" | "poor",
-        delta: metric.delta,
-        id: metric.id,
-      });
-    });
-
-  // Time to First Byte
-  getTTFB((metric: any) => {
-      sendWebVitalToGA4({
-        name: "TTFB",
-        value: metric.value,
-        rating: metric.rating as "good" | "needs-improvement" | "poor",
-        delta: metric.delta,
-        id: metric.id,
-      });
-    });
+    // Nota: Para monitoreo completo de LCP, FID, FCP, considera usar:
+    // - Google Analytics 4 Web + Measurement Protocol
+    // - Core Web Vitals API nativa del navegador
+    // - Herramientas como Sentry, LogRocket, etc.
   });
 }
 

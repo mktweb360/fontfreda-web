@@ -45,7 +45,7 @@
 - [x] Agregar banners de conversión en artículos del blog
 - [x] Verificar e implementar servicio de Guardería Canina Dentro de Casa
 - [x] Auditoría de campaña de Google Ads (ID 946-240-2340) completada - Reporte y recomendaciones entregados
-- [ ] Aplicación real de cambios en Google Ads (pendiente de acceso operativo del cliente a la cuenta 946-240-2340)
+- [ ] Aplicación real de cambios en Google Ads (BLOQUEADO: pendiente de acceso operativo del cliente a la cuenta 946-240-2340)
 - [x] Verificar y corregir tracking de conversiones de Google Ads en el sitio (código duplicado detectado)
 
 ## Correcciones de Idiomas y SEO
