@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { HrefLang } from "@/components/HrefLang";
 import { SEO } from "@/components/SEO";
+import { SchemaMarkup, createFAQSchema, createBreadcrumbSchema } from "@/components/SchemaMarkup";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { useLocation, Link } from "wouter";
@@ -108,6 +109,27 @@ export default function FAQ() {
         language={isEnglish ? "en" : "es"}
       />
       <HrefLang currentPath={currentPath} />
+      <SchemaMarkup
+        type="FAQPage"
+        data={createFAQSchema(
+          (isEnglish ? faqItemsEN : faqItemsES).map((item) => ({
+            question: item.pregunta,
+            answer: item.respuesta,
+          })),
+        )}
+      />
+      <SchemaMarkup
+        type="BreadcrumbList"
+        data={createBreadcrumbSchema([
+          { name: isEnglish ? "Home" : "Inicio", url: "https://www.fontfreda.net" },
+          {
+            name: isEnglish ? "FAQ" : "Preguntas Frecuentes",
+            url: isEnglish
+              ? "https://www.fontfreda.net/en/faq"
+              : "https://www.fontfreda.net/faq",
+          },
+        ])}
+      />
       <Header />
 
       <main className="flex-grow">

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'wouter';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { SEO } from '@/components/SEO';
 import { CheckCircle, AlertCircle, Loader } from 'lucide-react';
 
 export default function ConfirmarNewsletter() {
@@ -51,6 +52,14 @@ export default function ConfirmarNewsletter() {
   }, []);
 
   return (
+    <>
+      <SEO
+        title="Confirmar suscripción al newsletter | Fontfreda"
+        description="Página de confirmación de suscripción al newsletter de Fontfreda."
+        canonical="https://www.fontfreda.net/confirmar-newsletter"
+        language="es"
+        noindex={true}
+      />
     <div className="min-h-screen flex flex-col">
       <Header />
 
@@ -136,5 +145,6 @@ export default function ConfirmarNewsletter() {
 
       <Footer />
     </div>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
+import { trackWhatsAppClick } from "@/lib/conversionTracking";
 
 export default function WhatsAppButton() {
   const [language, setLanguage] = useState<"es" | "en">("es");
@@ -26,6 +27,7 @@ export default function WhatsAppButton() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackWhatsAppClick("floating_button")}
       className="fixed bottom-6 right-6 z-40 group"
       aria-label="Contactar por WhatsApp"
     >

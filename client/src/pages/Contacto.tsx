@@ -282,6 +282,18 @@ export default function Contacto() {
 
       const result = await response.json();
       setSubmitStatus('success');
+
+      // Tracking de conversión Google Ads + GA4
+      try {
+        const { trackContactFormSubmission } = await import("@/lib/conversionTracking");
+        trackContactFormSubmission({
+          servicio: formData.servicio,
+          origen: "contacto_page",
+        });
+      } catch (err) {
+        console.warn("Conversion tracking failed", err);
+      }
+
       toast.success(language === 'es' ? 'Solicitud enviada correctamente. Nos pondremos en contacto pronto.' : 'Request sent successfully. We will contact you soon.');
 
       setTimeout(() => {

@@ -128,7 +128,17 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <Phone className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                <a href="tel:+34937790311" className="text-muted-foreground hover:text-primary transition-colors">
+                <a
+                  href="tel:+34937790311"
+                  onClick={() => {
+                    if (typeof window !== "undefined") {
+                      import("@/lib/conversionTracking").then((m) =>
+                        m.trackPhoneClick("footer"),
+                      );
+                    }
+                  }}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   +34 93 779 03 11
                 </a>
               </li>

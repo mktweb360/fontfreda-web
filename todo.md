@@ -46,7 +46,7 @@
 - [x] Verificar e implementar servicio de Guardería Canina Dentro de Casa
 - [x] Auditoría de campaña de Google Ads (ID 946-240-2340) completada - Reporte y recomendaciones entregados
 - [ ] Aplicación real de cambios en Google Ads pendiente de acceso operativo a la cuenta
-- [ ] Verificar y corregir tracking de conversiones de Google Ads en el sitio (código duplicado detectado)
+- [x] Verificar y corregir tracking de conversiones de Google Ads en el sitio (código duplicado detectado)
 
 ## Correcciones de Idiomas y SEO
 
@@ -60,17 +60,17 @@
 
 ## Auditoría y Optimización On-Page Completa
 
-- [ ] Auditoría inicial del estado actual de SEO on-page en todas las páginas
-- [ ] Optimizar etiquetado HTML: title, meta description, h1-h6 en todas las páginas
-- [ ] Optimizar Open Graph y Twitter Cards en todas las páginas
-- [ ] Optimizar Schema Markup JSON-LD por tipo de página (LocalBusiness, Service, BlogPosting, FAQPage, BreadcrumbList)
-- [ ] Optimizar contenido textual con keywords objetivo por página
-- [ ] Optimizar enlaces internos (linkin) y externos (outlink)
-- [ ] Optimizar imágenes: lazy loading, alt descriptivos, title, dimensiones, formato WebP
-- [ ] Optimizar tiempos de carga y configuración de caché
-- [ ] Optimizar textos destacados y CTAs
-- [ ] Verificar y mejorar sección FAQ con Schema FAQPage
-- [ ] Verificar Call to Actions en todas las páginas
-- [ ] Verificar integración GA4, GTM, Google Ads y Search Console
-- [ ] Verificar funcionamiento de formularios, WhatsApp y teléfono de contacto
-- [ ] Generar reporte final de auditoría y optimización on-page
+- [x] Auditoría inicial del estado actual de SEO on-page en todas las páginas
+- [x] Optimizar etiquetado HTML: title, meta description, h1-h6 en todas las páginas
+- [x] Optimizar Open Graph y Twitter Cards en todas las páginas
+- [x] Optimizar Schema Markup JSON-LD por tipo de página (LocalBusiness, Service, BlogPosting, FAQPage, BreadcrumbList)
+- [x] Optimizar contenido textual con keywords objetivo por página
+- [x] Optimizar enlaces internos (linkin) y externos (outlink)
+- [x] Optimizar imágenes: lazy loading, alt descriptivos, title, dimensiones, formato WebP
+- [x] Optimizar tiempos de carga y configuración de caché
+- [x] Optimizar textos destacados y CTAs
+- [x] Verificar y mejorar sección FAQ con Schema FAQPage
+- [x] Verificar Call to Actions en todas las páginas
+- [x] Verificar integración GA4, GTM, Google Ads y Search Console
+- [x] Verificar funcionamiento de formularios, WhatsApp y teléfono de contacto
+- [x] Generar reporte final de auditoría y optimización on-page
