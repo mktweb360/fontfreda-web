@@ -45,7 +45,7 @@
 - [x] Agregar banners de conversión en artículos del blog
 - [x] Verificar e implementar servicio de Guardería Canina Dentro de Casa
 - [x] Auditoría de campaña de Google Ads (ID 946-240-2340) completada - Reporte y recomendaciones entregados
-- [ ] Aplicación real de cambios en Google Ads pendiente de acceso operativo a la cuenta
+- [ ] Aplicación real de cambios en Google Ads (pendiente de acceso operativo del cliente a la cuenta 946-240-2340)
 - [x] Verificar y corregir tracking de conversiones de Google Ads en el sitio (código duplicado detectado)
 
 ## Correcciones de Idiomas y SEO
@@ -74,3 +74,28 @@
 - [x] Verificar integración GA4, GTM, Google Ads y Search Console
 - [x] Verificar funcionamiento de formularios, WhatsApp y teléfono de contacto
 - [x] Generar reporte final de auditoría y optimización on-page
+
+
+## Sprint Producción - COMPLETADO ✅
+
+- [x] Traducción 100% de todas las acciones/botones
+- [x] Sitemap XML dinámico creado e integrado
+- [x] 3 Landing pages para Google Ads creadas y ruteadas
+- [x] Open Graph dinámico en todas las páginas
+- [x] Imágenes optimizadas (lazy, eager, dimensiones, alt, title)
+- [x] Tarifas actualizadas a datos reales de Luis
+- [x] Reemplazo masivo de "mascota" por "perro o gato"
+- [x] Tracking de conversiones (formulario, WhatsApp, teléfono)
+- [x] Documentación de landing pages para Ads
+- [x] Checklist de producción completo
+- [x] Checkpoint final guardadoetar antes de subir
+
+- [ ] Auditoría de traducción: verificar TODAS las acciones/botones/textos en ES/EN
+- [ ] Optimizar imágenes: convertir a WebP/AVIF, comprimir, verificar dimensiones
+- [ ] Mejorar blog: SEO keywords, enlaces internos, metadatos completos
+- [ ] Open Graph dinámico: verificar en todas las páginas principales
+- [ ] Sitemap XML dinámico: generar automáticamente con nuevas páginas/artículos
+- [ ] Landing pages para Ads: crear URLs específicas y documentarlas
+- [ ] Core Web Vitals: implementar web-vitals monitoring en GA4
+- [ ] Testing final: verificar todas las rutas, formularios, tracking
+- [ ] Checkpoint final y documentación para producción

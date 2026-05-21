@@ -25,6 +25,9 @@ import ConfirmarNewsletter from "./pages/ConfirmarNewsletter";
 import PoliticaCookies from "./pages/PoliticaCookies";
 import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
 import AvisoLegal from "./pages/AvisoLegal";
+import LandingAdsCanina from "./pages/LandingAdsCanina";
+import LandingAdsFelina from "./pages/LandingAdsFelina";
+import LandingAdsLargaEstancia from "./pages/LandingAdsLargaEstancia";
 
 function Router() {
   return (
@@ -78,6 +81,14 @@ function Router() {
       <Route path="/en/ads/larga-estancia" component={LandingLargaEstancia} />
       <Route path="/en/ads/residencia-canina" component={LandingResidenciaCanina} />
       <Route path="/en/ads/residencia-felina" component={LandingResidenciaFelina} />
+
+      {/* New Ads Landing Pages (SEO-optimized URLs) */}
+      <Route path="/residencia-canina-barcelona" component={LandingAdsCanina} />
+      <Route path="/residencia-felina-barcelona" component={LandingAdsFelina} />
+      <Route path="/larga-estancia-perros-gatos" component={LandingAdsLargaEstancia} />
+      <Route path="/en/dog-boarding-barcelona" component={LandingAdsCanina} />
+      <Route path="/en/cat-boarding-barcelona" component={LandingAdsFelina} />
+      <Route path="/en/long-term-boarding" component={LandingAdsLargaEstancia} />
 
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}

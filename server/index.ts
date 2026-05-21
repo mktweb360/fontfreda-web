@@ -4,6 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { sendContactEmail, sendReservaEmail, type ContactFormData, type ReservaFormData } from "./email";
 import newsletterRouter from "./routers/newsletter-express";
+import sitemapRouter from "./routes/sitemap";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,6 +19,9 @@ async function startServer() {
 
   // Newsletter routes
   app.use("/api/newsletter", newsletterRouter);
+
+  // Sitemap route
+  app.use("/", sitemapRouter);
 
   // API endpoints for form submissions
   app.post("/api/contact", async (req, res) => {
