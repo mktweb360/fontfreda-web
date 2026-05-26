@@ -206,6 +206,49 @@ export const pageTranslations = {
     },
   },
 
+  instalaciones: {
+    es: {
+      title: "Instalaciones | Residencia Fontfreda",
+      description: "Conoce nuestras instalaciones naturales en el Alt Penedès con 5 parques, 180m² para gatos y vigilancia 24h",
+      heading: "Nuestras Instalaciones",
+      subtitle: "Ubicadas en plena naturaleza para el máximo bienestar de perros y gatos",
+    },
+    en: {
+      title: "Facilities | Fontfreda Residence",
+      description: "Discover our natural facilities in Alt Penedès with 5 parks, 180m² for cats and 24-hour surveillance",
+      heading: "Our Facilities",
+      subtitle: "Located in the heart of nature for maximum wellbeing of dogs and cats",
+    },
+  },
+
+  blog: {
+    es: {
+      title: "Blog | Residencia Fontfreda",
+      description: "Consejos, noticias y artículos sobre cuidado de perros y gatos",
+      heading: "Blog de Residencia Fontfreda",
+      subtitle: "Consejos y noticias sobre el cuidado de perros y gatos",
+    },
+    en: {
+      title: "Blog | Fontfreda Residence",
+      description: "Tips, news and articles about dog and cat care",
+      heading: "Fontfreda Residence Blog",
+      subtitle: "Tips and news about dog and cat care",
+    },
+  },
+
+  faq: {
+    es: {
+      title: "Preguntas Frecuentes | Residencia Fontfreda",
+      description: "Respuestas a las preguntas más frecuentes sobre nuestros servicios",
+      heading: "Preguntas Frecuentes",
+    },
+    en: {
+      title: "FAQ | Fontfreda Residence",
+      description: "Answers to frequently asked questions about our services",
+      heading: "Frequently Asked Questions",
+    },
+  },
+
   common: {
     es: {
       residenciaCanina: "Residencia Canina",
