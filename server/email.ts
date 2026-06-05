@@ -12,7 +12,7 @@ export function getEmailTransporter() {
     transporter = nodemailer.createTransport({
       host: smtpHost,
       port: smtpPort,
-      secure: true, // true for 465, false for other ports
+      secure: false, // true for 465, false for other ports
       auth: {
         user: smtpUser,
         pass: smtpPassword,
