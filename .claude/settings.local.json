@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(wsl -d Ubuntu -- bash -c \"cd /home/mktwe/fontfreda-web && git add -A && git commit -m 'Fix selector de idioma - usar LanguageContext en Header' && git push origin main\")"
+    ]
+  }
+}
