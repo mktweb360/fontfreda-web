@@ -1,134 +1,74 @@
-import nodemailer from "nodemailer";
+import axios from "axios";
 
-let transporter: ReturnType<typeof nodemailer.createTransport> | null = null;
+const BREVO_API_URL = "https://api.brevo.com/v3/smtp/email";
 
-export function getEmailTransporter() {
-  if (!transporter) {
-    const smtpHost = process.env.SMTP_HOST || "mail.fontfreda.net";
-    const smtpPort = parseInt(process.env.SMTP_PORT || "465");
-    const smtpUser = process.env.SMTP_USER || "info@fontfreda.net";
-    const smtpPassword = process.env.SMTP_PASSWORD || "";
-
-    transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: smtpPort,
-      secure: false, // true for 465, false for other ports
-      auth: {
-        user: smtpUser,
-        pass: smtpPassword,
-      },
-    });
-  }
-  return transporter;
+async function sendEmail(to: string, subject: string, html: string, replyTo?: string) {
+  await axios.post(BREVO_API_URL, {
+    sender: { name: "Fontfreda", email: "info@fontfreda.net" },
+    to: [{ email: to }],
+    subject,
+    htmlContent: html,
+    ...(replyTo && { replyTo: { email: replyTo } })
+  }, {
+    headers: {
+      "api-key": process.env.BREVO_API_KEY,
+      "Content-Type": "application/json"
+    }
+  });
 }
 
-export interface ContactFormData {
-  nombre: string;
-  email: string;
-  telefono: string;
-  asunto: string;
-  mensaje: string;
-}
-
-export interface ReservaFormData {
-  nombre: string;
-  email: string;
-  telefono: string;
-  servicio: string;
-  fechaEntrada: string;
-  fechaSalida: string;
-  nombreMascota: string;
-  tipoMascota: string;
-  raza?: string;
-  edad?: string;
-  requisitosEspeciales?: string;
-}
-
-export async function sendContactEmail(data: ContactFormData) {
-  const transporter = getEmailTransporter();
-
-  const htmlContent = `
-    <h2>Nueva consulta de contacto</h2>
+export async function sendContactEmail(data: any) {
+  await sendEmail(
+    "info@fontfreda.net",
+    `Nueva consulta: ${data.asunto}`,
+    `<h2>Nueva consulta de contacto</h2>
     <p><strong>Nombre:</strong> ${data.nombre}</p>
     <p><strong>Email:</strong> ${data.email}</p>
     <p><strong>Teléfono:</strong> ${data.telefono}</p>
     <p><strong>Asunto:</strong> ${data.asunto}</p>
     <p><strong>Mensaje:</strong></p>
-    <p>${data.mensaje.replace(/\n/g, "<br>")}</p>
-  `;
-
-  // Email to owner
-  await transporter.sendMail({
-    from: process.env.SMTP_USER || "info@fontfreda.net",
-    to: "info@fontfreda.net",
-    subject: `Nueva consulta: ${data.asunto}`,
-    html: htmlContent,
-    replyTo: data.email,
-  });
-
-  // Confirmation email to client
-  const confirmationHtml = `
-    <h2>Hemos recibido tu consulta</h2>
+    <p>${data.mensaje.replace(/\n/g, "<br>")}</p>`,
+    data.email
+  );
+  await sendEmail(
+    data.email,
+    "Hemos recibido tu consulta - Fontfreda",
+    `<h2>Hemos recibido tu consulta</h2>
     <p>Hola ${data.nombre},</p>
-    <p>Gracias por contactarnos. Hemos recibido tu consulta y nos pondremos en contacto contigo pronto.</p>
-    <p><strong>Datos de tu consulta:</strong></p>
+    <p>Gracias por contactarnos. Nos pondremos en contacto contigo pronto.</p>
     <p><strong>Asunto:</strong> ${data.asunto}</p>
     <p><strong>Mensaje:</strong></p>
     <p>${data.mensaje.replace(/\n/g, "<br>")}</p>
-    <p>Un saludo,<br>Equipo Fontfreda</p>
-  `;
-
-  await transporter.sendMail({
-    from: process.env.SMTP_USER || "info@fontfreda.net",
-    to: data.email,
-    subject: "Hemos recibido tu consulta - Fontfreda",
-    html: confirmationHtml,
-  });
+    <p>Un saludo,<br>Equipo Fontfreda</p>`
+  );
 }
 
-export async function sendReservaEmail(data: ReservaFormData) {
-  const transporter = getEmailTransporter();
-
-  const htmlContent = `
-    <h2>Nueva solicitud de reserva</h2>
+export async function sendReservaEmail(data: any) {
+  await sendEmail(
+    "info@fontfreda.net",
+    `Nueva solicitud de reserva - ${data.nombreMascota}`,
+    `<h2>Nueva solicitud de reserva</h2>
     <p><strong>Nombre:</strong> ${data.nombre}</p>
     <p><strong>Email:</strong> ${data.email}</p>
     <p><strong>Teléfono:</strong> ${data.telefono}</p>
     <p><strong>Servicio:</strong> ${data.servicio}</p>
-    <p><strong>Fecha de entrada:</strong> ${data.fechaEntrada}</p>
-    <p><strong>Fecha de salida:</strong> ${data.fechaSalida}</p>
-    <p><strong>Nombre de la mascota:</strong> ${data.nombreMascota}</p>
-    <p><strong>Tipo de mascota:</strong> ${data.tipoMascota}</p>
+    <p><strong>Fecha entrada:</strong> ${data.fechaEntrada}</p>
+    <p><strong>Fecha salida:</strong> ${data.fechaSalida}</p>
+    <p><strong>Mascota:</strong> ${data.nombreMascota} (${data.tipoMascota})</p>
     ${data.raza ? `<p><strong>Raza:</strong> ${data.raza}</p>` : ""}
     ${data.edad ? `<p><strong>Edad:</strong> ${data.edad}</p>` : ""}
-    ${data.requisitosEspeciales ? `<p><strong>Requisitos especiales:</strong> ${data.requisitosEspeciales}</p>` : ""}
-  `;
-
-  // Email to owner
-  await transporter.sendMail({
-    from: process.env.SMTP_USER || "info@fontfreda.net",
-    to: "info@fontfreda.net",
-    subject: `Nueva solicitud de reserva - ${data.nombreMascota}`,
-    html: htmlContent,
-    replyTo: data.email,
-  });
-
-  // Confirmation email to client
-  const confirmationHtml = `
-    <h2>Hemos recibido tu solicitud de reserva</h2>
+    ${data.requisitosEspeciales ? `<p><strong>Requisitos:</strong> ${data.requisitosEspeciales}</p>` : ""}`,
+    data.email
+  );
+  await sendEmail(
+    data.email,
+    "Solicitud de reserva recibida - Fontfreda",
+    `<h2>Hemos recibido tu solicitud de reserva</h2>
     <p>Hola ${data.nombre},</p>
-    <p>Gracias por confiar en Fontfreda. Hemos recibido tu solicitud de reserva y nos pondremos en contacto contigo pronto para confirmar disponibilidad y detalles.</p>
-    <p><strong>Resumen de tu solicitud:</strong></p>
+    <p>Gracias por confiar en Fontfreda. Confirmaremos disponibilidad pronto.</p>
     <p><strong>Mascota:</strong> ${data.nombreMascota} (${data.tipoMascota})</p>
     <p><strong>Servicio:</strong> ${data.servicio}</p>
     <p><strong>Fechas:</strong> ${data.fechaEntrada} a ${data.fechaSalida}</p>
-    <p>Un saludo,<br>Equipo Fontfreda</p>
-  `;
-
-  await transporter.sendMail({
-    from: process.env.SMTP_USER || "info@fontfreda.net",
-    to: data.email,
-    subject: "Solicitud de reserva recibida - Fontfreda",
-    html: confirmationHtml,
-  });
+    <p>Un saludo,<br>Equipo Fontfreda</p>`
+  );
 }
