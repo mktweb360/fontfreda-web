@@ -344,26 +344,38 @@ export default function LandingAdsFelina() {
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-br from-primary/10 to-secondary">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">{content.heading}</h1>
-              <p className="text-xl text-muted-foreground mb-8">{content.subheading}</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white"
-                  onClick={scrollToForm}
-                >
-                  {content.cta}
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  onClick={() => navigate(isEnglish ? "/en/contacto" : "/contacto")}
-                >
-                  {content.ctaSecondary}
-                </Button>
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+              <div className="text-center md:text-left">
+                <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">{content.heading}</h1>
+                <p className="text-xl text-muted-foreground mb-8">{content.subheading}</p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                  <Button
+                    size="lg"
+                    className="bg-primary hover:bg-primary/90 text-white"
+                    onClick={scrollToForm}
+                  >
+                    {content.cta}
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    onClick={() => navigate(isEnglish ? "/en/contacto" : "/contacto")}
+                  >
+                    {content.ctaSecondary}
+                  </Button>
+                </div>
+                <p className="text-sm text-muted-foreground mt-6">{content.price}</p>
               </div>
-              <p className="text-sm text-muted-foreground mt-6">{content.price}</p>
+              <div className="hidden md:block">
+                <img
+                  src="/images/felina/hero.jpg"
+                  alt={isEnglish ? "Cat boarding facilities at Fontfreda" : "Instalaciones residencia felina Fontfreda"}
+                  className="w-full h-96 object-cover rounded-xl shadow-lg"
+                  loading="lazy"
+                  width="600"
+                  height="384"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -383,6 +395,41 @@ export default function LandingAdsFelina() {
           </div>
         </section>
 
+        {/* Instalaciones Gallery */}
+        <section className="py-16 bg-secondary/30">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-10">
+              {isEnglish ? "Our Facilities" : "Nuestras Instalaciones"}
+            </h2>
+            <div className="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              <img
+                src="/images/felina/instalaciones-1.jpg"
+                alt={isEnglish ? "Cat boarding space at Fontfreda" : "Espacio felino en Fontfreda"}
+                className="w-full h-64 object-cover rounded-lg shadow-md"
+                loading="lazy"
+                width="400"
+                height="256"
+              />
+              <img
+                src="/images/felina/instalaciones-2.jpg"
+                alt={isEnglish ? "Cat resting area" : "Zona de descanso para gatos"}
+                className="w-full h-64 object-cover rounded-lg shadow-md"
+                loading="lazy"
+                width="400"
+                height="256"
+              />
+              <img
+                src="/images/felina/instalaciones-3.jpg"
+                alt={isEnglish ? "Feline residence interior" : "Interior residencia felina"}
+                className="w-full h-64 object-cover rounded-lg shadow-md"
+                loading="lazy"
+                width="400"
+                height="256"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Features Grid */}
         <section className="py-16 bg-secondary/50">
           <div className="container mx-auto px-4">
@@ -398,6 +445,16 @@ export default function LandingAdsFelina() {
                 );
               })}
             </div>
+            <div className="mt-12 max-w-4xl mx-auto">
+              <img
+                src="/images/felina/vistas-1.jpg"
+                alt={isEnglish ? "Views from Fontfreda feline residence" : "Vistas desde la residencia felina Fontfreda"}
+                className="w-full h-56 object-cover rounded-xl shadow-md"
+                loading="lazy"
+                width="896"
+                height="224"
+              />
+            </div>
           </div>
         </section>
 
@@ -407,6 +464,46 @@ export default function LandingAdsFelina() {
             <div className="max-w-2xl mx-auto text-center bg-secondary p-8 rounded-lg">
               <p className="text-lg italic text-foreground mb-4">{content.testimonial}</p>
               <p className="text-sm text-muted-foreground">{isEnglish ? "Verified Customer" : "Cliente Verificado"}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Cat Gallery */}
+        <section className="py-12 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-5xl mx-auto">
+              <img
+                src="/images/felina/gato-1.jpg"
+                alt={isEnglish ? "Cat at Fontfreda" : "Gato en Fontfreda"}
+                className="w-full h-48 object-cover rounded-lg"
+                loading="lazy"
+                width="280"
+                height="192"
+              />
+              <img
+                src="/images/felina/gato-5.jpg"
+                alt={isEnglish ? "Cat enjoying the residence" : "Gato disfrutando la residencia"}
+                className="w-full h-48 object-cover rounded-lg"
+                loading="lazy"
+                width="280"
+                height="192"
+              />
+              <img
+                src="/images/felina/gato-7.jpg"
+                alt={isEnglish ? "Happy cat at Fontfreda" : "Gato feliz en Fontfreda"}
+                className="w-full h-48 object-cover rounded-lg"
+                loading="lazy"
+                width="280"
+                height="192"
+              />
+              <img
+                src="/images/felina/gato-8.jpg"
+                alt={isEnglish ? "Cats at our residence" : "Gatos en nuestra residencia"}
+                className="w-full h-48 object-cover rounded-lg"
+                loading="lazy"
+                width="280"
+                height="192"
+              />
             </div>
           </div>
         </section>
