@@ -46,7 +46,7 @@ export function trackContactFormSubmission(payload?: {
 
   // Envío a Google Ads (sustituir 'XXXX' por la conversion label real cuando se cree en Ads).
   safeGtag("event", "conversion", {
-    send_to: "AW-1010676556/contact_form",
+    send_to: "AW-1010676556/ML-rCJTY2NMBEMzm9uED",
     value: 1.0,
     currency: "EUR",
   });
