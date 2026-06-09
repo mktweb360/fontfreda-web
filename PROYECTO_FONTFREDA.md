@@ -1,6 +1,6 @@
 # Fontfreda Web — Infraestructura y Contexto del Proyecto
 
-**Última actualización:** 8 de junio de 2026
+**Última actualización:** 5 de junio de 2026
 
 ---
 
@@ -223,34 +223,17 @@ Cada artículo incluye Schema BlogPosting, meta tags, enlaces internos a servici
 - **Pendiente:** Crear campaña Residencia Felina
 - **Acceso operativo:** Pendiente — cliente debe otorgar acceso para aplicar cambios
 
-### Grupos de anuncios — Campaña Residencia Canina Barcelona
-
-| Grupo de anuncios | Keywords principales | Estado |
-|---|---|---|
-| Residencia canina Barcelona | residencia canina barcelona, hotel perros barcelona | Activo |
-| Guardería canina Barcelona | guardería perros barcelona, guardería canina barcelona | Activo |
-| Larga estancia perros | alojamiento perros larga estancia, pensión canina larga duración | Activo |
-| Residencia canina Alt Penedès | residencia canina gelida, residencia perros penedès | Activo |
-
-> ⚠️ **ALERTA CRÍTICA:** Las **290.372 conversiones históricas registradas NO son leads reales** — son resultado de un tracking incorrecto (eventos mal configurados contabilizan como conversión cada visita/pageview). El número real de leads es muy inferior. Ver sección 13 para diagnóstico completo y correcciones pendientes.
-
 ---
 
-## 10. Plan de trabajo — Prioridades urgentes (junio 2026)
-
-| # | Tarea | Prioridad | Bloqueador |
-|---|---|---|---|
-| 1 | **Corregir conversion tracking** — eliminar falsos positivos, implementar eventos reales de lead | 🔴 Urgente | Ver sección 13 |
-| 2 | **Redirect 301 `fontfreda.net` → `www.fontfreda.net`** — configurar en Cloudflare (Page Rule o Redirect Rule) | 🔴 Urgente | Acceso Cloudflare |
-| 3 | **Obtener acceso operativo Google Ads** (cuenta 946-240-2340) — cliente debe otorgar acceso | 🔴 Urgente | Cliente |
-| 4 | **Crear campaña Google Ads — Residencia Felina** — una vez con acceso y tracking corregido | 🟠 Alta | Tarea 1 + 3 |
-
-### Pendientes adicionales
+## 10. Pendientes
 
 | Tarea | Prioridad | Estado |
 |---|---|---|
+| Redirect 301 `fontfreda.net` → `www.fontfreda.net` | Alta | Pendiente (configurar en Cloudflare) |
+| Crear campaña Google Ads — Residencia Felina | Alta | Pendiente (requiere acceso cuenta) |
 | Tabla MySQL para newsletter | Media | Pendiente |
 | Cancelar SiteGround | Media | Pendiente (confirmar que email ya no depende de SiteGround) |
+| Aplicar cambios Google Ads (cuenta 946-240-2340) | Media | Bloqueado — pendiente acceso operativo del cliente |
 
 ---
 
@@ -262,40 +245,6 @@ Cada artículo incluye Schema BlogPosting, meta tags, enlaces internos a servici
 - **Secundario:** Beige Suave `#F3EFE8`
 - **Tipografía titulares:** Playfair Display (serif)
 - **Tipografía cuerpo:** Inter (sans-serif)
-
----
-
-## 13. CONVERSION TRACKING — ESTADO REAL
-
-### Problema detectado
-
-Google Ads muestra **290.372 conversiones históricas** que NO corresponden a leads reales. Causa: eventos de pageview o micro-interacciones están marcados como conversiones principales en Google Ads.
-
-### Tabla de acciones rastreadas — diagnóstico
-
-| # | Acción | Evento GA4 | En Google Ads | Diagnóstico |
-|---|---|---|---|---|
-| 1 | Formulario contacto enviado | `contact_form_submit` | Sí (conversión) | ✅ Correcto — es lead real |
-| 2 | Formulario reserva enviado | `contact_form_submit` | Sí (conversión) | ✅ Correcto — es lead real |
-| 3 | Click WhatsApp | `whatsapp_click` | Sí (conversión) | ⚠️ Revisar — puede ser lead real o exploración |
-| 4 | Click teléfono (header) | `phone_click` | Sí (conversión) | ⚠️ Revisar — puede ser lead real o exploración |
-| 5 | Click teléfono (footer/landing) | `phone_click` | Sí (conversión) | ⚠️ Revisar — duplicado posible |
-| 6 | Visita landing page Ads | `page_view` | Posiblemente sí | 🔴 Error probable — pageview NO es conversión |
-| 7 | Visita página `/contacto` | `page_view` | Posiblemente sí | 🔴 Error probable — pageview NO es conversión |
-| 8 | Suscripción newsletter | `newsletter_subscribe` | Desconocido | ⚠️ Verificar si está importado en Ads |
-| 9 | Tiempo en página / scroll | `engagement` | Posiblemente sí | 🔴 Error probable — engagement NO es conversión |
-
-### Correcciones pendientes (4)
-
-1. **Auditar Google Ads → Conversiones** — identificar qué acciones están marcadas como conversión principal y desmarcar pageviews/engagement.
-2. **Unificar eventos de formulario** — asegurar que `contact_form_submit` se dispara una sola vez por envío exitoso (sin duplicados por re-renders).
-3. **Revisar clicks de teléfono** — consolidar eventos de header, footer y landing en un único evento con parámetro `origen` (ya implementado en `conversionTracking.ts`, verificar que funciona).
-4. **Importar solo conversiones reales en Google Ads** — únicamente formulario enviado y llamadas verificadas deben contar como conversión principal; clicks WhatsApp como conversión secundaria.
-
-### Archivos relevantes
-
-- `client/src/lib/conversionTracking.ts` — funciones de tracking implementadas
-- `client/index.html` — scripts GA4 (G-JR3N422110), Google Ads (AW-1010676556), GTM (GTM-PB35J3M)
 
 ---
 
