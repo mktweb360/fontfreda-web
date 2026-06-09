@@ -13,7 +13,7 @@ import {
   trackPhoneClick,
 } from "@/lib/conversionTracking";
 
-const HERO_IMAGE = "/images/guarderia/hero.jpg";
+const HERO_IMAGE = "/images/canina/guarderia-canina-1.jpg";
 
 // ── Tipos ──────────────────────────────────────────────────────────────────────
 
@@ -406,6 +406,36 @@ export default function LandingAdsGuarderia() {
           </div>
         </section>
 
+        {/* ── Galería ───────────────────────────────────────────────────────── */}
+        <section className="py-0">
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            <img
+              src="/images/guarderia/guarderia-canina-11.jpg"
+              alt={isEnglish ? "Dogs at Fontfreda daycare Barcelona" : "Perros en la guardería canina Fontfreda Barcelona"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/guarderia/guarderia-canina-8-1080x1459.jpg"
+              alt={isEnglish ? "Dog enjoying daily care at Fontfreda" : "Perro disfrutando del cuidado diario en Fontfreda"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/guarderia/perro-en-area-de-recreo-3.jpg"
+              alt={isEnglish ? "Dog in recreation area at Fontfreda" : "Perro en el área de recreo de Fontfreda"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/canina/espacio-de-recreo-para-perros.jpg"
+              alt={isEnglish ? "Dog recreation space Fontfreda Barcelona" : "Espacio de recreo para perros Fontfreda Barcelona"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+          </div>
+        </section>
+
         {/* ── Features ──────────────────────────────────────────────────────── */}
         <section className="py-16 bg-secondary/50">
           <div className="container mx-auto px-4">
@@ -453,6 +483,40 @@ export default function LandingAdsGuarderia() {
               <p className="text-lg italic text-foreground mb-4">{t.testimonialText}</p>
               <p className="font-semibold text-primary">{t.testimonialAuthor}</p>
               <p className="text-sm text-muted-foreground">{t.testimonialRole}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Trust / Quiénes somos ─────────────────────────────────────────── */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+              <div className="relative">
+                <img
+                  src="/images/trust/guarderia-canina-5.jpg"
+                  alt={isEnglish ? "Luis, Fontfreda owner, with a French Bulldog" : "Luis, propietario de Fontfreda, con un Bulldog Francés"}
+                  loading="lazy"
+                  className="w-full aspect-[3/4] object-cover rounded-2xl shadow-md"
+                />
+                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-semibold text-primary shadow-sm">
+                  {isEnglish ? "20+ years of experience" : "20+ años de experiencia"}
+                </div>
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-primary mb-6">
+                  {isEnglish ? "Who We Are" : "¿Quiénes Somos?"}
+                </h2>
+                <p className="text-foreground text-lg leading-relaxed mb-4">
+                  {isEnglish
+                    ? "I'm Luis, owner of Fontfreda. I've been caring for dogs for over 20 years at our family estate in the Alt Penedès, just 30 minutes from Barcelona."
+                    : "Soy Luis, propietario de Fontfreda. Llevo más de 20 años cuidando perros en nuestra finca familiar en el Alt Penedès, a solo 30 minutos de Barcelona."}
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {isEnglish
+                    ? "Daily daycare is much more than a service: it's a space where your dog comes every day, plays, socialises, and goes home happy and tired. Each dog gets individual attention and a routine tailored to their character."
+                    : "La guardería diaria es mucho más que un servicio: es un espacio donde tu perro viene cada día, juega, se relaciona y vuelve a casa feliz y cansado. Cada perro recibe atención individual y una rutina adaptada a su carácter."}
+                </p>
+              </div>
             </div>
           </div>
         </section>
