@@ -13,8 +13,7 @@ import {
   trackPhoneClick,
 } from "@/lib/conversionTracking";
 
-const HERO_IMAGE =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663312171860/4pSqWGuzzS8uGmjWwDrdgm/hero-residencia-felina-RYfEScYLHnRZqhCuzg8pHw.webp";
+const HERO_IMAGE = "/images/felina/hero.jpg";
 
 // ── Tipos ──────────────────────────────────────────────────────────────────────
 
@@ -408,6 +407,35 @@ export default function LandingAdsFelina() {
           </div>
         </section>
 
+        {/* ── Instalaciones ─────────────────────────────────────────────────── */}
+        <section className="py-16 bg-secondary/30">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center text-primary mb-10">
+              {isEnglish ? "Our Facilities" : "Nuestras Instalaciones"}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              <img
+                src="/images/felina/instalaciones-1.jpg"
+                alt={isEnglish ? "Resting area of Fontfreda feline residence" : "Zona de descanso de la residencia felina Fontfreda"}
+                loading="lazy"
+                className="w-full h-64 object-cover rounded-xl"
+              />
+              <img
+                src="/images/felina/instalaciones-2.jpg"
+                alt={isEnglish ? "Play area at Fontfreda feline residence" : "Área de juego en la residencia felina Fontfreda"}
+                loading="lazy"
+                className="w-full h-64 object-cover rounded-xl"
+              />
+              <img
+                src="/images/felina/instalaciones-3.jpg"
+                alt={isEnglish ? "Interior space of Fontfreda feline residence" : "Espacio interior de la residencia felina Fontfreda"}
+                loading="lazy"
+                className="w-full h-64 object-cover rounded-xl"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* ── Features ──────────────────────────────────────────────────────── */}
         <section className="py-16 bg-secondary/50">
           <div className="container mx-auto px-4">
@@ -424,6 +452,16 @@ export default function LandingAdsFelina() {
               })}
             </div>
           </div>
+        </section>
+
+        {/* ── Vistas ────────────────────────────────────────────────────────── */}
+        <section>
+          <img
+            src="/images/felina/vistas-1.jpg"
+            alt={isEnglish ? "Outdoor views of Fontfreda feline residence in Barcelona" : "Vistas exteriores de la residencia felina Fontfreda en Barcelona"}
+            loading="lazy"
+            className="w-full h-72 md:h-96 object-cover"
+          />
         </section>
 
         {/* ── Why ───────────────────────────────────────────────────────────── */}
@@ -455,6 +493,38 @@ export default function LandingAdsFelina() {
               <p className="text-lg italic text-foreground mb-4">{t.testimonialText}</p>
               <p className="font-semibold text-primary">{t.testimonialAuthor}</p>
               <p className="text-sm text-muted-foreground">{t.testimonialRole}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Galería gatos ─────────────────────────────────────────────────── */}
+        <section className="py-16 bg-secondary/30">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+              <img
+                src="/images/felina/gato-1.jpg"
+                alt={isEnglish ? "Cat resting in Fontfreda feline residence" : "Gato descansando en la residencia felina Fontfreda"}
+                loading="lazy"
+                className="w-full h-48 object-cover rounded-xl"
+              />
+              <img
+                src="/images/felina/gato-5.jpg"
+                alt={isEnglish ? "Cat exploring Fontfreda's feline space" : "Gato explorando el espacio felino de Fontfreda"}
+                loading="lazy"
+                className="w-full h-48 object-cover rounded-xl"
+              />
+              <img
+                src="/images/felina/gato-7.jpg"
+                alt={isEnglish ? "Cat enjoying Fontfreda feline residence" : "Gato disfrutando de la residencia felina Fontfreda"}
+                loading="lazy"
+                className="w-full h-48 object-cover rounded-xl"
+              />
+              <img
+                src="/images/felina/gato-8.jpg"
+                alt={isEnglish ? "Calm cat at Fontfreda Barcelona" : "Gato tranquilo en Fontfreda Barcelona"}
+                loading="lazy"
+                className="w-full h-48 object-cover rounded-xl"
+              />
             </div>
           </div>
         </section>
