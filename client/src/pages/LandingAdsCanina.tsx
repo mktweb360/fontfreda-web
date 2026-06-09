@@ -499,7 +499,7 @@ export default function LandingAdsCanina() {
                   className="w-full aspect-[3/4] object-cover rounded-2xl shadow-md"
                 />
                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-semibold text-primary shadow-sm">
-                  {isEnglish ? "10+ years of experience" : "10+ años de experiencia"}
+                  {isEnglish ? "20+ years of experience" : "20+ años de experiencia"}
                 </div>
               </div>
               <div>
@@ -508,8 +508,8 @@ export default function LandingAdsCanina() {
                 </h2>
                 <p className="text-foreground text-lg leading-relaxed mb-4">
                   {isEnglish
-                    ? "I'm Luis, owner of Fontfreda. I've been caring for dogs and cats for over 10 years at our family estate in the Alt Penedès, just 30 minutes from Barcelona."
-                    : "Soy Luis, propietario de Fontfreda. Llevo más de 10 años cuidando perros y gatos en nuestra finca familiar en el Alt Penedès, a solo 30 minutos de Barcelona."}
+                    ? "I'm Luis, owner of Fontfreda. I've been caring for dogs and cats for over 20 years at our family estate in the Alt Penedès, just 30 minutes from Barcelona."
+                    : "Soy Luis, propietario de Fontfreda. Llevo más de 20 años cuidando perros y gatos en nuestra finca familiar en el Alt Penedès, a solo 30 minutos de Barcelona."}
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   {isEnglish
