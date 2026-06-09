@@ -14,8 +14,7 @@ export default function ResidenciaCanina() {
   const isEnglish = location.startsWith("/en");
   const currentPath = isEnglish ? location.replace(/^\/en/, "") || "/residencia-canina" : "/residencia-canina";
 
-  const heroImageUrl =
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663312171860/4pSqWGuzzS8uGmjWwDrdgm/hero-residencia-canina-8f7SDTrMfJUCX2BiRpvb8P.webp";
+  const heroImageUrl = "/images/canina/residencia-canina-9.jpg";
 
   const t = isEnglish ? {
     serviceName: "Dog Boarding",

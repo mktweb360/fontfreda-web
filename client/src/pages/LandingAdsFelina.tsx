@@ -8,6 +8,7 @@ import { HrefLang } from "@/components/HrefLang";
 import { SchemaMarkup, createBreadcrumbSchema, createServiceSchema, localBusinessSchema } from "@/components/SchemaMarkup";
 import { Button } from "@/components/ui/button";
 import { AlertCircle, Check, MapPin, Zap, Heart, Shield } from "lucide-react";
+import ServicePromoBanner from "@/components/ServicePromoBanner";
 import {
   trackContactFormSubmission,
   trackPhoneClick,
@@ -541,6 +542,62 @@ export default function LandingAdsFelina() {
                 loading="lazy"
                 className="w-full h-48 object-cover rounded-xl"
               />
+            </div>
+          </div>
+        </section>
+
+        {/* ── Otros servicios ───────────────────────────────────────────────── */}
+        <section className="py-8 bg-secondary/30">
+          <div className="container mx-auto px-4 max-w-5xl space-y-4">
+            <ServicePromoBanner variant="dentro-de-casa" language={isEnglish ? "en" : "es"} />
+            <ServicePromoBanner variant="larga-estancia" language={isEnglish ? "en" : "es"} />
+          </div>
+        </section>
+
+        {/* ── Trust / Quiénes somos ─────────────────────────────────────────── */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+              <div className="relative">
+                <img
+                  src="/images/trust/guarderia-canina-5.jpg"
+                  alt={isEnglish ? "Fontfreda feline residence — 20 years of experience" : "Residencia felina Fontfreda — 20 años de experiencia"}
+                  loading="lazy"
+                  className="w-full rounded-2xl object-cover aspect-[3/4]"
+                />
+                <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-white/50">
+                  <div className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">20+</span>
+                    </div>
+                    <div>
+                      <p className="font-bold text-foreground text-sm leading-tight">
+                        {isEnglish ? "20+ years of experience" : "20+ años de experiencia"}
+                      </p>
+                      <p className="text-muted-foreground text-xs">
+                        {isEnglish ? "Specialized feline care" : "Cuidado felino especializado"}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-foreground mb-6">
+                  {isEnglish
+                    ? "20+ Years Caring for Cats in a Specialized 180m² Space"
+                    : "Más de 20 años cuidando gatos en un espacio especializado de 180m²"}
+                </h2>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {isEnglish
+                    ? "Fontfreda's feline residence was born from a deep love for cats and years of hands-on experience. Our 180m² space is designed exclusively for cats — with climbing structures, calm areas and safe outdoor access."
+                    : "La residencia felina de Fontfreda nació del amor por los gatos y de años de experiencia real. Nuestro espacio de 180m² está diseñado exclusivamente para ellos — con estructuras para trepar, zonas de calma y acceso seguro al exterior."}
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {isEnglish
+                    ? "Every cat receives an individual assessment before arrival and personalized attention throughout their stay. We adapt feeding, medication and routines to each animal."
+                    : "Cada gato recibe una valoración individual antes del ingreso y atención personalizada durante toda su estancia. Adaptamos la alimentación, medicación y rutinas a cada animal."}
+                </p>
+              </div>
             </div>
           </div>
         </section>
