@@ -31,6 +31,7 @@ router.get("/sitemap.xml", (req, res) => {
     { path: "/residencia-canina-barcelona", priority: "0.9", changefreq: "monthly" },
     { path: "/residencia-felina-barcelona", priority: "0.9", changefreq: "monthly" },
     { path: "/larga-estancia-perros-gatos", priority: "0.8", changefreq: "monthly" },
+    { path: "/guarderia-canina-barcelona", priority: "0.8", changefreq: "monthly" },
   ];
 
   // Artículos del blog - Se actualiza automáticamente
@@ -97,6 +98,14 @@ router.get("/sitemap.xml", (req, res) => {
     xml += `    <xhtml:link rel="alternate" hreflang="es" href="${baseUrl}/blog/${slug}" />\n`;
     xml += "  </url>\n";
   });
+
+  // Landing page en catalán (sin alternativa EN)
+  xml += "  <url>\n";
+  xml += `    <loc>${baseUrl}/residencia-canina-barcelona-ca</loc>\n`;
+  xml += `    <lastmod>${now}</lastmod>\n`;
+  xml += `    <changefreq>monthly</changefreq>\n`;
+  xml += `    <priority>0.8</priority>\n`;
+  xml += "  </url>\n";
 
   xml += "</urlset>";
 

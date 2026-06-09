@@ -29,7 +29,7 @@ export function SEO({
   description,
   canonical,
   keywords,
-  ogImage = "https://www.fontfreda.net/wp-content/uploads/2016/12/cat-and-dog-slide2.jpg",
+  ogImage = "https://www.fontfreda.net/images/instalaciones/residencia-fontfreda-1.jpg",
   ogType = "website",
   language = "es",
   noindex = false,

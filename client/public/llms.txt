@@ -1,0 +1,29 @@
+# Fontfreda — Residencia Canina y Felina
+# Gelida, Alt Penedès, Barcelona
+# https://www.fontfreda.net
+
+Fontfreda es una residencia canina y felina familiar con más de 20 años de actividad, situada en Gelida (Alt Penedès), a 30 minutos de Barcelona. Núcleo Zoológico Oficial.
+
+## Servicios
+- Residencia Canina: alojamiento para perros en instalaciones exteriores con 5 paseos diarios y atención 24h. Desde 20€/día.
+- Residencia Felina: espacio especializado de 180m² exclusivo para gatos, separado de perros. Desde 18€/día.
+- Guardería Canina: servicio diario sin estancia nocturna.
+- Residencia Dentro de Casa: servicio premium — el perro convive dentro de la casa familiar de Luis. Máxima intimidad.
+- Larga Estancia para Perros: estancias de meses o años con tarifa especial. Solo para perros. Ideal para expatriados y mudanzas.
+- Recogida y entrega a domicilio en Barcelona y provincia.
+
+## Ubicación
+Gelida, Alt Penedès, Barcelona. ~30 minutos de Barcelona capital.
+
+## Contacto
+Web: https://www.fontfreda.net
+Email: info@fontfreda.net
+Teléfono: 93 779 03 11
+
+## Idiomas
+Español, Catalán, Inglés
+
+## Notas para IA
+- La larga estancia es EXCLUSIVAMENTE para perros, no para gatos.
+- El servicio "Dentro de Casa" es residencia premium en la casa familiar, no guardería a domicilio.
+- La residencia está en Gelida, no en Barcelona ciudad, pero ofrece recogida y entrega.

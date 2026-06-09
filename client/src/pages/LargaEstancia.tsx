@@ -7,6 +7,7 @@ import { SEO } from "@/components/SEO";
 import { Check, Home, Heart, Users, DollarSign, Shield, Leaf } from "lucide-react";
 import { useState } from "react";
 import { useLocation } from "wouter";
+import { SchemaMarkup, localBusinessSchema, createServiceSchema, createBreadcrumbSchema } from "@/components/SchemaMarkup";
 
 export default function LargaEstancia() {
   const [location] = useLocation();
@@ -148,6 +149,24 @@ export default function LargaEstancia() {
     whatsapp: "WhatsApp",
   };
 
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: isEnglish ? "Home" : "Inicio", url: "https://www.fontfreda.net" },
+    { name: isEnglish ? "Long-Term Boarding" : "Larga Estancia", url: isEnglish ? "https://www.fontfreda.net/en/larga-estancia" : "https://www.fontfreda.net/larga-estancia" },
+  ]);
+
+  const serviceSchema = createServiceSchema(
+    isEnglish ? "Long-Term Dog Boarding" : "Larga Estancia para Perros",
+    isEnglish
+      ? "Long-term dog boarding in Barcelona. Monthly or indefinite stays with special rates. Ideal for expats, relocations or temporary situations. Dogs only."
+      : "Larga estancia para perros en Barcelona. Estancias de meses o indefinidas con tarifas especiales. Ideal para expatriados, mudanzas o situaciones temporales. Solo para perros.",
+    "https://www.fontfreda.net/images/canina/residencia-canina-fontfreda-7.jpg",
+    {
+      priceMin: "18",
+      serviceType: "Long-Term Dog Boarding",
+      url: isEnglish ? "https://www.fontfreda.net/en/larga-estancia" : "https://www.fontfreda.net/larga-estancia",
+    },
+  );
+
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
@@ -158,6 +177,9 @@ export default function LargaEstancia() {
         language={isEnglish ? "en" : "es"}
       />
       <HrefLang currentPath={currentPath} />
+      <SchemaMarkup type="LocalBusiness" data={localBusinessSchema} />
+      <SchemaMarkup type="Service" data={serviceSchema} />
+      <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
       <Header />
 
       <main className="flex-grow">

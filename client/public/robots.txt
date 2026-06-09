@@ -29,7 +29,7 @@ Allow: /faq
 Allow: /en/
 
 # Sitemap location
-Sitemap: https://fontfreda.net/sitemap.xml
+Sitemap: https://www.fontfreda.net/sitemap.xml
 
 # Google-specific rules
 User-agent: Googlebot

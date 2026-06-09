@@ -1,7 +1,7 @@
 import { useLocation } from "wouter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SchemaMarkup, createBreadcrumbSchema } from "@/components/SchemaMarkup";
+import { SchemaMarkup, createBreadcrumbSchema, createServiceSchema } from "@/components/SchemaMarkup";
 import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
 import {
@@ -45,6 +45,18 @@ export default function GuarderiaEnCasa() {
       url: "https://www.fontfreda.net/guarderia-canina-dentro-de-casa",
     },
   ]);
+
+  const serviceSchema = createServiceSchema(
+    language === "es" ? "Residencia Dentro de Casa" : "Dog Boarding In-Home",
+    language === "es"
+      ? "Servicio premium: tu perro vive dentro de la casa familiar durante su estancia. Máxima intimidad y trato personalizado en Gelida, Barcelona."
+      : "Premium service: your dog lives inside the family home during their stay. Maximum intimacy and personal care in Gelida, Barcelona.",
+    "https://www.fontfreda.net/images/dentro-de-casa/hotel-canino-fontfreda-4.jpg",
+    {
+      serviceType: "In-Home Dog Boarding",
+      url: language === "es" ? "https://www.fontfreda.net/guarderia-canina-dentro-de-casa" : "https://www.fontfreda.net/en/guarderia-canina-dentro-de-casa",
+    },
+  );
 
   const faqItems: FAQItem[] = [
     {
@@ -262,6 +274,7 @@ export default function GuarderiaEnCasa() {
         language={language === "en" ? "en" : "es"}
       />
       <HrefLang currentPath={currentPath} />
+      <SchemaMarkup type="Service" data={serviceSchema} />
       <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
 
       <Header />

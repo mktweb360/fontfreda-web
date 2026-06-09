@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SchemaMarkup, createBreadcrumbSchema } from "@/components/SchemaMarkup";
+import { SchemaMarkup, createBreadcrumbSchema, createServiceSchema } from "@/components/SchemaMarkup";
 import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
 import { Clock, Users, Heart, Shield, Zap, CheckCircle } from "lucide-react";
@@ -32,6 +32,19 @@ export default function Guarderia() {
     { name: language === "es" ? "Inicio" : "Home", url: "https://www.fontfreda.net" },
     { name: language === "es" ? "Guardería Canina" : "Dog Daycare", url: "https://www.fontfreda.net/guarderia" },
   ]);
+
+  const serviceSchema = createServiceSchema(
+    language === "es" ? "Guardería Canina" : "Dog Daycare",
+    language === "es"
+      ? "Guardería canina diaria en Gelida, Barcelona. Cuidado y actividades para tu perro sin noche. Horario 9:00-12:30 y 14:00-15:30."
+      : "Dog daycare in Gelida, Barcelona. Daily care and activities without overnight stay. Hours 9:00-12:30 and 14:00-15:30.",
+    "https://www.fontfreda.net/images/canina/guarderia-canina-1.jpg",
+    {
+      priceMin: "20",
+      serviceType: "Dog Daycare",
+      url: language === "es" ? "https://www.fontfreda.net/guarderia" : "https://www.fontfreda.net/en/guarderia",
+    },
+  );
 
   const faqItems: FAQItem[] = [
     {
@@ -249,6 +262,7 @@ export default function Guarderia() {
         language={language === "en" ? "en" : "es"}
       />
       <HrefLang currentPath={currentPath} />
+      <SchemaMarkup type="Service" data={serviceSchema} />
       <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
 
       <Header />

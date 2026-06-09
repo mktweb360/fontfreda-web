@@ -46,9 +46,9 @@ export const localBusinessSchema = {
   telephone: "+34937790311",
   email: "info@fontfreda.net",
   image: [
-    "https://www.fontfreda.net/wp-content/uploads/2016/12/cat-and-dog-slide2.jpg",
+    "https://www.fontfreda.net/images/instalaciones/residencia-fontfreda-1.jpg",
   ],
-  logo: "https://www.fontfreda.net/wp-content/uploads/2017/04/logo-residencia-fontfreda-header.jpg",
+  logo: "https://www.fontfreda.net/images/logo-fontfreda_cuadrado.jpg",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Finca Can Farigola",
@@ -183,9 +183,9 @@ export const organizationSchema = {
   url: "https://www.fontfreda.net",
   logo: {
     "@type": "ImageObject",
-    url: "https://www.fontfreda.net/wp-content/uploads/2017/04/logo-residencia-fontfreda-header.jpg",
+    url: "https://www.fontfreda.net/images/logo-fontfreda_cuadrado.jpg",
     width: 400,
-    height: 200,
+    height: 400,
   },
   sameAs: [
     "https://www.facebook.com/fontfreda",
@@ -356,7 +356,7 @@ export const createBlogPostSchema = (post: {
     name: "Residencia Fontfreda",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.fontfreda.net/wp-content/uploads/2017/04/logo-residencia-fontfreda-header.jpg",
+      url: "https://www.fontfreda.net/images/logo-fontfreda_cuadrado.jpg",
     },
   },
   mainEntityOfPage: {

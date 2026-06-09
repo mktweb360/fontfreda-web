@@ -4,7 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import ServiceCard from "@/components/ServiceCard";
 import RecentBlogPosts from "@/components/RecentBlogPosts";
 import NewsletterSubscription from "@/components/NewsletterSubscription";
-import { SchemaMarkup, localBusinessSchema, organizationSchema, createBreadcrumbSchema } from "@/components/SchemaMarkup";
+import { SchemaMarkup, localBusinessSchema, organizationSchema, websiteSchema, createBreadcrumbSchema } from "@/components/SchemaMarkup";
 import { SEO } from "@/components/SEO";
 import { Heart, Leaf, Users, Check } from "lucide-react";
 import { Link, useLocation } from "wouter";
@@ -173,6 +173,7 @@ export default function Home() {
       <HrefLang currentPath={currentPath} />
       <SchemaMarkup type="LocalBusiness" data={localBusinessSchema} />
       <SchemaMarkup type="Organization" data={organizationSchema} />
+      <SchemaMarkup type="WebSite" data={websiteSchema} />
       <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
 
       <Header />
