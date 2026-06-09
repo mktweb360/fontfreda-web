@@ -1,7 +1,7 @@
 # MAESTRO_NUEVO_CHAT.md — Fontfreda Web
 
 > Documento de referencia para nuevas sesiones de IA.  
-> **Última actualización:** 9 de junio de 2026 (segunda parte de sesión)
+> **Última actualización:** 10 de junio de 2026 (fin de sesión)
 
 ---
 
@@ -56,7 +56,7 @@ const language = getLanguage(); // "es" | "en"
 | `LandingAdsCanina.tsx` | `/residencia-canina-barcelona` | ✅ Hero real + galería + Trust section |
 | `LandingAdsGuarderia.tsx` | `/guarderia-canina-barcelona` | ✅ Hero real + galería + Trust section |
 | `LandingAdsLargaEstancia.tsx` | `/larga-estancia-perros-gatos` | ✅ Hero real + galería + Trust section |
-| `LandingAdsFelina.tsx` | `/residencia-felina-barcelona` | ⚠️ Galería instalaciones integrada; pendiente ampliar imágenes felinas |
+| `LandingAdsFelina.tsx` | `/residencia-felina-barcelona` | ✅ Imágenes felina completas (hero, instalaciones-1/2/3, vistas-1, gato-5/7/8); Trust section (Luis) + ServicePromoBanner añadidos jun 2026 |
 | `LandingAdsCatala.tsx` | `/residencia-canina-barcelona-ca` | ✅ Creada sesión jun 2026, idioma CA, sin hreflang |
 
 **Landings EN** (`/en/dog-boarding-barcelona`, `/en/cat-boarding-barcelona`, `/en/long-term-boarding`): ⚠️ Pendientes de aplicar el patrón de imágenes reales.
@@ -124,7 +124,15 @@ Ubicación: `client/public/images/` con subcarpetas:
 - `transporte.jpg`, `transporte-1.jpg`, `recogida-entrega-animales.jpg.webp`, `transporte2.jpg.webp`
 
 ### `felina/`
-- `gato-1.jpg` *(carpeta escasa — pendiente añadir más imágenes de gatos)*
+- `hero.jpg` ← `residencia-felina-5.jpg` (2018, backup WP)
+- `instalaciones-1.jpg` ← `instalaciones-felinos.jpg` (2011)
+- `instalaciones-2.jpg` ← `residencia-felina-6.jpg` (2016)
+- `instalaciones-3.jpg` ← `residencia-felina-9.jpg` (2016)
+- `vistas-1.jpg` ← `residencia-felina-12.jpg` (2016)
+- `gato-1.jpg` — gato original
+- `gato-5.jpg` ← `gato_alojamiento.jpg` (2016)
+- `gato-7.jpg` ← `gato-en-residencia-felina.jpg` (2017)
+- `gato-8.jpg` ← `gato-toma-sol-ventana.jpg` (2017)
 
 ---
 
@@ -132,7 +140,7 @@ Ubicación: `client/public/images/` con subcarpetas:
 
 | Página | Archivo | Estado |
 |---|---|---|
-| Residencia Canina | `ResidenciaCanina.tsx` | ⚠️ Hero CloudFront pendiente reemplazar; ServicePromoBanner insertado; Service + FAQPage + Breadcrumb schema ✅ |
+| Residencia Canina | `ResidenciaCanina.tsx` | ✅ Hero reemplazado por `/images/canina/residencia-canina-9.jpg`; ServicePromoBanner insertado; Service + FAQPage + Breadcrumb schema ✅ |
 | Residencia Felina | `ResidenciaFelina.tsx` | Service + FAQPage + Breadcrumb schema ✅; imágenes sin revisar |
 | Guardería Canina | `Guarderia.tsx` | ✅ Service + Breadcrumb schema añadidos jun 2026 |
 | Larga Estancia | `LargaEstancia.tsx` | ✅ Gatos eliminados, imágenes reales, galería, Trust; LocalBusiness + Service + Breadcrumb schema añadidos jun 2026 |
@@ -170,7 +178,10 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 **Insertado en:**
 - `LandingAdsCanina.tsx` — entre Testimonial y Trust
 - `LandingAdsGuarderia.tsx` — entre Testimonial y Trust
+- `LandingAdsFelina.tsx` — entre Galería de gatos y Trust
 - `ResidenciaCanina.tsx` — antes del CTA final
+- `Guarderia.tsx` — antes de Trust section
+- `BlogPost.tsx` — después de BlogConversionBanner
 
 **Variante `dentro-de-casa`:**
 - Imagen: `/images/dentro-de-casa/hotel-canino-fontfreda-4.jpg`
@@ -188,7 +199,7 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 
 ## 6b. SEO Técnico y Schema JSON-LD
 
-**Estado tras sesión 9 jun 2026 (segunda parte):**
+**Estado tras sesión 10 jun 2026 — cobertura 100% en todas las páginas:**
 
 ### Infraestructura SEO
 
@@ -211,14 +222,12 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 | `GuarderiaEnCasa.tsx` | — | — | — | ✅ | — | ✅ |
 | `LargaEstancia.tsx` | ✅ | — | — | ✅ | — | ✅ |
 | `FAQ.tsx` | — | — | — | — | ✅ | ✅ |
-| `BlogPost.tsx` | — | — | — | — | — | ✅ + BlogPosting ⚠️ |
-| `LandingAdsCanina.tsx` | ✅ | — | — | ❌ | — | ✅ |
-| `LandingAdsGuarderia.tsx` | ✅ | — | — | ❌ | — | ✅ |
-| `LandingAdsLargaEstancia.tsx` | ✅ | — | — | ❌ | — | ✅ |
-| `LandingAdsFelina.tsx` | ✅ | — | — | ❌ | — | ✅ |
-| `LandingAdsCatala.tsx` | ✅ | — | — | ❌ | — | ✅ |
-
-⚠️ `BlogPost.tsx`: schema BlogPosting inline e incompleto — falta `@id`, `dateModified`, `mainEntityOfPage`, `articleSection`, `inLanguage`.
+| `BlogPost.tsx` | — | — | — | — | — | ✅ + BlogPosting ✅ |
+| `LandingAdsCanina.tsx` | ✅ | — | — | ✅ | — | ✅ |
+| `LandingAdsGuarderia.tsx` | ✅ | — | — | ✅ | — | ✅ |
+| `LandingAdsLargaEstancia.tsx` | ✅ | — | — | ✅ | — | ✅ |
+| `LandingAdsFelina.tsx` | ✅ | — | — | ✅ | — | ✅ |
+| `LandingAdsCatala.tsx` | ✅ | — | — | ✅ | — | ✅ |
 
 ### URLs de referencia en schemas (corregidas)
 - **Imagen negocio:** `https://www.fontfreda.net/images/instalaciones/residencia-fontfreda-1.jpg`
@@ -241,16 +250,12 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 
 ### 🔴 Urgente
 
-- **Service schema en 5 landings de Ads:** `LandingAdsCanina`, `LandingAdsGuarderia`, `LandingAdsLargaEstancia`, `LandingAdsFelina`, `LandingAdsCatala` — todas tienen LocalBusiness + Breadcrumb pero les falta `createServiceSchema`.
-- **`BlogPost.tsx` schema incompleto:** Schema BlogPosting inline sin `@id`, `dateModified`, `mainEntityOfPage`, `articleSection`, `inLanguage`. Reemplazar por `createBlogPostSchema()` de SchemaMarkup.tsx.
 - **Redirect 301** `fontfreda.net` → `www.fontfreda.net` (configurar en Cloudflare, no en código).
 
 ### 🟡 Media prioridad
 
-- **Artículos de blog individuales:** Crear rutas `/blog/:slug` con contenido completo.
-- **Aplicar patrón imágenes a landings EN:** `/en/dog-boarding-barcelona`, `/en/cat-boarding-barcelona`, `/en/long-term-boarding`.
-- **Ampliar imágenes felinas:** Carpeta `felina/` solo tiene `gato-1.jpg`; `LandingAdsFelina` necesita más.
-- **Hero CloudFront en `ResidenciaCanina.tsx`:** Sustituir por imagen local.
+- **Artículos de blog individuales:** Crear rutas `/blog/:slug` con contenido completo (actualmente solo muestran excerpt + content corto).
+- **Aplicar patrón imágenes a landings EN:** `/en/dog-boarding-barcelona`, `/en/cat-boarding-barcelona`, `/en/long-term-boarding` usan los mismos componentes ES pero no tienen galería de imágenes propia.
 
 ### 🟢 Baja prioridad
 
@@ -265,8 +270,10 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 
 | Hash | Descripción |
 |---|---|
+| `1699289` | feat: add felina images, fix ResidenciaCanina hero, add Trust and banners to LandingAdsFelina |
+| `7290867` | seo: add Service schema to all Ads landings and fix BlogPost schema |
+| `dbb6e7d` | feat: add ServicePromoBanner to Guarderia and blog, fix 20yr copy, add Trust to Guarderia |
 | `6db3cf4` | seo: fix dead URLs, complete schema coverage, add llms.txt, update sitemap |
-| `7a1b5dc` | docs: update MAESTRO_NUEVO_CHAT.md session june 2026 |
 | `edc715c` | feat: add ServicePromoBanner component and insert into canine pages |
 | `cdd6c13` | feat: integrate real images into LargaEstancia and GuarderiaEnCasa |
 | `fa730f5` | fix: update trust badge to 20+ years experience |

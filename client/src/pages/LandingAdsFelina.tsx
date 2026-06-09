@@ -584,18 +584,16 @@ export default function LandingAdsFelina() {
               <div>
                 <h2 className="text-3xl font-bold text-foreground mb-6">
                   {isEnglish
-                    ? "20+ Years Caring for Cats in a Specialized 180m² Space"
+                    ? "20+ Years Caring for Cats in a Specialised 180m² Space"
                     : "Más de 20 años cuidando gatos en un espacio especializado de 180m²"}
                 </h2>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-lg text-muted-foreground leading-relaxed italic">
                   {isEnglish
-                    ? "Fontfreda's feline residence was born from a deep love for cats and years of hands-on experience. Our 180m² space is designed exclusively for cats — with climbing structures, calm areas and safe outdoor access."
-                    : "La residencia felina de Fontfreda nació del amor por los gatos y de años de experiencia real. Nuestro espacio de 180m² está diseñado exclusivamente para ellos — con estructuras para trepar, zonas de calma y acceso seguro al exterior."}
+                    ? "\"I'm Luis, owner of Fontfreda. We've been caring for cats for over 20 years in a specialised 180m² space, completely separate from dogs. Every cat receives individual attention and a calm environment adapted to their character.\""
+                    : "\"Soy Luis, propietario de Fontfreda. Llevamos más de 20 años cuidando gatos en un espacio especializado de 180m², separado completamente de los perros. Cada gato recibe atención individual y un ambiente tranquilo adaptado a su carácter.\""}
                 </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  {isEnglish
-                    ? "Every cat receives an individual assessment before arrival and personalized attention throughout their stay. We adapt feeding, medication and routines to each animal."
-                    : "Cada gato recibe una valoración individual antes del ingreso y atención personalizada durante toda su estancia. Adaptamos la alimentación, medicación y rutinas a cada animal."}
+                <p className="mt-4 font-semibold text-primary">
+                  — Luis, {isEnglish ? "owner of Fontfreda" : "propietario de Fontfreda"}
                 </p>
               </div>
             </div>
