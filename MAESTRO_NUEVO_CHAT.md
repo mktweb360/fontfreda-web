@@ -57,7 +57,7 @@ const language = getLanguage(); // "es" | "en"
 | `LandingAdsGuarderia.tsx` | `/guarderia-canina-barcelona` | ✅ Hero real + galería + Trust section |
 | `LandingAdsLargaEstancia.tsx` | `/larga-estancia-perros-gatos` | ✅ Hero real + galería + Trust section |
 | `LandingAdsFelina.tsx` | `/residencia-felina-barcelona` | ✅ Imágenes felina completas (hero, instalaciones-1/2/3, vistas-1, gato-5/7/8); Trust section (Luis) + ServicePromoBanner añadidos jun 2026 |
-| `LandingAdsCatala.tsx` | `/residencia-canina-barcelona-ca` | ✅ Creada sesión jun 2026, idioma CA, sin hreflang |
+| `LandingAdsCatala.tsx` | `/residencia-canina-barcelona-ca` | ✅ Creada jun 2026, idioma CA, sin hreflang — ⚠️ verificar si necesita galería propia o es suficiente con imágenes de `canina/` |
 
 **Landings EN** (`/en/dog-boarding-barcelona`, `/en/cat-boarding-barcelona`, `/en/long-term-boarding`): ⚠️ Pendientes de aplicar el patrón de imágenes reales.
 
@@ -140,7 +140,7 @@ Ubicación: `client/public/images/` con subcarpetas:
 
 | Página | Archivo | Estado |
 |---|---|---|
-| Residencia Canina | `ResidenciaCanina.tsx` | ✅ Hero reemplazado por `/images/canina/residencia-canina-9.jpg`; ServicePromoBanner insertado; Service + FAQPage + Breadcrumb schema ✅ |
+| Residencia Canina | `ResidenciaCanina.tsx` | ✅ Hero local `/images/canina/residencia-canina-9.jpg` (eliminada URL CloudFront — **ya no hay URLs CloudFront en ningún componente**); ServicePromoBanner insertado; Service + FAQPage + Breadcrumb schema ✅ |
 | Residencia Felina | `ResidenciaFelina.tsx` | Service + FAQPage + Breadcrumb schema ✅; imágenes sin revisar |
 | Guardería Canina | `Guarderia.tsx` | ✅ Service + Breadcrumb schema añadidos jun 2026 |
 | Larga Estancia | `LargaEstancia.tsx` | ✅ Gatos eliminados, imágenes reales, galería, Trust; LocalBusiness + Service + Breadcrumb schema añadidos jun 2026 |
@@ -256,9 +256,12 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 
 - **Artículos de blog individuales:** Crear rutas `/blog/:slug` con contenido completo (actualmente solo muestran excerpt + content corto).
 - **Aplicar patrón imágenes a landings EN:** `/en/dog-boarding-barcelona`, `/en/cat-boarding-barcelona`, `/en/long-term-boarding` usan los mismos componentes ES pero no tienen galería de imágenes propia.
+- **LandingAdsCatala.tsx imágenes:** Verificar si la landing CA tiene galería o Hero propio, o si reutiliza `canina/` sin problema visual.
+- **FAQPage schema en Guarderia y GuarderiaEnCasa:** Tienen Service + Breadcrumb pero no FAQ — añadir `createFAQSchema` con preguntas frecuentes relevantes.
 
-### 🟢 Baja prioridad
+### 🟢 Baja prioridad / Backlog
 
+- Campaña Google Ads **Guardería Dentro de Casa** (requiere acceso a cuenta 946-240-2340).
 - Cancelar suscripción SiteGround (confirmar que email no depende de él).
 - Crear campaña Google Ads Residencia Felina (requiere acceso a cuenta 946-240-2340).
 - Tabla MySQL para newsletter.
@@ -270,6 +273,7 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 
 | Hash | Descripción |
 |---|---|
+| `9f65b82` | docs: update MAESTRO_NUEVO_CHAT.md end of session june 10 2026 |
 | `1699289` | feat: add felina images, fix ResidenciaCanina hero, add Trust and banners to LandingAdsFelina |
 | `7290867` | seo: add Service schema to all Ads landings and fix BlogPost schema |
 | `dbb6e7d` | feat: add ServicePromoBanner to Guarderia and blog, fix 20yr copy, add Trust to Guarderia |
