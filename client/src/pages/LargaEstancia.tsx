@@ -13,8 +13,8 @@ export default function LargaEstancia() {
   const isEnglish = location.startsWith("/en");
   const currentPath = "/larga-estancia";
 
-  const heroImageUrl = "https://d2xsxph8kpxj0f.cloudfront.net/310519663312171860/4pSqWGuzzS8uGmjWwDrdgm/hero-residencia-canina-8f7SDTrMfJUCX2BiRpvb8P.webp";
-  const instalacionesImageUrl = "https://d2xsxph8kpxj0f.cloudfront.net/310519663312171860/4pSqWGuzzS8uGmjWwDrdgm/instalaciones-preview-L6fA77DHd35iuLbmqHvLPY.webp";
+  const heroImageUrl = "/images/canina/residencia-canina-fontfreda-7.jpg";
+  const instalacionesImageUrl = "/images/instalaciones/instantanea-residencia-nevada.jpg";
 
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
 
@@ -151,9 +151,9 @@ export default function LargaEstancia() {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title={isEnglish ? "Long-Term Stays for Dogs and Cats | Monthly Boarding | Fontfreda" : "Larga Estancia para Perros y Gatos | Estancias Mensuales | Fontfreda"}
-        description={isEnglish ? "Long-term stays for dogs and cats in Barcelona. Stays of months or indefinite with special rates. Ideal for business trips, hospitalizations or temporary situations." : "Larga estancia para perros y gatos en Barcelona. Estancias de meses o indefinidas con tarifas especiales. Ideal para viajes laborales, hospitalizaciones o situaciones temporales."}
-        keywords={isEnglish ? "long-term dog boarding, long-term cat boarding, monthly dog kennel, extended pet accommodation, indefinite pet stay" : "larga estancia perros, larga estancia gatos, residencia mensual perros, alojamiento prolongado perros y gatos, residencia indefinida"}
+        title={isEnglish ? "Long-Term Dog Boarding | Monthly Boarding | Fontfreda" : "Larga Estancia para Perros | Estancias Mensuales | Fontfreda"}
+        description={isEnglish ? "Long-term dog boarding in Barcelona. Monthly or indefinite stays with special rates. Ideal for business trips, hospitalisations or temporary situations." : "Larga estancia para perros en Barcelona. Estancias de meses o indefinidas con tarifas especiales. Ideal para viajes laborales, hospitalizaciones o situaciones temporales."}
+        keywords={isEnglish ? "long-term dog boarding, monthly dog kennel, extended dog accommodation, indefinite dog stay, dog boarding Barcelona" : "larga estancia perros, residencia mensual perros, alojamiento prolongado perros, residencia indefinida perros, larga estancia Barcelona"}
         canonical={isEnglish ? "https://www.fontfreda.net/en/larga-estancia" : "https://www.fontfreda.net/larga-estancia"}
         language={isEnglish ? "en" : "es"}
       />
@@ -209,6 +209,36 @@ export default function LargaEstancia() {
           </div>
         </section>
 
+        {/* ── Galería ───────────────────────────────────────────────────────── */}
+        <section className="py-0">
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            <img
+              src="/images/canina/hotel-canino-fontfreda-2.jpg"
+              alt={isEnglish ? "Dog hotel Fontfreda Barcelona" : "Hotel canino Fontfreda Barcelona"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/canina/residencia-canina-11.jpg"
+              alt={isEnglish ? "Long-term dog boarding at Fontfreda" : "Residencia canina larga estancia Fontfreda"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/canina/espacio-de-recreo-para-perros.jpg"
+              alt={isEnglish ? "Dog recreation space at Fontfreda" : "Espacio de recreo para perros en Fontfreda"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/canina/residencia-canina-7.jpg"
+              alt={isEnglish ? "Dogs at Fontfreda canine residence" : "Perros en la residencia canina Fontfreda"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+          </div>
+        </section>
+
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -229,7 +259,7 @@ export default function LargaEstancia() {
               <div className="rounded-lg overflow-hidden shadow-lg">
                 <img
                   src={instalacionesImageUrl}
-                  alt="Residencia Fontfreda - Larga estancia para perros y gatos en Barcelona"
+                  alt="Residencia Fontfreda abierta los 365 días del año - Larga estancia para perros en Barcelona"
                   title="Residencia Fontfreda - Larga estancia"
                   loading="lazy"
                   decoding="async"
@@ -309,6 +339,40 @@ export default function LargaEstancia() {
                   )}
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Trust / Quiénes somos ─────────────────────────────────────────── */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+              <div className="relative">
+                <img
+                  src="/images/trust/guarderia-canina-5.jpg"
+                  alt={isEnglish ? "Luis, Fontfreda owner, with a French Bulldog" : "Luis, propietario de Fontfreda, con un Bulldog Francés"}
+                  loading="lazy"
+                  className="w-full aspect-[3/4] object-cover rounded-2xl shadow-md"
+                />
+                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-semibold text-primary shadow-sm">
+                  {isEnglish ? "20+ years of experience" : "20+ años de experiencia"}
+                </div>
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-primary mb-6">
+                  {isEnglish ? "Who We Are" : "¿Quiénes Somos?"}
+                </h2>
+                <p className="text-foreground text-lg leading-relaxed mb-4">
+                  {isEnglish
+                    ? "I'm Luis, owner of Fontfreda. For over 20 years I've looked after dogs at our family estate in the Alt Penedès for owners who needed someone truly trustworthy — people relocating abroad, on long work assignments, or going through a life change."
+                    : "Soy Luis, propietario de Fontfreda. Durante más de 20 años he cuidado perros en nuestra finca familiar del Alt Penedès para dueños que necesitaban a alguien de verdad de confianza: personas que se marchaban al extranjero, en largas misiones de trabajo o atravesando un cambio vital."}
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {isEnglish
+                    ? "A long stay isn't just logistics — it's peace of mind. We adapt to each dog's routine, keep you updated with photos, and treat your pet as one of our own for as long as you need."
+                    : "Una larga estancia no es solo logística: es tranquilidad. Nos adaptamos a la rutina de cada perro, te mantenemos informado con fotos y tratamos a tu mascota como propia durante el tiempo que necesites."}
+                </p>
+              </div>
             </div>
           </div>
         </section>

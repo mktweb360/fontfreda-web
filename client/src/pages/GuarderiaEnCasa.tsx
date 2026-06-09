@@ -106,7 +106,7 @@ export default function GuarderiaEnCasa() {
   const translations = {
     es: {
       title: "Guardería Canina Dentro de Casa",
-      subtitle: "Cuidado personalizado en el hogar de tu perro o gato",
+      subtitle: "Cuidado personalizado en el hogar de tu perro",
       description:
         "Servicio de guardería profesional donde nuestros cuidadores se desplazan a tu hogar para cuidar a tu perro con atención personalizada.",
       benefits: [
@@ -178,7 +178,7 @@ export default function GuarderiaEnCasa() {
     },
     en: {
       title: "In-Home Dog Daycare",
-      subtitle: "Personalized care in your dog or cat's home",
+      subtitle: "Personalized care in your dog's home",
       description:
         "Professional daycare service where our caregivers come to your home to care for your dog with personalized attention.",
       benefits: [
@@ -268,21 +268,25 @@ export default function GuarderiaEnCasa() {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-primary/10 to-transparent">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-full mb-6">
-                <Home className="w-8 h-8 text-primary" />
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <section className="relative py-20 overflow-hidden">
+          <img
+            src="/images/dentro-de-casa/hotel-canino-fontfreda-4.jpg"
+            alt={language === "en" ? "Dogs enjoying indoor care at Fontfreda" : "Perros disfrutando del cuidado dentro de casa en Fontfreda"}
+            className="absolute inset-0 w-full h-full object-cover"
+            fetchpriority="high"
+          />
+          <div className="absolute inset-0 bg-primary/70" />
+          <div className="relative container mx-auto px-4">
+            <div className="max-w-2xl mx-auto text-center text-white">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
                 {t.title}
               </h1>
-              <p className="text-xl text-muted-foreground mb-8">{t.subtitle}</p>
-              <p className="text-lg text-foreground mb-8">{t.description}</p>
-              <Link href={language === "en" ? "/en/contacto" : "/contacto"} className="inline-flex items-center px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors">
-                  {t.contactCTA}
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
+              <p className="text-xl text-white/90 mb-6">{t.subtitle}</p>
+              <p className="text-lg text-white/80 mb-8">{t.description}</p>
+              <Link href={language === "en" ? "/en/contacto" : "/contacto"} className="inline-flex items-center px-8 py-4 bg-white text-primary rounded-lg font-semibold hover:bg-white/90 transition-colors">
+                {t.contactCTA}
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
             </div>
           </div>
         </section>
@@ -320,6 +324,36 @@ export default function GuarderiaEnCasa() {
                 );
               })}
             </div>
+          </div>
+        </section>
+
+        {/* ── Galería ───────────────────────────────────────────────────────── */}
+        <section className="py-0">
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            <img
+              src="/images/dentro-de-casa/hotel-canino-3.jpg"
+              alt={language === "en" ? "Dog inside home care at Fontfreda" : "Perro en el servicio de cuidado dentro de casa Fontfreda"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/dentro-de-casa/hotel-canino-7.jpg"
+              alt={language === "en" ? "Indoor dog care Fontfreda Barcelona" : "Cuidado canino dentro de casa Fontfreda Barcelona"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/dentro-de-casa/labrador-dentro-de-casa.jpg"
+              alt={language === "en" ? "Labrador enjoying indoor care at Fontfreda" : "Labrador disfrutando del cuidado dentro de casa en Fontfreda"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/dentro-de-casa/guarderia-canina-en-casa-2.jpg"
+              alt={language === "en" ? "In-home dog daycare Fontfreda" : "Guardería canina en casa Fontfreda"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
           </div>
         </section>
 
@@ -416,6 +450,40 @@ export default function GuarderiaEnCasa() {
                     )}
                   </div>
                 ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Trust / Quiénes somos ─────────────────────────────────────────── */}
+        <section className="py-16 md:py-24 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+              <div className="relative">
+                <img
+                  src="/images/trust/guarderia-canina-5.jpg"
+                  alt={language === "en" ? "Luis, Fontfreda owner, with a French Bulldog" : "Luis, propietario de Fontfreda, con un Bulldog Francés"}
+                  loading="lazy"
+                  className="w-full aspect-[3/4] object-cover rounded-2xl shadow-md"
+                />
+                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-semibold text-primary shadow-sm">
+                  {language === "en" ? "20+ years of experience" : "20+ años de experiencia"}
+                </div>
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-primary mb-6">
+                  {language === "en" ? "Who We Are" : "¿Quiénes Somos?"}
+                </h2>
+                <p className="text-foreground text-lg leading-relaxed mb-4">
+                  {language === "en"
+                    ? "I'm Luis, owner of Fontfreda. For over 20 years I've cared for dogs at our family home in the Alt Penedès. With our in-home service, we bring that same family care directly to your dog's environment."
+                    : "Soy Luis, propietario de Fontfreda. Llevo más de 20 años cuidando perros en nuestra finca familiar del Alt Penedès. Con el servicio dentro de casa, llevamos ese mismo cuidado familiar directamente al entorno de tu perro."}
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {language === "en"
+                    ? "Every dog is different. That's why we start with a home visit to understand their routine, personality, and needs before we begin. Your dog stays calm, in their own space, with someone who truly cares."
+                    : "Cada perro es diferente. Por eso empezamos con una visita al hogar para entender su rutina, su carácter y sus necesidades antes de comenzar. Tu perro permanece tranquilo, en su propio espacio, con alguien que de verdad se preocupa por él."}
+                </p>
               </div>
             </div>
           </div>
