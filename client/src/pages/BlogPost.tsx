@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RecentBlogPosts from "@/components/RecentBlogPosts";
 import BlogConversionBanner from "@/components/BlogConversionBanner";
-import { SchemaMarkup, createBreadcrumbSchema } from "@/components/SchemaMarkup";
+import { SchemaMarkup, createBreadcrumbSchema, createBlogPostSchema } from "@/components/SchemaMarkup";
 import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
 import { Calendar, User, ArrowLeft } from "lucide-react";
@@ -68,27 +68,16 @@ export default function BlogPost() {
     },
   ]);
 
-  // Blog post schema
-  const blogPostSchema = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.excerpt,
-    image: post.image || "https://www.fontfreda.net/og-image.jpg",
-    datePublished: post.date,
-    author: {
-      "@type": "Person",
-      name: post.author,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Fontfreda",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://www.fontfreda.net/logo.png",
-      },
-    },
-  };
+  const blogPostSchema = createBlogPostSchema({
+    title: post.title,
+    excerpt: post.excerpt,
+    image: post.image,
+    date: post.date,
+    author: post.author,
+    slug: post.slug,
+    category: post.category,
+    language,
+  });
 
   const translations = {
     es: {
@@ -121,7 +110,7 @@ export default function BlogPost() {
         canonical={canonical}
         language={language as "es" | "en"}
         ogType="article"
-        ogImage={post.image || "https://www.fontfreda.net/wp-content/uploads/2016/12/cat-and-dog-slide2.jpg"}
+        ogImage={post.image || "https://www.fontfreda.net/images/instalaciones/residencia-fontfreda-1.jpg"}
         author={post.author}
         publishedTime={post.date}
         modifiedTime={post.date}

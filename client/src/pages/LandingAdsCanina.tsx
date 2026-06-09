@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
-import { SchemaMarkup, createBreadcrumbSchema, localBusinessSchema } from "@/components/SchemaMarkup";
+import { SchemaMarkup, createBreadcrumbSchema, createServiceSchema, localBusinessSchema } from "@/components/SchemaMarkup";
 import { Button } from "@/components/ui/button";
 import { AlertCircle, Check, MapPin, Users, Heart, Shield } from "lucide-react";
 import {
@@ -82,6 +82,21 @@ export default function LandingAdsCanina() {
         : "https://www.fontfreda.net/residencia-canina-barcelona",
     },
   ]);
+
+  const serviceSchema = createServiceSchema(
+    isEnglish ? "Dog Boarding Barcelona" : "Residencia Canina Barcelona",
+    isEnglish
+      ? "Premium dog boarding in Barcelona. Family accommodation with 24/7 care, daily walks, and personalized attention."
+      : "Residencia canina premium en Barcelona. Alojamiento familiar con atención 24h, paseos diarios y cuidado personalizado.",
+    "https://www.fontfreda.net/images/canina/residencia-canina-9.jpg",
+    {
+      priceMin: "20",
+      serviceType: "Dog Boarding",
+      url: isEnglish
+        ? "https://www.fontfreda.net/en/dog-boarding-barcelona"
+        : "https://www.fontfreda.net/residencia-canina-barcelona",
+    },
+  );
 
   // ── Contenido bilingüe ─────────────────────────────────────────────────────
 
@@ -338,6 +353,7 @@ export default function LandingAdsCanina() {
       <HrefLang currentPath={currentPath} />
       <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
       <SchemaMarkup type="LocalBusiness" data={localBusinessSchema} />
+      <SchemaMarkup type="Service" data={serviceSchema} />
 
       <Header />
 

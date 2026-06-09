@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
-import { SchemaMarkup, createBreadcrumbSchema, localBusinessSchema } from "@/components/SchemaMarkup";
+import { SchemaMarkup, createBreadcrumbSchema, createServiceSchema, localBusinessSchema } from "@/components/SchemaMarkup";
 import { Button } from "@/components/ui/button";
 import { AlertCircle, Check, TrendingDown, Calendar, Users, Heart } from "lucide-react";
 import {
@@ -81,6 +81,21 @@ export default function LandingAdsLargaEstancia() {
         : "https://www.fontfreda.net/larga-estancia-perros-gatos",
     },
   ]);
+
+  const serviceSchema = createServiceSchema(
+    isEnglish ? "Long-Term Dog Boarding" : "Larga Estancia para Perros",
+    isEnglish
+      ? "Long-term dog boarding in Barcelona. Months or years with special rates. Ideal for expats, relocations or temporary situations. Dogs only."
+      : "Larga estancia para perros en Barcelona. Meses o años con tarifas especiales. Ideal para expatriados, mudanzas o situaciones temporales. Solo para perros.",
+    "https://www.fontfreda.net/images/canina/residencia-canina-fontfreda-7.jpg",
+    {
+      priceMin: "18",
+      serviceType: "Long-Term Dog Boarding",
+      url: isEnglish
+        ? "https://www.fontfreda.net/en/long-term-boarding"
+        : "https://www.fontfreda.net/larga-estancia-perros-gatos",
+    },
+  );
 
   // ── Contenido bilingüe ─────────────────────────────────────────────────────
 
@@ -374,6 +389,7 @@ export default function LandingAdsLargaEstancia() {
       <HrefLang currentPath={currentPath} />
       <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
       <SchemaMarkup type="LocalBusiness" data={localBusinessSchema} />
+      <SchemaMarkup type="Service" data={serviceSchema} />
 
       <Header />
 

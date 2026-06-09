@@ -3,7 +3,7 @@ import { toast } from "sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
-import { SchemaMarkup, createBreadcrumbSchema, localBusinessSchema } from "@/components/SchemaMarkup";
+import { SchemaMarkup, createBreadcrumbSchema, createServiceSchema, localBusinessSchema } from "@/components/SchemaMarkup";
 import { Button } from "@/components/ui/button";
 import { AlertCircle, Check, MapPin, Users, Heart, Shield } from "lucide-react";
 import {
@@ -92,6 +92,17 @@ export default function LandingAdsCatala() {
       url: "https://www.fontfreda.net/residencia-canina-barcelona-ca",
     },
   ]);
+
+  const serviceSchema = createServiceSchema(
+    "Residència Canina Barcelona",
+    "Residència familiar per a gossos a Barcelona. Allotjament en plena natura amb 5 passejos diaris, atenció 24h i tracte personalitzat.",
+    "https://www.fontfreda.net/images/canina/residencia-canina-9.jpg",
+    {
+      priceMin: "20",
+      serviceType: "Dog Boarding",
+      url: "https://www.fontfreda.net/residencia-canina-barcelona-ca",
+    },
+  );
 
   // ── Validació ──────────────────────────────────────────────────────────────
 
@@ -183,6 +194,7 @@ export default function LandingAdsCatala() {
       />
       <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
       <SchemaMarkup type="LocalBusiness" data={localBusinessSchema} />
+      <SchemaMarkup type="Service" data={serviceSchema} />
 
       <Header />
 

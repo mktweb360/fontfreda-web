@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
-import { SchemaMarkup, createBreadcrumbSchema, localBusinessSchema } from "@/components/SchemaMarkup";
+import { SchemaMarkup, createBreadcrumbSchema, createServiceSchema, localBusinessSchema } from "@/components/SchemaMarkup";
 import { Button } from "@/components/ui/button";
 import { AlertCircle, Check, MapPin, Zap, Heart, Shield } from "lucide-react";
 import {
@@ -81,6 +81,21 @@ export default function LandingAdsFelina() {
         : "https://www.fontfreda.net/residencia-felina-barcelona",
     },
   ]);
+
+  const serviceSchema = createServiceSchema(
+    isEnglish ? "Cat Boarding Barcelona" : "Residencia Felina Barcelona",
+    isEnglish
+      ? "Premium cat boarding in Barcelona. Specialized 180m² feline space, calm environment, and personalized care."
+      : "Residencia felina premium en Barcelona. Espacio especializado de 180m² exclusivo para gatos, ambiente tranquilo y cuidado personalizado.",
+    "https://www.fontfreda.net/images/felina/hero.jpg",
+    {
+      priceMin: "18",
+      serviceType: "Cat Boarding",
+      url: isEnglish
+        ? "https://www.fontfreda.net/en/cat-boarding-barcelona"
+        : "https://www.fontfreda.net/residencia-felina-barcelona",
+    },
+  );
 
   // ── Contenido bilingüe ─────────────────────────────────────────────────────
 
@@ -337,6 +352,7 @@ export default function LandingAdsFelina() {
       <HrefLang currentPath={currentPath} />
       <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
       <SchemaMarkup type="LocalBusiness" data={localBusinessSchema} />
+      <SchemaMarkup type="Service" data={serviceSchema} />
 
       <Header />
 

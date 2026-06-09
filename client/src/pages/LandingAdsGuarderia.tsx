@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
-import { SchemaMarkup, createBreadcrumbSchema, localBusinessSchema } from "@/components/SchemaMarkup";
+import { SchemaMarkup, createBreadcrumbSchema, createServiceSchema, localBusinessSchema } from "@/components/SchemaMarkup";
 import { Button } from "@/components/ui/button";
 import { AlertCircle, Check, MapPin, Users, Heart, Shield } from "lucide-react";
 import {
@@ -82,6 +82,21 @@ export default function LandingAdsGuarderia() {
         : "https://www.fontfreda.net/guarderia-canina-barcelona",
     },
   ]);
+
+  const serviceSchema = createServiceSchema(
+    isEnglish ? "Dog Daycare Barcelona" : "Guardería Canina Barcelona",
+    isEnglish
+      ? "Dog daycare in Barcelona. Daily care in a natural environment with supervised walks, socialization, and family treatment."
+      : "Guardería canina en Barcelona. Cuidado diario en entorno natural con paseos supervisados, socialización y trato familiar.",
+    "https://www.fontfreda.net/images/canina/guarderia-canina-1.jpg",
+    {
+      priceMin: "15",
+      serviceType: "Dog Daycare",
+      url: isEnglish
+        ? "https://www.fontfreda.net/en/dog-daycare-barcelona"
+        : "https://www.fontfreda.net/guarderia-canina-barcelona",
+    },
+  );
 
   // ── Contenido bilingüe ─────────────────────────────────────────────────────
 
@@ -338,6 +353,7 @@ export default function LandingAdsGuarderia() {
       <HrefLang currentPath={currentPath} />
       <SchemaMarkup type="BreadcrumbList" data={breadcrumbSchema} />
       <SchemaMarkup type="LocalBusiness" data={localBusinessSchema} />
+      <SchemaMarkup type="Service" data={serviceSchema} />
 
       <Header />
 
