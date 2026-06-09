@@ -6,6 +6,7 @@ import { SchemaMarkup, createServiceSchema, createFAQSchema, createBreadcrumbSch
 import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
 import { Check, MapPin, Heart, Utensils, Pill, Users } from "lucide-react";
+import ServicePromoBanner from "@/components/ServicePromoBanner";
 import { useLocation } from "wouter";
 
 export default function ResidenciaCanina() {
@@ -334,6 +335,14 @@ export default function ResidenciaCanina() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ── Otros servicios ───────────────────────────────────────────────── */}
+        <section className="py-8 bg-secondary/30">
+          <div className="container mx-auto px-4 max-w-5xl space-y-4">
+            <ServicePromoBanner variant="dentro-de-casa" language={isEnglish ? "en" : "es"} />
+            <ServicePromoBanner variant="larga-estancia" language={isEnglish ? "en" : "es"} />
           </div>
         </section>
 

@@ -12,6 +12,7 @@ import {
   trackContactFormSubmission,
   trackPhoneClick,
 } from "@/lib/conversionTracking";
+import ServicePromoBanner from "@/components/ServicePromoBanner";
 
 const HERO_IMAGE = "/images/canina/residencia-canina-9.jpg";
 
@@ -484,6 +485,14 @@ export default function LandingAdsCanina() {
               <p className="font-semibold text-primary">{t.testimonialAuthor}</p>
               <p className="text-sm text-muted-foreground">{t.testimonialRole}</p>
             </div>
+          </div>
+        </section>
+
+        {/* ── Otros servicios ───────────────────────────────────────────────── */}
+        <section className="py-8 bg-secondary/30">
+          <div className="container mx-auto px-4 max-w-5xl space-y-4">
+            <ServicePromoBanner variant="dentro-de-casa" language={isEnglish ? "en" : "es"} />
+            <ServicePromoBanner variant="larga-estancia" language={isEnglish ? "en" : "es"} />
           </div>
         </section>
 
