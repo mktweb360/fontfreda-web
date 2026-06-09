@@ -13,7 +13,7 @@ import {
   trackPhoneClick,
 } from "@/lib/conversionTracking";
 
-const HERO_IMAGE = "/images/canina/hero.jpg";
+const HERO_IMAGE = "/images/canina/residencia-canina-9.jpg";
 
 // ── Tipos ──────────────────────────────────────────────────────────────────────
 
@@ -406,6 +406,36 @@ export default function LandingAdsCanina() {
           </div>
         </section>
 
+        {/* ── Galería ───────────────────────────────────────────────────────── */}
+        <section className="py-0">
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            <img
+              src="/images/canina/residencia-canina-fontfreda-7.jpg"
+              alt={isEnglish ? "Dogs at Fontfreda canine residence Barcelona" : "Perros en la residencia canina Fontfreda Barcelona"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/canina/hotel-canino-fontfreda-2.jpg"
+              alt={isEnglish ? "Dog hotel Fontfreda Barcelona" : "Hotel canino Fontfreda Barcelona"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/canina/espacio-de-recreo-para-perros.jpg"
+              alt={isEnglish ? "Dog recreation area at Fontfreda" : "Área de recreo para perros en Fontfreda"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/canina/guarderia-canina-1.jpg"
+              alt={isEnglish ? "Dog daycare Fontfreda Barcelona" : "Guardería canina Fontfreda Barcelona"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+          </div>
+        </section>
+
         {/* ── Features ──────────────────────────────────────────────────────── */}
         <section className="py-16 bg-secondary/50">
           <div className="container mx-auto px-4">
@@ -453,6 +483,40 @@ export default function LandingAdsCanina() {
               <p className="text-lg italic text-foreground mb-4">{t.testimonialText}</p>
               <p className="font-semibold text-primary">{t.testimonialAuthor}</p>
               <p className="text-sm text-muted-foreground">{t.testimonialRole}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Trust / Quiénes somos ─────────────────────────────────────────── */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+              <div className="relative">
+                <img
+                  src="/images/trust/guarderia-canina-5.jpg"
+                  alt={isEnglish ? "Luis, Fontfreda owner, with a French Bulldog" : "Luis, propietario de Fontfreda, con un Bulldog Francés"}
+                  loading="lazy"
+                  className="w-full aspect-[3/4] object-cover rounded-2xl shadow-md"
+                />
+                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-semibold text-primary shadow-sm">
+                  {isEnglish ? "10+ years of experience" : "10+ años de experiencia"}
+                </div>
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-primary mb-6">
+                  {isEnglish ? "Who We Are" : "¿Quiénes Somos?"}
+                </h2>
+                <p className="text-foreground text-lg leading-relaxed mb-4">
+                  {isEnglish
+                    ? "I'm Luis, owner of Fontfreda. I've been caring for dogs and cats for over 10 years at our family estate in the Alt Penedès, just 30 minutes from Barcelona."
+                    : "Soy Luis, propietario de Fontfreda. Llevo más de 10 años cuidando perros y gatos en nuestra finca familiar en el Alt Penedès, a solo 30 minutos de Barcelona."}
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {isEnglish
+                    ? "For me, every animal that comes through our door is a member of the family. I give each dog the same personalized attention, affection, and care I'd want for my own."
+                    : "Para mí, cada animal que llega a nuestra finca es un miembro más de la familia. Doy a cada perro la misma atención personalizada, cariño y cuidado que me gustaría para el mío."}
+                </p>
+              </div>
             </div>
           </div>
         </section>
