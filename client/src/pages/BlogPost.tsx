@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RecentBlogPosts from "@/components/RecentBlogPosts";
 import BlogConversionBanner from "@/components/BlogConversionBanner";
+import ServicePromoBanner from "@/components/ServicePromoBanner";
 import { SchemaMarkup, createBreadcrumbSchema, createBlogPostSchema } from "@/components/SchemaMarkup";
 import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
@@ -180,6 +181,14 @@ export default function BlogPost() {
 
         {/* Conversion Banner */}
         <BlogConversionBanner language={language as "es" | "en"} category={post.category} />
+
+        {/* Otros servicios */}
+        <section className="py-8 bg-secondary/30">
+          <div className="container mx-auto px-4 max-w-5xl space-y-4">
+            <ServicePromoBanner variant="dentro-de-casa" language={language as "es" | "en"} />
+            <ServicePromoBanner variant="larga-estancia" language={language as "es" | "en"} />
+          </div>
+        </section>
 
         {/* Related Articles */}
         {relatedPosts.length > 0 && (

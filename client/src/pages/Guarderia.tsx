@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ServicePromoBanner from "@/components/ServicePromoBanner";
 import { SchemaMarkup, createBreadcrumbSchema, createServiceSchema } from "@/components/SchemaMarkup";
 import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
@@ -370,6 +371,60 @@ export default function Guarderia() {
                   )}
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Otros servicios ───────────────────────────────────────────────── */}
+        <section className="py-8 bg-secondary/30">
+          <div className="container mx-auto px-4 max-w-5xl space-y-4">
+            <ServicePromoBanner variant="dentro-de-casa" language={language as "es" | "en"} />
+            <ServicePromoBanner variant="larga-estancia" language={language as "es" | "en"} />
+          </div>
+        </section>
+
+        {/* ── Trust / Quiénes somos ─────────────────────────────────────────── */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+              <div className="relative">
+                <img
+                  src="/images/trust/guarderia-canina-5.jpg"
+                  alt={language === "en" ? "Luis, Fontfreda owner, with a French Bulldog" : "Luis, propietario de Fontfreda, con un Bulldog Francés"}
+                  loading="lazy"
+                  className="w-full rounded-2xl object-cover aspect-[3/4]"
+                />
+                <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-border shadow-lg">
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground font-bold text-sm flex-shrink-0">
+                      20+
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">
+                        {language === "en" ? "20+ years of experience" : "20+ años de experiencia"}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {language === "en" ? "Trusted by hundreds of families" : "La confianza de cientos de familias"}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-foreground mb-4">
+                  {language === "en" ? "Why Trust Us with Your Dog?" : "¿Por Qué Confiarnos Tu Perro?"}
+                </h2>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {language === "en"
+                    ? "Luis and his team have been caring for dogs every day for over 20 years. Your dog comes home tired, happy, and well cared for — guaranteed."
+                    : "Luis y su equipo llevan más de 20 años cuidando perros cada día. Tu perro vuelve a casa cansado, feliz y en perfectas condiciones — garantizado."}
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {language === "en"
+                    ? "Our daycare is not a simple kennel. It's a structured program with walks, socialisation and rest — adapted to each dog's age and personality."
+                    : "Nuestra guardería no es un simple alojamiento. Es un programa estructurado con paseos, socialización y descanso — adaptado a la edad y personalidad de cada perro."}
+                </p>
+              </div>
             </div>
           </div>
         </section>
