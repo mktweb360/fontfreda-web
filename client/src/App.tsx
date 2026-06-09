@@ -29,6 +29,7 @@ import LandingAdsCanina from "./pages/LandingAdsCanina";
 import LandingAdsFelina from "./pages/LandingAdsFelina";
 import LandingAdsLargaEstancia from "./pages/LandingAdsLargaEstancia";
 import LandingAdsGuarderia from "./pages/LandingAdsGuarderia";
+import LandingAdsCatala from "./pages/LandingAdsCatala";
 
 function Router() {
   return (
@@ -92,6 +93,7 @@ function Router() {
       <Route path="/en/long-term-boarding" component={LandingAdsLargaEstancia} />
       <Route path="/guarderia-canina-barcelona" component={LandingAdsGuarderia} />
       <Route path="/en/dog-daycare-barcelona" component={LandingAdsGuarderia} />
+      <Route path="/residencia-canina-barcelona-ca" component={LandingAdsCatala} />
 
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
