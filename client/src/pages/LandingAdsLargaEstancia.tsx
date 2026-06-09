@@ -13,7 +13,7 @@ import {
   trackPhoneClick,
 } from "@/lib/conversionTracking";
 
-const HERO_IMAGE = "/images/larga-estancia/hero.jpg";
+const HERO_IMAGE = "/images/canina/residencia-canina-fontfreda-7.jpg";
 
 // ── Tipos ──────────────────────────────────────────────────────────────────────
 
@@ -443,6 +443,36 @@ export default function LandingAdsLargaEstancia() {
           </div>
         </section>
 
+        {/* ── Galería ───────────────────────────────────────────────────────── */}
+        <section className="py-0">
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            <img
+              src="/images/canina/hotel-canino-fontfreda-2.jpg"
+              alt={isEnglish ? "Dog hotel Fontfreda Barcelona" : "Hotel canino Fontfreda Barcelona"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/canina/residencia-canina-11.jpg"
+              alt={isEnglish ? "Long-term dog boarding at Fontfreda" : "Alojamiento de larga estancia para perros en Fontfreda"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/canina/espacio-de-recreo-para-perros.jpg"
+              alt={isEnglish ? "Dog recreation space at Fontfreda" : "Espacio de recreo para perros en Fontfreda"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/instalaciones/instantanea-residencia-nevada.jpg"
+              alt={isEnglish ? "Fontfreda residence open 365 days a year" : "Residencia Fontfreda abierta los 365 días del año"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+          </div>
+        </section>
+
         {/* ── Features ──────────────────────────────────────────────────────── */}
         <section className="py-16 bg-secondary/50">
           <div className="container mx-auto px-4">
@@ -507,6 +537,40 @@ export default function LandingAdsLargaEstancia() {
               <p className="text-lg italic text-foreground mb-4">{t.testimonialText}</p>
               <p className="font-semibold text-primary">{t.testimonialAuthor}</p>
               <p className="text-sm text-muted-foreground">{t.testimonialRole}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Trust / Quiénes somos ─────────────────────────────────────────── */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+              <div className="relative">
+                <img
+                  src="/images/trust/guarderia-canina-5.jpg"
+                  alt={isEnglish ? "Luis, Fontfreda owner, with a French Bulldog" : "Luis, propietario de Fontfreda, con un Bulldog Francés"}
+                  loading="lazy"
+                  className="w-full aspect-[3/4] object-cover rounded-2xl shadow-md"
+                />
+                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-semibold text-primary shadow-sm">
+                  {isEnglish ? "20+ years of experience" : "20+ años de experiencia"}
+                </div>
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-primary mb-6">
+                  {isEnglish ? "Who We Are" : "¿Quiénes Somos?"}
+                </h2>
+                <p className="text-foreground text-lg leading-relaxed mb-4">
+                  {isEnglish
+                    ? "I'm Luis, owner of Fontfreda. For over 20 years I've looked after dogs and cats at our family estate in the Alt Penedès for owners who needed someone truly trustworthy — people relocating abroad, on long work assignments, or going through a life change."
+                    : "Soy Luis, propietario de Fontfreda. Durante más de 20 años he cuidado perros y gatos en nuestra finca familiar del Alt Penedès para dueños que necesitaban a alguien de verdad de confianza: personas que se marchaban al extranjero, en largas misiones de trabajo o atravesando un cambio vital."}
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {isEnglish
+                    ? "A long stay isn't just logistics — it's peace of mind. We adapt to each animal's routine, keep you updated with photos, and treat your pet as one of our own for as long as you need."
+                    : "Una larga estancia no es solo logística: es tranquilidad. Nos adaptamos a la rutina de cada animal, te mantenemos informado con fotos y tratamos a tu mascota como propia durante el tiempo que necesites."}
+                </p>
+              </div>
             </div>
           </div>
         </section>
