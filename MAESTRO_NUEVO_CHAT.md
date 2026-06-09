@@ -1,7 +1,7 @@
 # MAESTRO_NUEVO_CHAT.md — Fontfreda Web
 
 > Documento de referencia para nuevas sesiones de IA.  
-> **Última actualización:** 9 de junio de 2026
+> **Última actualización:** 9 de junio de 2026 (segunda parte de sesión)
 
 ---
 
@@ -132,11 +132,11 @@ Ubicación: `client/public/images/` con subcarpetas:
 
 | Página | Archivo | Estado |
 |---|---|---|
-| Residencia Canina | `ResidenciaCanina.tsx` | ⚠️ Hero CloudFront pendiente reemplazar; ServicePromoBanner insertado |
-| Residencia Felina | `ResidenciaFelina.tsx` | Sin revisar |
-| Guardería Canina | `Guarderia.tsx` | Sin revisar |
-| Larga Estancia | `LargaEstancia.tsx` | ✅ Gatos eliminados, imágenes reales, galería, Trust |
-| Guardería en Casa | `GuarderiaEnCasa.tsx` | ✅ Gatos eliminados, hero real, galería, Trust |
+| Residencia Canina | `ResidenciaCanina.tsx` | ⚠️ Hero CloudFront pendiente reemplazar; ServicePromoBanner insertado; Service + FAQPage + Breadcrumb schema ✅ |
+| Residencia Felina | `ResidenciaFelina.tsx` | Service + FAQPage + Breadcrumb schema ✅; imágenes sin revisar |
+| Guardería Canina | `Guarderia.tsx` | ✅ Service + Breadcrumb schema añadidos jun 2026 |
+| Larga Estancia | `LargaEstancia.tsx` | ✅ Gatos eliminados, imágenes reales, galería, Trust; LocalBusiness + Service + Breadcrumb schema añadidos jun 2026 |
+| Guardería en Casa | `GuarderiaEnCasa.tsx` | ✅ Gatos eliminados, hero real, galería, Trust; Service + Breadcrumb schema añadidos jun 2026 |
 
 ---
 
@@ -186,6 +186,47 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 
 ---
 
+## 6b. SEO Técnico y Schema JSON-LD
+
+**Estado tras sesión 9 jun 2026 (segunda parte):**
+
+### Infraestructura SEO
+
+| Archivo | Estado |
+|---|---|
+| `client/src/components/SEO.tsx` | ✅ Gestiona meta tags, OG, Twitter Cards, geo tags. Default `ogImage` corregido a URL local. |
+| `client/src/components/SchemaMarkup.tsx` | ✅ URLs WordPress muertas corregidas. Exporta: `localBusinessSchema`, `organizationSchema`, `websiteSchema`, `createFAQSchema`, `createServiceSchema`, `createBreadcrumbSchema`, `createBlogPostSchema`, `createReviewSchema`. |
+| `client/public/robots.txt` | ✅ URL sitemap corregida a `https://www.fontfreda.net/sitemap.xml` |
+| `server/routes/sitemap.ts` | ✅ Dinámico. Añadidas: `/guarderia-canina-barcelona`, `/en/dog-daycare-barcelona`, `/residencia-canina-barcelona-ca` |
+| `client/public/llms.txt` | ✅ Creado. Instrucciones para crawlers IA (ChatGPT, Perplexity, Claude). Incluye reglas de negocio críticas. |
+
+### Cobertura de schema por página
+
+| Página | LocalBusiness | Organization | WebSite | Service | FAQPage | Breadcrumb |
+|---|---|---|---|---|---|---|
+| `Home.tsx` | ✅ | ✅ | ✅ | — | — | ✅ |
+| `ResidenciaCanina.tsx` | — | — | — | ✅ | ✅ | ✅ |
+| `ResidenciaFelina.tsx` | — | — | — | ✅ | ✅ | ✅ |
+| `Guarderia.tsx` | — | — | — | ✅ | — | ✅ |
+| `GuarderiaEnCasa.tsx` | — | — | — | ✅ | — | ✅ |
+| `LargaEstancia.tsx` | ✅ | — | — | ✅ | — | ✅ |
+| `FAQ.tsx` | — | — | — | — | ✅ | ✅ |
+| `BlogPost.tsx` | — | — | — | — | — | ✅ + BlogPosting ⚠️ |
+| `LandingAdsCanina.tsx` | ✅ | — | — | ❌ | — | ✅ |
+| `LandingAdsGuarderia.tsx` | ✅ | — | — | ❌ | — | ✅ |
+| `LandingAdsLargaEstancia.tsx` | ✅ | — | — | ❌ | — | ✅ |
+| `LandingAdsFelina.tsx` | ✅ | — | — | ❌ | — | ✅ |
+| `LandingAdsCatala.tsx` | ✅ | — | — | ❌ | — | ✅ |
+
+⚠️ `BlogPost.tsx`: schema BlogPosting inline e incompleto — falta `@id`, `dateModified`, `mainEntityOfPage`, `articleSection`, `inLanguage`.
+
+### URLs de referencia en schemas (corregidas)
+- **Imagen negocio:** `https://www.fontfreda.net/images/instalaciones/residencia-fontfreda-1.jpg`
+- **Logo:** `https://www.fontfreda.net/images/logo-fontfreda_cuadrado.jpg`
+- **OG image default:** `https://www.fontfreda.net/images/instalaciones/residencia-fontfreda-1.jpg`
+
+---
+
 ## 7. Correcciones Aplicadas (Reglas de Negocio)
 
 > Estas correcciones son definitivas. No revertir.
@@ -200,13 +241,13 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 
 ### 🔴 Urgente
 
-- **Schema JSON-LD completo:** Auditar e implementar `LocalBusiness`, `Service` y `FAQPage` en todas las páginas que falten. Crítico para visibilidad en IA (ChatGPT, Perplexity, Google SGE).
+- **Service schema en 5 landings de Ads:** `LandingAdsCanina`, `LandingAdsGuarderia`, `LandingAdsLargaEstancia`, `LandingAdsFelina`, `LandingAdsCatala` — todas tienen LocalBusiness + Breadcrumb pero les falta `createServiceSchema`.
+- **`BlogPost.tsx` schema incompleto:** Schema BlogPosting inline sin `@id`, `dateModified`, `mainEntityOfPage`, `articleSection`, `inLanguage`. Reemplazar por `createBlogPostSchema()` de SchemaMarkup.tsx.
 - **Redirect 301** `fontfreda.net` → `www.fontfreda.net` (configurar en Cloudflare, no en código).
 
 ### 🟡 Media prioridad
 
-- **ServicePromoBanner en `LandingAdsGuarderia.tsx`:** Ya insertado ✅. Verificar visualmente en producción.
-- **Artículos de blog individuales:** Crear rutas `/blog/:slug` con contenido completo y Schema `BlogPosting`.
+- **Artículos de blog individuales:** Crear rutas `/blog/:slug` con contenido completo.
 - **Aplicar patrón imágenes a landings EN:** `/en/dog-boarding-barcelona`, `/en/cat-boarding-barcelona`, `/en/long-term-boarding`.
 - **Ampliar imágenes felinas:** Carpeta `felina/` solo tiene `gato-1.jpg`; `LandingAdsFelina` necesita más.
 - **Hero CloudFront en `ResidenciaCanina.tsx`:** Sustituir por imagen local.
@@ -224,6 +265,8 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 
 | Hash | Descripción |
 |---|---|
+| `6db3cf4` | seo: fix dead URLs, complete schema coverage, add llms.txt, update sitemap |
+| `7a1b5dc` | docs: update MAESTRO_NUEVO_CHAT.md session june 2026 |
 | `edc715c` | feat: add ServicePromoBanner component and insert into canine pages |
 | `cdd6c13` | feat: integrate real images into LargaEstancia and GuarderiaEnCasa |
 | `fa730f5` | fix: update trust badge to 20+ years experience |
