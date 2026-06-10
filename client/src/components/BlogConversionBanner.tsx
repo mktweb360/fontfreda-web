@@ -117,8 +117,8 @@ export default function BlogConversionBanner({
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     {language === "es"
-                      ? "Más de 20 años de experiencia en bienestar animal"
-                      : "Over 20 years of experience in animal welfare"}
+                      ? "Más de 40 años de experiencia en bienestar animal"
+                      : "Over 40 years of experience in animal welfare"}
                   </p>
                 </div>
               </div>

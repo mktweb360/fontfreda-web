@@ -480,7 +480,7 @@ export default function GuarderiaEnCasa() {
                   className="w-full aspect-[3/4] object-cover rounded-2xl shadow-md"
                 />
                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-semibold text-primary shadow-sm">
-                  {language === "en" ? "20+ years of experience" : "20+ años de experiencia"}
+                  {language === "en" ? "40+ years of experience" : "40+ años de experiencia"}
                 </div>
               </div>
               <div>
@@ -489,8 +489,8 @@ export default function GuarderiaEnCasa() {
                 </h2>
                 <p className="text-foreground text-lg leading-relaxed mb-4">
                   {language === "en"
-                    ? "I'm Luis, owner of Fontfreda. For over 20 years I've cared for dogs at our family home in the Alt Penedès. With our in-home service, we bring that same family care directly to your dog's environment."
-                    : "Soy Luis, propietario de Fontfreda. Llevo más de 20 años cuidando perros en nuestra finca familiar del Alt Penedès. Con el servicio dentro de casa, llevamos ese mismo cuidado familiar directamente al entorno de tu perro."}
+                    ? "I'm Luis, owner of Fontfreda. For over 40 years I've cared for dogs at our family home in the Alt Penedès. With our in-home service, we bring that same family care directly to your dog's environment."
+                    : "Soy Luis, propietario de Fontfreda. Llevo más de 40 años cuidando perros en nuestra finca familiar del Alt Penedès. Con el servicio dentro de casa, llevamos ese mismo cuidado familiar directamente al entorno de tu perro."}
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   {language === "en"

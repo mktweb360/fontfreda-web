@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { toast } from "sonner";
 import Header from "@/components/Header";
@@ -46,6 +46,8 @@ const INITIAL_FORM: FormState = {
   mensaje: "",
 };
 
+const SESSION_KEY = "fontfreda_form_canina";
+
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
 function getTodayDate() {
@@ -67,9 +69,20 @@ export default function LandingAdsCanina() {
   const isEnglish = location.startsWith("/en");
   const currentPath = "/residencia-canina-barcelona";
 
-  const [form, setForm] = useState<FormState>(INITIAL_FORM);
+  const [form, setForm] = useState<FormState>(() => {
+    try {
+      const saved = sessionStorage.getItem(SESSION_KEY);
+      return saved ? { ...INITIAL_FORM, ...JSON.parse(saved) } : INITIAL_FORM;
+    } catch {
+      return INITIAL_FORM;
+    }
+  });
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  useEffect(() => {
+    try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(form)); } catch {}
+  }, [form]);
 
   // ── Schema ─────────────────────────────────────────────────────────────────
 
@@ -317,6 +330,7 @@ export default function LandingAdsCanina() {
       });
 
       setTimeout(() => {
+        sessionStorage.removeItem(SESSION_KEY);
         setForm(INITIAL_FORM);
         setSubmitStatus("idle");
       }, 3000);
@@ -524,7 +538,7 @@ export default function LandingAdsCanina() {
                   className="w-full aspect-[3/4] object-cover rounded-2xl shadow-md"
                 />
                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-semibold text-primary shadow-sm">
-                  {isEnglish ? "20+ years of experience" : "20+ años de experiencia"}
+                  {isEnglish ? "40+ years of experience" : "40+ años de experiencia"}
                 </div>
               </div>
               <div>
@@ -533,8 +547,8 @@ export default function LandingAdsCanina() {
                 </h2>
                 <p className="text-foreground text-lg leading-relaxed mb-4">
                   {isEnglish
-                    ? "I'm Luis, owner of Fontfreda. I've been caring for dogs and cats for over 20 years at our family estate in the Alt Penedès, just 30 minutes from Barcelona."
-                    : "Soy Luis, propietario de Fontfreda. Llevo más de 20 años cuidando perros y gatos en nuestra finca familiar en el Alt Penedès, a solo 30 minutos de Barcelona."}
+                    ? "I'm Luis, owner of Fontfreda. I've been caring for dogs and cats for over 40 years at our family estate in the Alt Penedès, just 30 minutes from Barcelona."
+                    : "Soy Luis, propietario de Fontfreda. Llevo más de 40 años cuidando perros y gatos en nuestra finca familiar en el Alt Penedès, a solo 30 minutos de Barcelona."}
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   {isEnglish

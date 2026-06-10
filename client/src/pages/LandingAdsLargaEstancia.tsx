@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { toast } from "sonner";
 import Header from "@/components/Header";
@@ -45,6 +45,8 @@ const INITIAL_FORM: FormState = {
   mensaje: "",
 };
 
+const SESSION_KEY = "fontfreda_form_larga_estancia";
+
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
 function getTodayDate() {
@@ -66,9 +68,20 @@ export default function LandingAdsLargaEstancia() {
   const isEnglish = location.startsWith("/en");
   const currentPath = "/larga-estancia-perros-gatos";
 
-  const [form, setForm] = useState<FormState>(INITIAL_FORM);
+  const [form, setForm] = useState<FormState>(() => {
+    try {
+      const saved = sessionStorage.getItem(SESSION_KEY);
+      return saved ? { ...INITIAL_FORM, ...JSON.parse(saved) } : INITIAL_FORM;
+    } catch {
+      return INITIAL_FORM;
+    }
+  });
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  useEffect(() => {
+    try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(form)); } catch {}
+  }, [form]);
 
   // ── Schema ─────────────────────────────────────────────────────────────────
 
@@ -353,6 +366,7 @@ export default function LandingAdsLargaEstancia() {
       });
 
       setTimeout(() => {
+        sessionStorage.removeItem(SESSION_KEY);
         setForm(INITIAL_FORM);
         setSubmitStatus("idle");
       }, 3000);
@@ -569,7 +583,7 @@ export default function LandingAdsLargaEstancia() {
                   className="w-full aspect-[3/4] object-cover rounded-2xl shadow-md"
                 />
                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-semibold text-primary shadow-sm">
-                  {isEnglish ? "20+ years of experience" : "20+ años de experiencia"}
+                  {isEnglish ? "40+ years of experience" : "40+ años de experiencia"}
                 </div>
               </div>
               <div>
@@ -578,8 +592,8 @@ export default function LandingAdsLargaEstancia() {
                 </h2>
                 <p className="text-foreground text-lg leading-relaxed mb-4">
                   {isEnglish
-                    ? "I'm Luis, owner of Fontfreda. For over 20 years I've looked after dogs and cats at our family estate in the Alt Penedès for owners who needed someone truly trustworthy — people relocating abroad, on long work assignments, or going through a life change."
-                    : "Soy Luis, propietario de Fontfreda. Durante más de 20 años he cuidado perros y gatos en nuestra finca familiar del Alt Penedès para dueños que necesitaban a alguien de verdad de confianza: personas que se marchaban al extranjero, en largas misiones de trabajo o atravesando un cambio vital."}
+                    ? "I'm Luis, owner of Fontfreda. For over 40 years I've looked after dogs and cats at our family estate in the Alt Penedès for owners who needed someone truly trustworthy — people relocating abroad, on long work assignments, or going through a life change."
+                    : "Soy Luis, propietario de Fontfreda. Durante más de 40 años he cuidado perros y gatos en nuestra finca familiar del Alt Penedès para dueños que necesitaban a alguien de verdad de confianza: personas que se marchaban al extranjero, en largas misiones de trabajo o atravesando un cambio vital."}
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   {isEnglish

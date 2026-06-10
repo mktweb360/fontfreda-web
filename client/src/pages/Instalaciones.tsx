@@ -4,7 +4,7 @@ import { SchemaMarkup, createBreadcrumbSchema } from "@/components/SchemaMarkup"
 import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
 import { Button } from "@/components/ui/button";
-import { X, ChevronLeft, ChevronRight, Trees, Home, Stethoscope, ChevronDown } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Trees, Home, ChevronDown } from "lucide-react";
 import { useLocation } from "wouter";
 import { useState } from "react";
 
@@ -40,7 +40,7 @@ export default function Instalaciones() {
   };
   const language = getLanguage();
 
-  const [selectedCategory, setSelectedCategory] = useState<"todos" | "parques" | "interiores" | "servicios">("todos");
+  const [selectedCategory, setSelectedCategory] = useState<"todos" | "parques" | "interiores">("todos");
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [expandedFAQ, setExpandedFAQ] = useState<string | null>(null);
@@ -140,28 +140,6 @@ export default function Instalaciones() {
       details_es: "Zonas de juego protegidas con juguetes variados y enriquecimiento ambiental constante.",
       details_en: "Protected play areas with varied toys and constant environmental enrichment.",
     },
-    {
-      id: "servicio-veterinaria",
-      title_es: "Servicio Veterinario",
-      title_en: "Veterinary Service",
-      description_es: "Clínica veterinaria en las instalaciones",
-      description_en: "Veterinary clinic on the premises",
-      category: "servicios",
-      image: "https://images.unsplash.com/photo-1576091160550-112173f31c77?ixlib=rb-4.0.3&w=800&h=600&fit=crop",
-      details_es: "Servicio veterinario profesional disponible para emergencias y cuidados de salud preventivos.",
-      details_en: "Professional veterinary service available for emergencies and preventive health care.",
-    },
-    {
-      id: "servicio-higiene",
-      title_es: "Servicio de Higiene",
-      title_en: "Grooming Service",
-      description_es: "Área de baño y aseo profesional",
-      description_en: "Professional bathing and grooming area",
-      category: "servicios",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
-      details_es: "Instalaciones modernas para baño, secado y acondicionamiento con productos de calidad.",
-      details_en: "Modern facilities for bathing, drying and conditioning with quality products.",
-    },
   ];
 
   const faqItems: FAQItem[] = [
@@ -248,7 +226,6 @@ export default function Instalaciones() {
         todos: "Todas",
         parques: "Parques de Recreo",
         interiores: "Espacios Interiores",
-        servicios: "Servicios",
       },
       modal: {
         close: "Cerrar",
@@ -274,7 +251,6 @@ export default function Instalaciones() {
         todos: "All",
         parques: "Recreation Parks",
         interiores: "Interior Spaces",
-        servicios: "Services",
       },
       modal: {
         close: "Close",
@@ -325,8 +301,6 @@ export default function Instalaciones() {
         return <Trees className="w-5 h-5" />;
       case "interiores":
         return <Home className="w-5 h-5" />;
-      case "servicios":
-        return <Stethoscope className="w-5 h-5" />;
       default:
         return null;
     }

@@ -397,11 +397,11 @@ export default function Guarderia() {
                 <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-border shadow-lg">
                   <div className="flex items-center gap-3">
                     <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground font-bold text-sm flex-shrink-0">
-                      20+
+                      40+
                     </div>
                     <div>
                       <p className="font-semibold text-foreground text-sm">
-                        {language === "en" ? "20+ years of experience" : "20+ años de experiencia"}
+                        {language === "en" ? "40+ years of experience" : "40+ años de experiencia"}
                       </p>
                       <p className="text-xs text-muted-foreground">
                         {language === "en" ? "Trusted by hundreds of families" : "La confianza de cientos de familias"}
@@ -416,8 +416,8 @@ export default function Guarderia() {
                 </h2>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
                   {language === "en"
-                    ? "Luis and his team have been caring for dogs every day for over 20 years. Your dog comes home tired, happy, and well cared for — guaranteed."
-                    : "Luis y su equipo llevan más de 20 años cuidando perros cada día. Tu perro vuelve a casa cansado, feliz y en perfectas condiciones — garantizado."}
+                    ? "Luis and his team have been caring for dogs every day for over 40 years. Your dog comes home tired, happy, and well cared for — guaranteed."
+                    : "Luis y su equipo llevan más de 40 años cuidando perros cada día. Tu perro vuelve a casa cansado, feliz y en perfectas condiciones — garantizado."}
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   {language === "en"

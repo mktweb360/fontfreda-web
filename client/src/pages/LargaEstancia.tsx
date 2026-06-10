@@ -377,7 +377,7 @@ export default function LargaEstancia() {
                   className="w-full aspect-[3/4] object-cover rounded-2xl shadow-md"
                 />
                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl text-sm font-semibold text-primary shadow-sm">
-                  {isEnglish ? "20+ years of experience" : "20+ años de experiencia"}
+                  {isEnglish ? "40+ years of experience" : "40+ años de experiencia"}
                 </div>
               </div>
               <div>
@@ -386,8 +386,8 @@ export default function LargaEstancia() {
                 </h2>
                 <p className="text-foreground text-lg leading-relaxed mb-4">
                   {isEnglish
-                    ? "I'm Luis, owner of Fontfreda. For over 20 years I've looked after dogs at our family estate in the Alt Penedès for owners who needed someone truly trustworthy — people relocating abroad, on long work assignments, or going through a life change."
-                    : "Soy Luis, propietario de Fontfreda. Durante más de 20 años he cuidado perros en nuestra finca familiar del Alt Penedès para dueños que necesitaban a alguien de verdad de confianza: personas que se marchaban al extranjero, en largas misiones de trabajo o atravesando un cambio vital."}
+                    ? "I'm Luis, owner of Fontfreda. For over 40 years I've looked after dogs at our family estate in the Alt Penedès for owners who needed someone truly trustworthy — people relocating abroad, on long work assignments, or going through a life change."
+                    : "Soy Luis, propietario de Fontfreda. Durante más de 40 años he cuidado perros en nuestra finca familiar del Alt Penedès para dueños que necesitaban a alguien de verdad de confianza: personas que se marchaban al extranjero, en largas misiones de trabajo o atravesando un cambio vital."}
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   {isEnglish

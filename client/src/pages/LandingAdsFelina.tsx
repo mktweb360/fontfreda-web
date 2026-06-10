@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { toast } from "sonner";
 import Header from "@/components/Header";
@@ -46,6 +46,8 @@ const INITIAL_FORM: FormState = {
   mensaje: "",
 };
 
+const SESSION_KEY = "fontfreda_form_felina";
+
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
 function getTodayDate() {
@@ -67,9 +69,20 @@ export default function LandingAdsFelina() {
   const isEnglish = location.startsWith("/en");
   const currentPath = "/residencia-felina-barcelona";
 
-  const [form, setForm] = useState<FormState>(INITIAL_FORM);
+  const [form, setForm] = useState<FormState>(() => {
+    try {
+      const saved = sessionStorage.getItem(SESSION_KEY);
+      return saved ? { ...INITIAL_FORM, ...JSON.parse(saved) } : INITIAL_FORM;
+    } catch {
+      return INITIAL_FORM;
+    }
+  });
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  useEffect(() => {
+    try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(form)); } catch {}
+  }, [form]);
 
   // ── Schema ─────────────────────────────────────────────────────────────────
 
@@ -317,6 +330,7 @@ export default function LandingAdsFelina() {
       });
 
       setTimeout(() => {
+        sessionStorage.removeItem(SESSION_KEY);
         setForm(INITIAL_FORM);
         setSubmitStatus("idle");
       }, 3000);
@@ -561,18 +575,18 @@ export default function LandingAdsFelina() {
               <div className="relative">
                 <img
                   src="/images/trust/guarderia-canina-5.jpg"
-                  alt={isEnglish ? "Fontfreda feline residence — 20 years of experience" : "Residencia felina Fontfreda — 20 años de experiencia"}
+                  alt={isEnglish ? "Fontfreda feline residence — 40 years of experience" : "Residencia felina Fontfreda — 40 años de experiencia"}
                   loading="lazy"
                   className="w-full rounded-2xl object-cover aspect-[3/4]"
                 />
                 <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-white/50">
                   <div className="flex items-center gap-3">
                     <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold text-lg">20+</span>
+                      <span className="text-white font-bold text-lg">40+</span>
                     </div>
                     <div>
                       <p className="font-bold text-foreground text-sm leading-tight">
-                        {isEnglish ? "20+ years of experience" : "20+ años de experiencia"}
+                        {isEnglish ? "40+ years of experience" : "40+ años de experiencia"}
                       </p>
                       <p className="text-muted-foreground text-xs">
                         {isEnglish ? "Specialized feline care" : "Cuidado felino especializado"}
@@ -584,13 +598,13 @@ export default function LandingAdsFelina() {
               <div>
                 <h2 className="text-3xl font-bold text-foreground mb-6">
                   {isEnglish
-                    ? "20+ Years Caring for Cats in a Specialised 180m² Space"
-                    : "Más de 20 años cuidando gatos en un espacio especializado de 180m²"}
+                    ? "40+ Years Caring for Cats in a Specialised 180m² Space"
+                    : "Más de 40 años cuidando gatos en un espacio especializado de 180m²"}
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed italic">
                   {isEnglish
-                    ? "\"I'm Luis, owner of Fontfreda. We've been caring for cats for over 20 years in a specialised 180m² space, completely separate from dogs. Every cat receives individual attention and a calm environment adapted to their character.\""
-                    : "\"Soy Luis, propietario de Fontfreda. Llevamos más de 20 años cuidando gatos en un espacio especializado de 180m², separado completamente de los perros. Cada gato recibe atención individual y un ambiente tranquilo adaptado a su carácter.\""}
+                    ? "\"I'm Luis, owner of Fontfreda. We've been caring for cats for over 40 years in a specialised 180m² space, completely separate from dogs. Every cat receives individual attention and a calm environment adapted to their character.\""
+                    : "\"Soy Luis, propietario de Fontfreda. Llevamos más de 40 años cuidando gatos en un espacio especializado de 180m², separado completamente de los perros. Cada gato recibe atención individual y un ambiente tranquilo adaptado a su carácter.\""}
                 </p>
                 <p className="mt-4 font-semibold text-primary">
                   — Luis, {isEnglish ? "owner of Fontfreda" : "propietario de Fontfreda"}
