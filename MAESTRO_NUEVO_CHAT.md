@@ -1,7 +1,7 @@
 # MAESTRO_NUEVO_CHAT.md — Fontfreda Web
 
 > Documento de referencia para nuevas sesiones de IA.  
-> **Última actualización:** 10 de junio de 2026 (fin de sesión)
+> **Última actualización:** 10 de junio de 2026 (tarde/noche)
 
 ---
 
@@ -19,7 +19,11 @@
 | GA4 | G-JR3N422110 |
 | GTM | GTM-PB35J3M |
 
-**Años de actividad: 20+** (nunca escribir 10).
+**Años de actividad: 40+** (Luis lleva ~45 años, pero prefiere comunicar "más de 40 años". Nunca escribir 10 ni 20).
+
+### Dato diferencial clave — PENDIENTE DE INTEGRAR EN WEB
+**5 parques de recreo de 400 a 600 m² cada uno, vallados, dentro de la finca.**  
+Este dato aún no aparece en web ni landings — debe incorporarse en textos de servicio y anuncios.
 
 ---
 
@@ -47,17 +51,40 @@ const language = getLanguage(); // "es" | "en"
 // LandingAdsCatala: solo CA, sin isEnglish, sin HrefLang
 ```
 
+### Patrón formulario con memoria (sessionStorage)
+
+Aplicado en las 4 landings de Ads. Ejemplo (clave varía por landing):
+
+```tsx
+const SESSION_KEY = "fontfreda_form_canina"; // _guarderia / _larga_estancia / _felina
+
+const [form, setForm] = useState<FormState>(() => {
+  try {
+    const saved = sessionStorage.getItem(SESSION_KEY);
+    return saved ? JSON.parse(saved) : INITIAL_FORM;
+  } catch { return INITIAL_FORM; }
+});
+
+useEffect(() => {
+  try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(form)); } catch {}
+}, [form]);
+
+// En el handler de éxito:
+sessionStorage.removeItem(SESSION_KEY);
+setForm(INITIAL_FORM);
+```
+
 ---
 
 ## 3. Landings de Google Ads
 
 | Archivo | Ruta ES | Estado |
 |---|---|---|
-| `LandingAdsCanina.tsx` | `/residencia-canina-barcelona` | ✅ Hero real + galería + Trust section |
-| `LandingAdsGuarderia.tsx` | `/guarderia-canina-barcelona` | ✅ Hero real + galería + Trust section |
-| `LandingAdsLargaEstancia.tsx` | `/larga-estancia-perros-gatos` | ✅ Hero real + galería + Trust section |
-| `LandingAdsFelina.tsx` | `/residencia-felina-barcelona` | ✅ Imágenes felina completas (hero, instalaciones-1/2/3, vistas-1, gato-5/7/8); Trust section (Luis) + ServicePromoBanner añadidos jun 2026 |
-| `LandingAdsCatala.tsx` | `/residencia-canina-barcelona-ca` | ✅ Creada jun 2026, idioma CA, sin hreflang — ⚠️ verificar si necesita galería propia o es suficiente con imágenes de `canina/` |
+| `LandingAdsCanina.tsx` | `/residencia-canina-barcelona` | ✅ Hero real + galería recreo (4 JPEGs nuevos jun 2026) + Trust section + sessionStorage |
+| `LandingAdsGuarderia.tsx` | `/guarderia-canina-barcelona` | ✅ Hero real + galería + Trust section + sessionStorage |
+| `LandingAdsLargaEstancia.tsx` | `/larga-estancia-perros-gatos` | ✅ Hero real + galería + Trust section + sessionStorage |
+| `LandingAdsFelina.tsx` | `/residencia-felina-barcelona` | ✅ Imágenes reales de Luis integradas jun 2026 (hero, instalaciones, vistas, galería gatos); sessionStorage; Trust section; ServicePromoBanner |
+| `LandingAdsCatala.tsx` | `/residencia-canina-barcelona-ca` | ✅ Creada jun 2026, idioma CA, sin hreflang — ⚠️ verificar si necesita galería propia |
 
 **Landings EN** (`/en/dog-boarding-barcelona`, `/en/cat-boarding-barcelona`, `/en/long-term-boarding`): ⚠️ Pendientes de aplicar el patrón de imágenes reales.
 
@@ -71,7 +98,7 @@ Hero foto real (fetchpriority="high")
 → Why
 → Testimonial
 → Otros servicios (ServicePromoBanner x2)
-→ Trust (foto Luis + Bulldog, badge "20+ años")
+→ Trust (foto Luis + Bulldog, badge "40+ años")
 → Formulario (#formulario)
 → CTA final
 ```
@@ -80,7 +107,7 @@ Hero foto real (fetchpriority="high")
 
 ## 4. Imágenes
 
-**Estado: ✅ Completado** — Imágenes reales integradas en todas las landings caninas y páginas orgánicas.
+**Estado: ✅ Completado** — Imágenes reales integradas en todas las landings y páginas orgánicas. **No hay URLs CloudFront en ningún componente.**
 
 Ubicación: `client/public/images/` con subcarpetas:
 
@@ -88,15 +115,15 @@ Ubicación: `client/public/images/` con subcarpetas:
 - `residencia-canina-9.jpg` — hero LandingAdsCanina
 - `residencia-canina-fontfreda-7.jpg` — hero LandingAdsLargaEstancia, banner larga-estancia
 - `guarderia-canina-1.jpg` — hero LandingAdsGuarderia *(archivo está en canina/, no en guarderia/)*
-- `hotel-canino-fontfreda-2.jpg`
-- `residencia-canina-11.jpg`
-- `espacio-de-recreo-para-perros.jpg`
-- `residencia-canina-7.jpg`, `residencia-canina-8.jpg`, `hotel-canino-5.jpg`, `area-recreo-caninos-5.jpg`, `alojamiento-fontfreda.jpg`
+- `hotel-canino-fontfreda-2.jpg`, `residencia-canina-11.jpg`, `residencia-canina-7.jpg`, `residencia-canina-8.jpg`
+- `hotel-canino-5.jpg`, `area-recreo-caninos-5.jpg`, `alojamiento-fontfreda.jpg`
+- `perro_suelto_recinto_recreo.jpeg` — galería recreo LandingAdsCanina *(nuevo jun 2026)*
+- `paseo-perros-sueltos.jpeg` — galería recreo LandingAdsCanina *(nuevo jun 2026)*
+- `perros_espadio_recreo.jpeg` — galería recreo LandingAdsCanina *(nuevo jun 2026)*
+- `perros-residencia-canina.jpeg` — galería recreo LandingAdsCanina *(nuevo jun 2026)*
 
 ### `guarderia/`
-- `guarderia-canina-11.jpg`
-- `guarderia-canina-8-1080x1459.jpg`
-- `perro-en-area-de-recreo-3.jpg`
+- `guarderia-canina-11.jpg`, `guarderia-canina-8-1080x1459.jpg`, `perro-en-area-de-recreo-3.jpg`
 - `guarderia-canina-4.jpg`, `guarderia-canina-7.jpg`, `perro-en-area-de-recreo-2.jpg`
 
 ### `dentro-de-casa/`
@@ -123,16 +150,23 @@ Ubicación: `client/public/images/` con subcarpetas:
 ### `recogida/`
 - `transporte.jpg`, `transporte-1.jpg`, `recogida-entrega-animales.jpg.webp`, `transporte2.jpg.webp`
 
-### `felina/`
-- `hero.jpg` ← `residencia-felina-5.jpg` (2018, backup WP)
-- `instalaciones-1.jpg` ← `instalaciones-felinos.jpg` (2011)
-- `instalaciones-2.jpg` ← `residencia-felina-6.jpg` (2016)
-- `instalaciones-3.jpg` ← `residencia-felina-9.jpg` (2016)
-- `vistas-1.jpg` ← `residencia-felina-12.jpg` (2016)
-- `gato-1.jpg` — gato original
-- `gato-5.jpg` ← `gato_alojamiento.jpg` (2016)
-- `gato-7.jpg` ← `gato-en-residencia-felina.jpg` (2017)
-- `gato-8.jpg` ← `gato-toma-sol-ventana.jpg` (2017)
+### `felina/` — imágenes reales de Luis integradas jun 2026
+**Archivos nuevos (11 JPEGs, fotos reales):**
+- `gatos-en-la-residencia.jpeg` — hero LandingAdsFelina + hero ResidenciaFelina
+- `espacio-interior-residencia-felina.jpeg` — instalaciones LandingAdsFelina col 1; galería ResidenciaFelina col 1
+- `interior-residencia-2.jpeg` — instalaciones LandingAdsFelina col 2; galería ResidenciaFelina col 4
+- `exterior-residencia-felina.jpeg` — instalaciones LandingAdsFelina col 3
+- `gato_interior-redidencia.jpeg` — banner vistas LandingAdsFelina *(typo en nombre: "redidencia", no corregir)*
+- `gatos-residencia-felina.jpeg` — galería gatos LandingAdsFelina col 1
+- `gato-sillon-residencia.jpeg` — galería gatos LandingAdsFelina col 2
+- `gato-durmiendo-en-la-residencia-felina.jpeg` — galería gatos LandingAdsFelina col 3
+- `gatos-alojados-residencia-felina.jpeg` — galería gatos LandingAdsFelina col 4
+- `gato-alojado-en-residencia.jpeg` — galería ResidenciaFelina col 2
+- `gato-2-residencia-felina.jpeg` — galería ResidenciaFelina col 3
+
+**Archivos legacy (mantener, no eliminar):**
+- `hero.jpg`, `instalaciones-1.jpg`, `instalaciones-2.jpg`, `instalaciones-3.jpg`, `vistas-1.jpg`
+- `gato-1.jpg`, `gato-5.jpg`, `gato-7.jpg`, `gato-8.jpg`
 
 ---
 
@@ -140,11 +174,11 @@ Ubicación: `client/public/images/` con subcarpetas:
 
 | Página | Archivo | Estado |
 |---|---|---|
-| Residencia Canina | `ResidenciaCanina.tsx` | ✅ Hero local `/images/canina/residencia-canina-9.jpg` (eliminada URL CloudFront — **ya no hay URLs CloudFront en ningún componente**); ServicePromoBanner insertado; Service + FAQPage + Breadcrumb schema ✅ |
-| Residencia Felina | `ResidenciaFelina.tsx` | Service + FAQPage + Breadcrumb schema ✅; imágenes sin revisar |
-| Guardería Canina | `Guarderia.tsx` | ✅ Service + Breadcrumb schema añadidos jun 2026 |
-| Larga Estancia | `LargaEstancia.tsx` | ✅ Gatos eliminados, imágenes reales, galería, Trust; LocalBusiness + Service + Breadcrumb schema añadidos jun 2026 |
-| Guardería en Casa | `GuarderiaEnCasa.tsx` | ✅ Gatos eliminados, hero real, galería, Trust; Service + Breadcrumb schema añadidos jun 2026 |
+| Residencia Canina | `ResidenciaCanina.tsx` | ✅ Hero local `/images/canina/residencia-canina-9.jpg`; CloudFront eliminado; ServicePromoBanner; Service + FAQPage + Breadcrumb schema |
+| Residencia Felina | `ResidenciaFelina.tsx` | ✅ Hero local `/images/felina/gatos-en-la-residencia.jpeg` (CloudFront eliminado jun 2026); galería 4 cols añadida tras sección principal; Service + FAQPage + Breadcrumb schema |
+| Guardería Canina | `Guarderia.tsx` | ✅ Service + Breadcrumb schema; badge 40+ años |
+| Larga Estancia | `LargaEstancia.tsx` | ✅ Solo perros; imágenes reales; galería; Trust; LocalBusiness + Service + Breadcrumb schema |
+| Guardería en Casa | `GuarderiaEnCasa.tsx` | ✅ Solo perros; hero real; galería; Trust; Service + Breadcrumb schema |
 
 ---
 
@@ -236,13 +270,39 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 
 ---
 
+## 6c. Google Ads — Estado Cuenta 946-240-2340
+
+### Campaña Residencia Felina
+- ✅ 42 keywords negativas añadidas a nivel campaña
+- ✅ Keywords de residencia/guardería/hotel felino añadidas
+- ✅ Keywords de intención vacacional añadidas
+- ⚠️ **Recordatorio 1 julio 2026:** revisar estrategia de puja
+
+### Grupo Guardería Canina
+- ✅ 2 keywords eliminadas
+- ✅ 2 sitelinks nuevos añadidos
+- ✅ 3 anuncios → calidad **Excelente**
+
+### Grupo Residencia Perros
+- ✅ 14 keywords eliminadas
+- ✅ 4 keywords vacacional añadidas
+- ✅ 3 anuncios → calidad **Excelente**
+
+### Pendiente revisar
+- ⚠️ Grupo "fontfreda english"
+- ⚠️ Grupo "fontfreda català"
+
+---
+
 ## 7. Correcciones Aplicadas (Reglas de Negocio)
 
 > Estas correcciones son definitivas. No revertir.
 
-- **Años de experiencia:** Fontfreda tiene **20+ años** de actividad. Nunca escribir 10.
-- **Larga estancia es exclusivamente para perros** — eliminadas 7 menciones a gatos en `LargaEstancia.tsx` (SEO title ES/EN, description ES/EN, keywords ES/EN, img alt) y 2 menciones en `GuarderiaEnCasa.tsx` (subtítulos ES/EN).
+- **Años de experiencia:** Fontfreda tiene **40+ años** de actividad. Nunca escribir 10 ni 20. (Luis lleva ~45 años; prefiere comunicar "más de 40".)
+- **Larga estancia es exclusivamente para perros** — eliminadas referencias a gatos en `LargaEstancia.tsx` y `GuarderiaEnCasa.tsx`.
 - `guarderia-canina-1.jpg` está en `canina/`, no en `guarderia/`.
+- **Instalaciones.tsx:** Eliminados `servicio-veterinaria` y `servicio-higiene` del array `galleryItems` y la categoría `"servicios"` del filtro. Motivo: eran servicios falsos con imágenes Unsplash que Fontfreda no ofrece como servicio independiente. ⚠️ Resto de imágenes en Instalaciones.tsx siguen siendo Unsplash — pendiente sustituir por fotos reales.
+- **CloudFront eliminado:** La última URL CloudFront (hero ResidenciaFelina) fue sustituida por imagen local en jun 2026. **Ya no hay URLs CloudFront en ningún componente.**
 
 ---
 
@@ -250,20 +310,25 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 
 ### 🔴 Urgente
 
+- **Actualizar textos "5 parques de recreo de 400-600 m² cada uno"** en páginas de servicio y landings — dato diferencial clave aún no en web.
 - **Redirect 301** `fontfreda.net` → `www.fontfreda.net` (configurar en Cloudflare, no en código).
 
 ### 🟡 Media prioridad
 
-- **Artículos de blog individuales:** Crear rutas `/blog/:slug` con contenido completo (actualmente solo muestran excerpt + content corto).
-- **Aplicar patrón imágenes a landings EN:** `/en/dog-boarding-barcelona`, `/en/cat-boarding-barcelona`, `/en/long-term-boarding` usan los mismos componentes ES pero no tienen galería de imágenes propia.
-- **LandingAdsCatala.tsx imágenes:** Verificar si la landing CA tiene galería o Hero propio, o si reutiliza `canina/` sin problema visual.
-- **FAQPage schema en Guarderia y GuarderiaEnCasa:** Tienen Service + Breadcrumb pero no FAQ — añadir `createFAQSchema` con preguntas frecuentes relevantes.
+- **Instalaciones.tsx imágenes Unsplash** — sustituir todas las imágenes placeholder por fotos reales de Fontfreda.
+- **Revisar referencia a Huskys en página Guardería** — posible mención incorrecta pendiente de confirmar.
+- **Optimizar grupos "fontfreda english" y "fontfreda català"** en Google Ads.
+- **Recordatorio 1 julio 2026:** revisar estrategia de puja campaña Residencia Felina.
+- **Artículos de blog individuales:** Crear rutas `/blog/:slug` con contenido completo.
+- **Aplicar patrón imágenes a landings EN:** `/en/dog-boarding-barcelona`, `/en/cat-boarding-barcelona`, `/en/long-term-boarding`.
+- **LandingAdsCatala.tsx:** Verificar galería o Hero propio.
+- **FAQPage schema** en `Guarderia.tsx` y `GuarderiaEnCasa.tsx`.
 
 ### 🟢 Baja prioridad / Backlog
 
-- Campaña Google Ads **Guardería Dentro de Casa** (requiere acceso a cuenta 946-240-2340).
+- Instalar Claude para Excel.
+- Campaña Google Ads **Guardería Dentro de Casa**.
 - Cancelar suscripción SiteGround (confirmar que email no depende de él).
-- Crear campaña Google Ads Residencia Felina (requiere acceso a cuenta 946-240-2340).
 - Tabla MySQL para newsletter.
 - Corregir anomalías router: `/instalaciones` en bloque EN, ruta `/blog` duplicada.
 
@@ -273,6 +338,10 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 
 | Hash | Descripción |
 |---|---|
+| `01c0b86` | feat: integrate new real photos from Luis into felina and canina components |
+| `5bc41ef` | feat: add new real jpeg photos from Luis (11 felina + 4 canina) |
+| `61f085c` | fix: update 40yr experience, add form persistence, remove fake services from Instalaciones |
+| `66091bb` | feat: add all dog and cat images to repository |
 | `9f65b82` | docs: update MAESTRO_NUEVO_CHAT.md end of session june 10 2026 |
 | `1699289` | feat: add felina images, fix ResidenciaCanina hero, add Trust and banners to LandingAdsFelina |
 | `7290867` | seo: add Service schema to all Ads landings and fix BlogPost schema |
@@ -281,8 +350,6 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 | `edc715c` | feat: add ServicePromoBanner component and insert into canine pages |
 | `cdd6c13` | feat: integrate real images into LargaEstancia and GuarderiaEnCasa |
 | `fa730f5` | fix: update trust badge to 20+ years experience |
-| anterior | feat: add landing page in catalan for fontfreda catala ad group |
-| anterior | feat: add guarderia canina landing page for Google Ads |
 
 ---
 
@@ -294,7 +361,9 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 4. **Git está en WSL** — ejecutar `wsl -e bash -c "cd ~/fontfreda-web && git ..."` desde PowerShell.
 5. **node_modules solo en Windows** — no ejecutar `npm`/`tsc`/`vite` en WSL.
 6. **Multiidioma obligatorio** — todo cambio de texto debe incluir ES + EN.
-7. **20+ años**, nunca 10. **Larga estancia y GuarderiaEnCasa = solo perros**, nunca mencionar gatos.
+7. **40+ años**, nunca 10 ni 20. **Larga estancia y GuarderiaEnCasa = solo perros**, nunca mencionar gatos.
 8. **Cloudflare gestiona DNS** — redirects de dominio van en Cloudflare, no en `.htaccess`.
 9. **`isEnglish`** es el patrón estándar; `GuarderiaEnCasa.tsx` usa `language = getLanguage()`.
 10. **`LandingAdsCatala.tsx`** es solo CA, sin `isEnglish`, sin HrefLang.
+11. **No hay URLs CloudFront en ningún componente** — todas las imágenes son rutas locales `/images/...`.
+12. **Formulario con sessionStorage** — patrón implementado en las 4 landings Ads; ver sección 2.
