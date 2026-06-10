@@ -441,26 +441,26 @@ export default function LandingAdsCanina() {
         <section className="py-0">
           <div className="grid grid-cols-2 md:grid-cols-4">
             <img
-              src="/images/canina/residencia-canina-fontfreda-7.jpg"
-              alt={isEnglish ? "Dogs at Fontfreda canine residence Barcelona" : "Perros en la residencia canina Fontfreda Barcelona"}
+              src="/images/canina/perro_suelto_recinto_recreo.jpeg"
+              alt={isEnglish ? "Dog free in recreation area at Fontfreda" : "Perro suelto en el recinto de recreo de Fontfreda"}
               loading="lazy"
               className="w-full h-48 md:h-56 object-cover"
             />
             <img
-              src="/images/canina/hotel-canino-fontfreda-2.jpg"
-              alt={isEnglish ? "Dog hotel Fontfreda Barcelona" : "Hotel canino Fontfreda Barcelona"}
+              src="/images/canina/paseo-perros-sueltos.jpeg"
+              alt={isEnglish ? "Dogs walking free at Fontfreda Barcelona" : "Paseo de perros sueltos en Fontfreda Barcelona"}
               loading="lazy"
               className="w-full h-48 md:h-56 object-cover"
             />
             <img
-              src="/images/canina/espacio-de-recreo-para-perros.jpg"
-              alt={isEnglish ? "Dog recreation area at Fontfreda" : "Área de recreo para perros en Fontfreda"}
+              src="/images/canina/perros_espadio_recreo.jpeg"
+              alt={isEnglish ? "Dogs in recreation space at Fontfreda" : "Perros en el espacio de recreo de Fontfreda"}
               loading="lazy"
               className="w-full h-48 md:h-56 object-cover"
             />
             <img
-              src="/images/canina/guarderia-canina-1.jpg"
-              alt={isEnglish ? "Dog daycare Fontfreda Barcelona" : "Guardería canina Fontfreda Barcelona"}
+              src="/images/canina/perros-residencia-canina.jpeg"
+              alt={isEnglish ? "Dogs at Fontfreda canine residence" : "Perros en la residencia canina Fontfreda"}
               loading="lazy"
               className="w-full h-48 md:h-56 object-cover"
             />

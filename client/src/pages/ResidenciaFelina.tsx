@@ -13,8 +13,7 @@ export default function ResidenciaFelina() {
   const isEnglish = location.startsWith("/en");
   const currentPath = "/residencia-felina";
 
-  const heroImageUrl =
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663312171860/4pSqWGuzzS8uGmjWwDrdgm/hero-residencia-felina-RYfEScYLHnRZqhCuzg8pHw.webp";
+  const heroImageUrl = "/images/felina/gatos-en-la-residencia.jpeg";
 
   const t = isEnglish ? {
     serviceName: "Cat Boarding",
@@ -153,6 +152,36 @@ export default function ResidenciaFelina() {
             <h2 className="text-3xl font-bold text-primary mb-4">{t.descTitle}</h2>
             <p className="text-lg text-muted-foreground mb-6">{t.descP1}</p>
             <p className="text-lg text-muted-foreground">{t.descP2}</p>
+          </div>
+        </section>
+
+        {/* ── Galería ───────────────────────────────────────────────────────── */}
+        <section className="py-0">
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            <img
+              src="/images/felina/espacio-interior-residencia-felina.jpeg"
+              alt={isEnglish ? "Interior of Fontfreda feline residence" : "Interior de la residencia felina Fontfreda"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/felina/gato-alojado-en-residencia.jpeg"
+              alt={isEnglish ? "Cat staying at Fontfreda feline residence" : "Gato alojado en la residencia felina Fontfreda"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/felina/gato-2-residencia-felina.jpeg"
+              alt={isEnglish ? "Cat at Fontfreda feline residence Barcelona" : "Gato en la residencia felina Fontfreda Barcelona"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <img
+              src="/images/felina/interior-residencia-2.jpeg"
+              alt={isEnglish ? "Fontfreda feline residence space" : "Espacio de la residencia felina Fontfreda"}
+              loading="lazy"
+              className="w-full h-48 md:h-56 object-cover"
+            />
           </div>
         </section>
 

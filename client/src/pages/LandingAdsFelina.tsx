@@ -14,7 +14,7 @@ import {
   trackPhoneClick,
 } from "@/lib/conversionTracking";
 
-const HERO_IMAGE = "/images/felina/hero.jpg";
+const HERO_IMAGE = "/images/felina/gatos-en-la-residencia.jpeg";
 
 // ── Tipos ──────────────────────────────────────────────────────────────────────
 
@@ -446,20 +446,20 @@ export default function LandingAdsFelina() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
               <img
-                src="/images/felina/instalaciones-1.jpg"
+                src="/images/felina/espacio-interior-residencia-felina.jpeg"
                 alt={isEnglish ? "Resting area of Fontfreda feline residence" : "Zona de descanso de la residencia felina Fontfreda"}
                 loading="lazy"
                 className="w-full h-64 object-cover rounded-xl"
               />
               <img
-                src="/images/felina/instalaciones-2.jpg"
+                src="/images/felina/interior-residencia-2.jpeg"
                 alt={isEnglish ? "Play area at Fontfreda feline residence" : "Área de juego en la residencia felina Fontfreda"}
                 loading="lazy"
                 className="w-full h-64 object-cover rounded-xl"
               />
               <img
-                src="/images/felina/instalaciones-3.jpg"
-                alt={isEnglish ? "Interior space of Fontfreda feline residence" : "Espacio interior de la residencia felina Fontfreda"}
+                src="/images/felina/exterior-residencia-felina.jpeg"
+                alt={isEnglish ? "Exterior of Fontfreda feline residence" : "Exterior de la residencia felina Fontfreda"}
                 loading="lazy"
                 className="w-full h-64 object-cover rounded-xl"
               />
@@ -488,8 +488,8 @@ export default function LandingAdsFelina() {
         {/* ── Vistas ────────────────────────────────────────────────────────── */}
         <section>
           <img
-            src="/images/felina/vistas-1.jpg"
-            alt={isEnglish ? "Outdoor views of Fontfreda feline residence in Barcelona" : "Vistas exteriores de la residencia felina Fontfreda en Barcelona"}
+            src="/images/felina/gato_interior-redidencia.jpeg"
+            alt={isEnglish ? "Cat in the interior of Fontfreda feline residence" : "Gato en el interior de la residencia felina Fontfreda"}
             loading="lazy"
             className="w-full h-72 md:h-96 object-cover"
           />
@@ -533,26 +533,26 @@ export default function LandingAdsFelina() {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
               <img
-                src="/images/felina/gato-1.jpg"
-                alt={isEnglish ? "Cat resting in Fontfreda feline residence" : "Gato descansando en la residencia felina Fontfreda"}
+                src="/images/felina/gatos-residencia-felina.jpeg"
+                alt={isEnglish ? "Cats at Fontfreda feline residence" : "Gatos en la residencia felina Fontfreda"}
                 loading="lazy"
                 className="w-full h-48 object-cover rounded-xl"
               />
               <img
-                src="/images/felina/gato-5.jpg"
-                alt={isEnglish ? "Cat exploring Fontfreda's feline space" : "Gato explorando el espacio felino de Fontfreda"}
+                src="/images/felina/gato-sillon-residencia.jpeg"
+                alt={isEnglish ? "Cat on armchair at Fontfreda residence" : "Gato en sillón en la residencia Fontfreda"}
                 loading="lazy"
                 className="w-full h-48 object-cover rounded-xl"
               />
               <img
-                src="/images/felina/gato-7.jpg"
-                alt={isEnglish ? "Cat enjoying Fontfreda feline residence" : "Gato disfrutando de la residencia felina Fontfreda"}
+                src="/images/felina/gato-durmiendo-en-la-residencia-felina.jpeg"
+                alt={isEnglish ? "Cat sleeping at Fontfreda feline residence" : "Gato durmiendo en la residencia felina Fontfreda"}
                 loading="lazy"
                 className="w-full h-48 object-cover rounded-xl"
               />
               <img
-                src="/images/felina/gato-8.jpg"
-                alt={isEnglish ? "Calm cat at Fontfreda Barcelona" : "Gato tranquilo en Fontfreda Barcelona"}
+                src="/images/felina/gatos-alojados-residencia-felina.jpeg"
+                alt={isEnglish ? "Cats hosted at Fontfreda feline residence" : "Gatos alojados en la residencia felina Fontfreda"}
                 loading="lazy"
                 className="w-full h-48 object-cover rounded-xl"
               />
