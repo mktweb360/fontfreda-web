@@ -1,7 +1,16 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
+import { useEffect } from "react";
+
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  return null;
+}
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -112,6 +121,7 @@ function App() {
         >
           <TooltipProvider>
             <Toaster />
+            <ScrollToTop />
             <Router />
             <WhatsAppButton />
           </TooltipProvider>
