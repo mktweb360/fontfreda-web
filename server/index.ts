@@ -66,7 +66,7 @@ async function startServer() {
 
       res.json({ success: true, message: "Solicitud de reserva enviada correctamente" });
     } catch (error) {
-      console.error("Error sending reserva email:", error);
+      console.error("Error sending reserva email:", error?.response?.data ?? error?.message ?? error);
       res.status(500).json({ error: "Error al enviar la solicitud de reserva" });
     }
   });

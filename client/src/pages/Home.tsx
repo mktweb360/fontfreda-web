@@ -13,7 +13,7 @@ import { blogPosts } from "./Blog";
 import { getPageTranslation } from "@/lib/pageTranslations";
 
 export default function Home() {
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
   const currentPath = location.replace(/^\/en/, "") || "/";
   
   // Safely get language from localStorage or URL
@@ -186,9 +186,11 @@ export default function Home() {
           backgroundImage={heroImageUrl}
           primaryCTA={{
             label: t("primaryCTA"),
+            onClick: () => navigate(language === "en" ? "/en/contacto" : "/contacto"),
           }}
           secondaryCTA={{
             label: t("secondaryCTA"),
+            onClick: () => document.getElementById("servicios")?.scrollIntoView({ behavior: "smooth" }),
           }}
         />
 
@@ -249,7 +251,7 @@ export default function Home() {
         </section>
 
         {/* Servicios */}
-        <section className="py-20 bg-secondary">
+        <section id="servicios" className="py-20 bg-secondary">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl lg:text-4xl font-bold text-center text-primary mb-4">
               {language === "es" ? "Servicios de Alojamiento para Perros y Gatos" : "Dog and Cat Boarding Services"}
@@ -263,10 +265,10 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <ServiceCard
                 title={language === "es" ? "Guardería Canina" : "Dog Daycare"}
-                description={language === "es" 
+                description={language === "es"
                   ? "Servicio especializado para cachorros con atención específica a sus cuidados y necesidades"
                   : "Specialized service for puppies with specific care and attention"}
-                href={language === "es" ? "/residencia-canina" : "/en/residencia-canina"}
+                href={language === "es" ? "/guarderia" : "/en/guarderia"}
               />
               <ServiceCard
                 title={language === "es" ? "Residencia Canina" : "Dog Boarding"}

@@ -10,7 +10,7 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 import { useLocation } from "wouter";
 
 export default function ResidenciaCanina() {
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
   const isEnglish = location.startsWith("/en");
   const currentPath = isEnglish ? location.replace(/^\/en/, "") || "/residencia-canina" : "/residencia-canina";
 
@@ -246,6 +246,7 @@ export default function ResidenciaCanina() {
           backgroundImage={heroImageUrl}
           primaryCTA={{
             label: t.ctaPrimary,
+            onClick: () => navigate(isEnglish ? "/en/contacto" : "/contacto"),
           }}
         />
 

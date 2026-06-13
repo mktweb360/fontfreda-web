@@ -9,7 +9,7 @@ import { Check, Leaf, Lightbulb, Utensils, Pill, Heart } from "lucide-react";
 import { useLocation } from "wouter";
 
 export default function ResidenciaFelina() {
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
   const isEnglish = location.startsWith("/en");
   const currentPath = "/residencia-felina";
 
@@ -143,7 +143,7 @@ export default function ResidenciaFelina() {
           title={t.heroTitle}
           subtitle={t.heroSubtitle}
           backgroundImage={heroImageUrl}
-          primaryCTA={{ label: t.ctaPrimary }}
+          primaryCTA={{ label: t.ctaPrimary, onClick: () => navigate(isEnglish ? "/en/contacto" : "/contacto") }}
         />
 
         <section className="py-20 bg-background">

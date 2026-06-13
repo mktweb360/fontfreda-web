@@ -29,7 +29,6 @@ export default function HeroSection({
       className="relative w-full h-screen flex items-center justify-center bg-cover bg-center"
       style={{
         backgroundImage: `url('${backgroundImage}')`,
-        backgroundAttachment: "fixed",
       }}
     >
       {/* Overlay */}

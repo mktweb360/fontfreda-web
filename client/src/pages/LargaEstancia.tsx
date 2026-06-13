@@ -10,7 +10,7 @@ import { useLocation } from "wouter";
 import { SchemaMarkup, localBusinessSchema, createServiceSchema, createBreadcrumbSchema } from "@/components/SchemaMarkup";
 
 export default function LargaEstancia() {
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
   const isEnglish = location.startsWith("/en");
   const currentPath = "/larga-estancia";
 
@@ -187,7 +187,7 @@ export default function LargaEstancia() {
           title={t.heroTitle}
           subtitle={t.heroSubtitle}
           backgroundImage={heroImageUrl}
-          primaryCTA={{ label: t.ctaPrimary }}
+          primaryCTA={{ label: t.ctaPrimary, onClick: () => navigate(isEnglish ? "/en/contacto" : "/contacto") }}
         />
 
         <section className="py-20 bg-background">
