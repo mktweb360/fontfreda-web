@@ -357,7 +357,7 @@
 
 **Teléfono:** +34 93 779 03 11  
 **Email:** info@fontfreda.net  
-**WhatsApp:** wa.me/34937790311
+**WhatsApp:** wa.me/34609732211
 
 ---
 

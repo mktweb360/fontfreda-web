@@ -427,7 +427,7 @@ export default function LandingResidenciaFelina() {
               </Button>
             </a>
             <a
-              href="https://wa.me/34937790311"
+              href="https://wa.me/34609732211"
               target="_blank"
               rel="noopener noreferrer"
             >

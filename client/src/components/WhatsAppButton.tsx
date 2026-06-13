@@ -12,7 +12,7 @@ export default function WhatsAppButton() {
     setLanguage(path.startsWith("/en") ? "en" : "es");
   }, [location]);
 
-  const phoneNumber = "+34937790311";
+  const phoneNumber = "+34609732211";
   const messages = {
     es: "Hola Fontfreda, me gustaría conocer más sobre vuestros servicios de residencia para perros y gatos.",
     en: "Hello Fontfreda, I would like to know more about your dog and cat boarding services.",

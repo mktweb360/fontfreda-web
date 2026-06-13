@@ -275,7 +275,7 @@ export default function ResidenciaFelina() {
                   {t.callNow}
                 </Button>
               </a>
-              <a href="https://wa.me/34937790311" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/34609732211" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="outline"
                   className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 px-8 py-6 text-base"

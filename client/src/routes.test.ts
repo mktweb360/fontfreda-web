@@ -127,7 +127,7 @@ describe("Contacto y Comunicación", () => {
   });
 
   it("WhatsApp URL es válida", () => {
-    const whatsappUrl = "wa.me/34937790311";
+    const whatsappUrl = "wa.me/34609732211";
     expect(whatsappUrl).toMatch(/^wa\.me\/\d+$/);
   });
 });
