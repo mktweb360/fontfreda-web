@@ -19,7 +19,7 @@ async function sendEmail(to: string, subject: string, html: string, replyTo?: st
 
 export async function sendContactEmail(data: any) {
   await sendEmail(
-    "info@fontfreda.net",
+    "fontfreda.residencia@gmail.com",
     `Nueva consulta: ${data.asunto}`,
     `<h2>Nueva consulta de contacto</h2>
     <p><strong>Nombre:</strong> ${data.nombre}</p>
@@ -45,7 +45,7 @@ export async function sendContactEmail(data: any) {
 
 export async function sendReservaEmail(data: any) {
   await sendEmail(
-    "info@fontfreda.net",
+    "fontfreda.residencia@gmail.com",
     `Nueva solicitud de reserva - ${data.nombreMascota}`,
     `<h2>Nueva solicitud de reserva</h2>
     <p><strong>Nombre:</strong> ${data.nombre}</p>
