@@ -80,7 +80,7 @@ export default function ResidenciaCanina() {
     faqItems: [
       {
         question: "What is the minimum age to enter?",
-        answer: "We accept puppies from 3 months of age, provided they are properly vaccinated. For very young puppies, we carry out a special assessment.",
+        answer: "We accept puppies from 5 months of age, provided they are properly vaccinated. For very young puppies, we carry out a special assessment.",
       },
       {
         question: "What if my dog has special handling needs?",
@@ -171,7 +171,7 @@ export default function ResidenciaCanina() {
     faqItems: [
       {
         question: "¿Cuál es la edad mínima para ingresar?",
-        answer: "Aceptamos cachorros a partir de 3 meses de edad, siempre que estén correctamente vacunados. Para cachorros muy jóvenes, realizamos una valoración especial.",
+        answer: "Aceptamos cachorros a partir de 5 meses de edad, siempre que estén correctamente vacunados. Para cachorros muy jóvenes, realizamos una valoración especial.",
       },
       {
         question: "¿Qué pasa si mi perro tiene necesidades especiales de manejo?",

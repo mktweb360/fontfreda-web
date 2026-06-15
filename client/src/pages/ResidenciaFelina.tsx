@@ -47,7 +47,7 @@ export default function ResidenciaFelina() {
     faqSubtitle: "Resolve your doubts about our cat boarding service",
     faqItems: [
       { question: "Do you accept shy or fearful cats?", answer: "Yes, we have experience with cats of all temperaments. We carry out a prior assessment to ensure our environment is suitable for their personality." },
-      { question: "What are the admission requirements?", answer: "Your cat must be vaccinated (trivalent and feline leukemia up to date), dewormed and have applied an anti-parasite pipette. Microchip recommended." },
+      { question: "What are the admission requirements?", answer: "Your cat must be vaccinated (trivalent and feline leukemia up to date), dewormed and have applied an anti-parasite pipette. Microchip mandatory." },
       { question: "Can two cats stay together?", answer: "If they live together at home, they can stay together at the boarding. If they don't know each other, we keep them separated for their safety." },
       { question: "What if my cat doesn't eat well?", answer: "We have experience with cats with selective appetite. We carry out a prior assessment and adapt to their preferences." },
     ],
@@ -95,7 +95,7 @@ export default function ResidenciaFelina() {
     faqSubtitle: "Resuelve tus dudas sobre nuestro servicio de residencia felina",
     faqItems: [
       { question: "¿Aceptan gatos con comportamiento tímido o miedoso?", answer: "Sí, tenemos experiencia con gatos de todos los temperamentos. Realizamos una valoración previa para asegurar que nuestro entorno es adecuado para su personalidad." },
-      { question: "¿Cuáles son los requisitos de ingreso?", answer: "Tu gato debe estar vacunado (trivalente y leucemia felina al día), desparasitado y tener la pipeta antiparásitos aplicada. Microchip recomendado." },
+      { question: "¿Cuáles son los requisitos de ingreso?", answer: "Tu gato debe estar vacunado (trivalente y leucemia felina al día), desparasitado y tener la pipeta antiparásitos aplicada. Microchip obligatorio." },
       { question: "¿Pueden estar juntos dos gatos?", answer: "Si viven juntos en casa, pueden estar juntos en la residencia. Si no se conocen, los mantenemos separados por su seguridad." },
       { question: "¿Qué pasa si mi gato no come bien?", answer: "Contamos con experiencia en gatos con apetito selectivo. Realizamos una valoración previa y nos adaptamos a sus preferencias." },
     ],
