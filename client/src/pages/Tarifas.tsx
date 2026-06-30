@@ -70,10 +70,7 @@ export default function Tarifas() {
           name: "Larga Estancia (Premium)",
           description: "Servicio premium para estancias prolongadas",
           prices: [
-            { duration: "1 mes", price: "€480" },
-            { duration: "3 meses", price: "€1,320 (€14.67/noche)" },
-            { duration: "6 meses", price: "€2,400 (€13.33/noche)" },
-            { duration: "1 año", price: "€4,200 (€11.67/noche)" },
+            { duration: "Según duración y temporada", price: "Consultar precio" },
           ],
           features: [
             "Habitación individual cubierta",
@@ -203,10 +200,7 @@ export default function Tarifas() {
           name: "Long Stay (Premium)",
           description: "Premium service for extended stays",
           prices: [
-            { duration: "1 month", price: "€480" },
-            { duration: "3 months", price: "€1,320 (€14.67/night)" },
-            { duration: "6 months", price: "€2,400 (€13.33/night)" },
-            { duration: "1 year", price: "€4,200 (€11.67/night)" },
+            { duration: "Depending on length and season", price: "Request a quote" },
           ],
           features: [
             "Individual covered room",
