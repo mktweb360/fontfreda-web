@@ -374,4 +374,18 @@ export const LEGACY_REDIRECTS: Array<[RegExp, string]> = [
     [/^\/wp-json\/.*$/, "/"],
     [/^\/feed\/?$/, "/blog"],
     [/^\/amp\/?$/, "/"],
+
+      // URLs finales de Google Ads con estructura "/categoria/subcategoria"
+      // (p.ej. /residencia/canina) en vez de la estructura real del sitio
+      // (/residencia-canina). Detectado en auditoria en vivo de Google Ads
+      // 24/08/2026: al menos 4 de 7 grupos de anuncios activos apuntaban a
+      // URLs inexistentes, gasto real de Ads cayendo en 404. Mapeo confirmado
+      // contra los anuncios activos + extrapolacion segura del mismo patron
+      // para variantes no verificadas directamente.
+      [/^\/residencia\/canina\/?$/, "/residencia-canina"],
+      [/^\/residencia\/felina\/?$/, "/residencia-felina"],
+  [/^\/residencia\/cani-feli\/?$/, "/"],
+        [/^\/guarderia\/canina\/?$/, "/guarderia"],
+        [/^\/guarderia\/felina\/?$/, "/residencia-felina"],
+        [/^\/dogs-cats\/residence\/?$/, "/en"],
   ];
