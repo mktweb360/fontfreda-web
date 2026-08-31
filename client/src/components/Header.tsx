@@ -1,146 +1,143 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, PawPrint } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logoUrl from "@/assets/fontfreda-logo.png";
 
 export default function Header() {
-const [isOpen, setIsOpen] = useState(false);
-const { language, setLanguage } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
+  const { language, setLanguage } = useLanguage();
 
-const navItems = [
-{ label: language === "es" ? "Residencia Canina" : "Dog Boarding", href: language === "es" ? "/residencia-canina" : "/en/residencia-canina" },
-{ label: language === "es" ? "Residencia Felina" : "Cat Boarding", href: language === "es" ? "/residencia-felina" : "/en/residencia-felina" },
-{ label: language === "es" ? "Guardería Canina" : "Dog Daycare", href: language === "es" ? "/guarderia" : "/en/guarderia" },
-{ label: language === "es" ? "Larga Estancia" : "Long Stay", href: language === "es" ? "/larga-estancia" : "/en/larga-estancia" },
-{ label: language === "es" ? "Tarifas" : "Pricing", href: language === "es" ? "/tarifas" : "/en/tarifas" },
-{ label: language === "es" ? "Instalaciones" : "Facilities", href: language === "es" ? "/instalaciones" : "/en/instalaciones" },
-{ label: "Blog", href: language === "es" ? "/blog" : "/en/blog" },
-{ label: language === "es" ? "Contacto" : "Contact", href: language === "es" ? "/contacto" : "/en/contacto" },
-];
+  const navItems = [
+    { label: language === "es" ? "Residencia Canina" : "Dog Boarding", href: language === "es" ? "/residencia-canina" : "/en/residencia-canina" },
+    { label: language === "es" ? "Residencia Felina" : "Cat Boarding", href: language === "es" ? "/residencia-felina" : "/en/residencia-felina" },
+    { label: language === "es" ? "Guardería Canina" : "Dog Daycare", href: language === "es" ? "/guarderia" : "/en/guarderia" },
+    { label: language === "es" ? "Larga Estancia" : "Long Stay", href: language === "es" ? "/larga-estancia" : "/en/larga-estancia" },
+    { label: language === "es" ? "Tarifas" : "Pricing", href: language === "es" ? "/tarifas" : "/en/tarifas" },
+    { label: language === "es" ? "Instalaciones" : "Facilities", href: language === "es" ? "/instalaciones" : "/en/instalaciones" },
+    { label: "Blog", href: language === "es" ? "/blog" : "/en/blog" },
+    { label: language === "es" ? "Contacto" : "Contact", href: language === "es" ? "/contacto" : "/en/contacto" },
+  ];
 
-return (
-<header className="sticky top-0 z-50 bg-background border-b border-border">
-<div className="container mx-auto px-4 py-4 flex items-center justify-between">
-{/* Logo */}
-<Link href={language === "es" ? "/" : "/en"} className="hover:opacity-80 transition-opacity flex items-center gap-2 flex-shrink-0">
-<PawPrint className="w-7 h-7 text-primary flex-shrink-0" aria-hidden="true" />
-<span className="flex flex-col leading-none">
-<span className="text-2xl font-serif italic text-foreground">Fontfreda</span>
-<span className="text-[9px] uppercase tracking-widest text-muted-foreground whitespace-nowrap">Residencia Canina y Felina</span>
-</span>
-</Link>
+  return (
+    <header className="sticky top-0 z-50 bg-background border-b border-border">
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        {/* Logo */}
+        <Link href={language === "es" ? "/" : "/en"} className="hover:opacity-80 transition-opacity flex items-center flex-shrink-0">
+          <img src={logoUrl} alt="Fontfreda - Residencia Canina y Felina" className="h-10 w-auto" />
+        </Link>
 
-{/* Desktop Navigation */}
-<nav className="hidden md:flex items-center gap-8">
-{navItems.map((item) => (
-<Link key={item.href} href={item.href} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-{item.label}
-</Link>
-))}
-</nav>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
-{/* Language Selector + CTA */}
-<div className="hidden md:flex items-center gap-4">
-{/* Language Buttons */}
-<div className="flex items-center gap-2 border-l border-border pl-4">
-<button
-onClick={() => setLanguage("es")}
-className={`px-2 py-1 text-xs font-semibold rounded transition-colors ${
-language === "es"
-? "bg-primary text-primary-foreground"
-: "text-foreground hover:bg-secondary"
-}`}
->
-ES
-</button>
-<button
-onClick={() => setLanguage("en")}
-className={`px-2 py-1 text-xs font-semibold rounded transition-colors ${
-language === "en"
-? "bg-primary text-primary-foreground"
-: "text-foreground hover:bg-secondary"
-}`}
->
-EN
-</button>
-</div>
+        {/* Language Selector + CTA */}
+        <div className="hidden md:flex items-center gap-4">
+          {/* Language Buttons */}
+          <div className="flex items-center gap-2 border-l border-border pl-4">
+            <button
+              onClick={() => setLanguage("es")}
+              className={`px-2 py-1 text-xs font-semibold rounded transition-colors ${
+                language === "es"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-foreground hover:bg-secondary"
+              }`}
+            >
+              ES
+            </button>
+            <button
+              onClick={() => setLanguage("en")}
+              className={`px-2 py-1 text-xs font-semibold rounded transition-colors ${
+                language === "en"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-foreground hover:bg-secondary"
+              }`}
+            >
+              EN
+            </button>
+          </div>
 
-{/* CTA Button */}
-<Link href={language === "es" ? "/contacto" : "/en/contacto"}>
-<Button
-className="bg-primary hover:bg-primary/90 text-primary-foreground"
-size="sm"
->
-{language === "es" ? "Contactar" : "Contact"}
-</Button>
-</Link>
-</div>
+          {/* CTA Button */}
+          <Link href={language === "es" ? "/contacto" : "/en/contacto"}>
+            <Button
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              size="sm"
+            >
+              {language === "es" ? "Contactar" : "Contact"}
+            </Button>
+          </Link>
+        </div>
 
-{/* Mobile Menu Button */}
-<button
-className="md:hidden p-2"
-onClick={() => setIsOpen(!isOpen)}
-aria-label="Toggle menu"
->
-{isOpen ? (
-<X className="w-6 h-6 text-foreground" />
-) : (
-<Menu className="w-6 h-6 text-foreground" />
-)}
-</button>
-</div>
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden p-2"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? (
+            <X className="w-6 h-6 text-foreground" />
+          ) : (
+            <Menu className="w-6 h-6 text-foreground" />
+          )}
+        </button>
+      </div>
 
-{/* Mobile Navigation */}
-{isOpen && (
-<nav className="md:hidden border-t border-border bg-secondary">
-<div className="container mx-auto px-4 py-4 flex flex-col gap-4">
-{navItems.map((item) => (
-<Link key={item.href} href={item.href} className="text-sm font-medium text-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>
-{item.label}
-</Link>
-))}
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <nav className="md:hidden border-t border-border bg-secondary">
+          <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+            {navItems.map((item) => (
+              <Link key={item.href} href={item.href} className="text-sm font-medium text-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>
+                {item.label}
+              </Link>
+            ))}
 
-{/* Mobile Language Selector */}
-<div className="flex gap-2 border-t border-border pt-4 mt-4">
-<button
-onClick={() => {
-setLanguage("es");
-setIsOpen(false);
-}}
-className={`flex-1 px-3 py-2 text-xs font-semibold rounded transition-colors ${
-language === "es"
-? "bg-primary text-primary-foreground"
-: "bg-background text-foreground hover:bg-background/80"
-}`}
->
-Español
-</button>
-<button
-onClick={() => {
-setLanguage("en");
-setIsOpen(false);
-}}
-className={`flex-1 px-3 py-2 text-xs font-semibold rounded transition-colors ${
-language === "en"
-? "bg-primary text-primary-foreground"
-: "bg-background text-foreground hover:bg-background/80"
-}`}
->
-English
-</button>
-</div>
+            {/* Mobile Language Selector */}
+            <div className="flex gap-2 border-t border-border pt-4 mt-4">
+              <button
+                onClick={() => {
+                  setLanguage("es");
+                  setIsOpen(false);
+                }}
+                className={`flex-1 px-3 py-2 text-xs font-semibold rounded transition-colors ${
+                  language === "es"
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-background text-foreground hover:bg-background/80"
+                }`}
+              >
+                Español
+              </button>
+              <button
+                onClick={() => {
+                  setLanguage("en");
+                  setIsOpen(false);
+                }}
+                className={`flex-1 px-3 py-2 text-xs font-semibold rounded transition-colors ${
+                  language === "en"
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-background text-foreground hover:bg-background/80"
+                }`}
+              >
+                English
+              </button>
+            </div>
 
-<Link href={language === "es" ? "/contacto" : "/en/contacto"}>
-<a>
-<Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mt-4">
-{language === "es" ? "Contactar" : "Contact"}
-</Button>
-</a>
-</Link>
-</div>
-</nav>
-)}
-</header>
-);
+            <Link href={language === "es" ? "/contacto" : "/en/contacto"}>
+              <a>
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mt-4">
+                  {language === "es" ? "Contactar" : "Contact"}
+                </Button>
+              </a>
+            </Link>
+          </div>
+        </nav>
+      )}
+    </header>
+  );
 }
