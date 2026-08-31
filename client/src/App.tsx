@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch, useLocation } from "wouter";
+import { Redirect, Route, Switch, useLocation } from "wouter";
 import { useEffect } from "react";
 
 function ScrollToTop() {
@@ -84,6 +84,17 @@ function Router() {
       <Route path="/en/politica-privacidad" component={PoliticaPrivacidad} />
       <Route path="/aviso-legal" component={AvisoLegal} />
       <Route path="/en/aviso-legal" component={AvisoLegal} />
+
+      {/* Retired pages: redirect to their replacement (matches existing .htaccess / seo-meta.ts mapping) */}
+      <Route path="/opiniones">
+        <Redirect to="/contacto" />
+      </Route>
+      <Route path="/en/opiniones">
+        <Redirect to="/en/contacto" />
+      </Route>
+      <Route path="/preguntas-frecuentes">
+        <Redirect to="/contacto" />
+      </Route>
 
       {/* Google Ads Landing Pages */}
       <Route path="/ads/larga-estancia" component={LandingLargaEstancia} />
