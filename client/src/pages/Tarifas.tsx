@@ -130,24 +130,12 @@ export default function Tarifas() {
       },
       faq: [
         {
-          question: "¿Hay descuentos por larga duración?",
-          answer: "Sí, ofrecemos descuentos progresivos. A partir de 15 noches en Residencia Canina, el precio baja a €18/noche. En Larga Estancia, cuanto mayor es la duración, mayor es el descuento.",
-        },
-        {
           question: "¿Qué incluye el precio?",
           answer: "El precio incluye alojamiento, alimentación, vigilancia 24h, paseos diarios (en residencia), y atención básica. Servicios adicionales como medicamentos o dietas especiales tienen coste extra.",
         },
         {
-          question: "¿Hay recargo por temporada alta?",
-          answer: "Sí, en verano y períodos vacacionales (Navidad, Semana Santa) aplicamos un recargo del 10-15% sobre las tarifas base.",
-        },
-        {
           question: "¿Cómo se realiza el pago?",
           answer: "Aceptamos transferencia bancaria, tarjeta de crédito y PayPal. Para estancias largas, podemos acordar un plan de pago en cuotas.",
-        },
-        {
-          question: "¿Hay descuentos para clientes recurrentes?",
-          answer: "Sí, los clientes que reservan regularmente reciben un 5% de descuento adicional. Consúltanos para más información.",
         },
       ],
       cta: "Solicitar Presupuesto Personalizado",
@@ -260,24 +248,12 @@ export default function Tarifas() {
       },
       faq: [
         {
-          question: "Are there discounts for long stays?",
-          answer: "Yes, we offer progressive discounts. From 15 nights in Dog Boarding, the price drops to €18/night. In Long Stay, the longer the duration, the greater the discount.",
-        },
-        {
           question: "What is included in the price?",
           answer: "The price includes accommodation, food, 24h monitoring, daily walks (in boarding), and basic care. Additional services like medications or special diets have an extra cost.",
         },
         {
-          question: "Is there a surcharge for peak season?",
-          answer: "Yes, during summer and holiday periods (Christmas, Easter) we apply a 10-15% surcharge on base rates.",
-        },
-        {
           question: "How is payment made?",
           answer: "We accept bank transfer, credit card and PayPal. For long stays, we can arrange a payment plan in installments.",
-        },
-        {
-          question: "Are there discounts for regular customers?",
-          answer: "Yes, customers who book regularly receive an additional 5% discount. Contact us for more information.",
         },
       ],
       cta: "Request Custom Quote",
@@ -455,8 +431,8 @@ export default function Tarifas() {
               {lang.ctaSubtitle}
             </p>
             <Link href={language === "es" ? "/contacto" : "/en/contacto"} className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-semibold transition-colors">
-                {language === "es" ? "Contactar Ahora" : "Contact Now"}
-              </Link>
+              {language === "es" ? "Contactar Ahora" : "Contact Now"}
+            </Link>
           </div>
         </section>
       </main>
