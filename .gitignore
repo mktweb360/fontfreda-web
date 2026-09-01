@@ -111,3 +111,9 @@ temp/
 # Manus version file (auto-generated, not part of source)
 client/public/__manus__/version.json
 *.Zone.Identifier
+
+
+# Secrets and scaffold config (never commit — leaked 19/05/2026-01/09/2026, see E4-clientes bitácora)
+.project-config.json
+*.project-config.json
+.manus/
