@@ -74,7 +74,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href={`${prefix}/guarderia-canina`} className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href={`${prefix}/guarderia`} className="text-muted-foreground hover:text-primary transition-colors">
                   {t.services.daycare}
                 </Link>
               </li>
