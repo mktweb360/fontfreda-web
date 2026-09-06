@@ -21,6 +21,14 @@ interface BlogPost {
   categoryEn?: string;
 }
 
+export const categoryList: { es: string; en: string }[] = [
+  { es: "Perros", en: "Dogs" },
+  { es: "Convivencia", en: "Coexistence" },
+  { es: "Gatos", en: "Cats" },
+  { es: "Salud", en: "Health" },
+  { es: "Residencia", en: "Boarding" },
+];
+
 const blogPosts: BlogPost[] = [
   {
     id: "1",
@@ -187,7 +195,7 @@ const blogPosts: BlogPost[] = [
     slug: "socializacion-cachorros",
     image: "/images/guarderia/guarderia-canina-4.jpg",
   },
-    {
+  {
     id: "12",
     title: "Perro senior en residencia canina: cuidados especiales para mascotas mayores",
     excerpt: "Tu perro mayor se merece una residencia que entienda su edad. Te contamos qué cuidados necesita un perro senior y cómo los cubrimos en Fontfreda.",
@@ -290,6 +298,7 @@ Un perro senior necesita una residencia canina que entienda su edad y su salud. 
     date: "06 September 2026",
     category: "Perros",
     slug: "perro-senior-residencia-canina-cuidados",
+    image: "/images/blog/perro-senior-labrador-prado-fontfreda.jpg",
   },
 ];
 
@@ -300,17 +309,36 @@ export default function Blog() {
   const isEnglish = location.startsWith("/en");
   const currentPath = "/blog";
 
-  const t = isEnglish ? {
-    title: "Fontfreda Blog",
-    subtitle: "Tips, guides and articles about dog and cat care. Learn from animal welfare experts.",
-    readMore: "Read more",
-    blogPrefix: "/en/blog",
-  } : {
-    title: "Blog Fontfreda",
-    subtitle: "Consejos, guías y artículos sobre el cuidado de perros y gatos. Aprende de expertos en bienestar animal.",
-    readMore: "Leer más",
-    blogPrefix: "/blog",
-  };
+  const searchParams =
+    typeof window !== "undefined"
+      ? new URLSearchParams(window.location.search)
+      : new URLSearchParams();
+  const categoryFilter = searchParams.get("categoria");
+
+  const t = isEnglish
+    ? {
+        title: "Fontfreda Blog",
+        subtitle: "Tips, guides and articles about dog and cat care. Learn from animal welfare experts.",
+        readMore: "Read more",
+        blogPrefix: "/en/blog",
+        filteredBy: "Filtered by:",
+        clearFilter: "Clear filter",
+      }
+    : {
+        title: "Blog Fontfreda",
+        subtitle: "Consejos, guías y artículos sobre el cuidado de perros y gatos. Aprende de expertos en bienestar animal.",
+        readMore: "Leer más",
+        blogPrefix: "/blog",
+        filteredBy: "Filtrando por:",
+        clearFilter: "Quitar filtro",
+      };
+
+  const displayPosts = categoryFilter
+    ? blogPosts.filter((post) => {
+        const postCategory = isEnglish && post.categoryEn ? post.categoryEn : post.category;
+        return postCategory === categoryFilter;
+      })
+    : blogPosts;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -334,8 +362,19 @@ export default function Blog() {
 
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
+            {categoryFilter && (
+              <div className="mb-8 flex items-center gap-3">
+                <span className="text-sm text-muted-foreground">
+                  {t.filteredBy} <strong className="text-foreground">{categoryFilter}</strong>
+                </span>
+                <Link href={t.blogPrefix} className="text-sm text-primary hover:underline">
+                  {t.clearFilter}
+                </Link>
+              </div>
+            )}
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post) => {
+              {displayPosts.map((post) => {
                 const displayTitle = isEnglish && post.titleEn ? post.titleEn : post.title;
                 const displayExcerpt = isEnglish && post.excerptEn ? post.excerptEn : post.excerpt;
                 const displayCategory = isEnglish && post.categoryEn ? post.categoryEn : post.category;

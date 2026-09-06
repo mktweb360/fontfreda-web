@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RecentBlogPosts from "@/components/RecentBlogPosts";
 import BlogConversionBanner from "@/components/BlogConversionBanner";
-import ServicePromoBanner from "@/components/ServicePromoBanner";
+import BlogSidebar from "@/components/BlogSidebar";
 import { SchemaMarkup, createBreadcrumbSchema, createBlogPostSchema } from "@/components/SchemaMarkup";
 import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
@@ -36,11 +36,11 @@ export default function BlogPost() {
         <Header />
         <main className="flex-grow container mx-auto px-4 py-20 text-center">
           <h1 className="text-3xl font-bold text-foreground mb-4">
-            {language === "es" ? "ArtÃ­culo no encontrado" : "Article not found"}
+            {language === "es" ? "Artículo no encontrado" : "Article not found"}
           </h1>
           <p className="text-muted-foreground mb-8">
             {language === "es"
-              ? "Lo sentimos, el artÃ­culo que buscas no existe."
+              ? "Lo sentimos, el artículo que buscas no existe."
               : "Sorry, the article you are looking for does not exist."}
           </p>
           <Link href={language === "es" ? "/blog" : "/en/blog"} className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors">
@@ -52,6 +52,8 @@ export default function BlogPost() {
       </div>
     );
   }
+
+  const displayCategory = language === "en" && post.categoryEn ? post.categoryEn : post.category;
 
   // Get related posts by category
   const relatedPosts = blogPosts.filter(
@@ -84,8 +86,8 @@ export default function BlogPost() {
   const translations = {
     es: {
       backToBlog: "Volver al Blog",
-      relatedArticles: "ArtÃ­culos Relacionados",
-      noRelated: "No hay artÃ­culos relacionados",
+      relatedArticles: "Artículos Relacionados",
+      noRelated: "No hay artículos relacionados",
       author: "Autor",
       published: "Publicado",
     },
@@ -154,40 +156,40 @@ export default function BlogPost() {
 
         {/* Article Content */}
         <section className="py-12">
-          <div className="container mx-auto px-4 max-w-3xl">
-            {post.image && (
-              <img
-                src={post.image}
-                alt={post.title}
-                title={post.title}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                width="800"
-                height="384"
-                className="w-full h-96 object-cover rounded-lg mb-8"
-              />
-            )}
+          <div className="container mx-auto px-4 max-w-6xl">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+              <div className="lg:col-span-2">
+                {post.image && (
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    title={post.title}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    width="800"
+                    height="384"
+                    className="w-full h-96 object-cover rounded-lg mb-8"
+                  />
+                )}
 
-            <div className="prose prose-lg max-w-none">
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                {post.excerpt}
-              </p>
-              <Streamdown>{post.content}</Streamdown>
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                  <Streamdown>{post.content}</Streamdown>
+                </div>
+              </div>
+
+              <div className="lg:col-span-1">
+                <BlogSidebar language={language as "es" | "en"} activeCategory={displayCategory} />
+              </div>
             </div>
           </div>
         </section>
 
         {/* Conversion Banner */}
         <BlogConversionBanner language={language as "es" | "en"} category={post.category} />
-
-        {/* Otros servicios */}
-        <section className="py-8 bg-secondary/30">
-          <div className="container mx-auto px-4 max-w-5xl space-y-4">
-            <ServicePromoBanner variant="dentro-de-casa" language={language as "es" | "en"} />
-            <ServicePromoBanner variant="larga-estancia" language={language as "es" | "en"} />
-          </div>
-        </section>
 
         {/* Related Articles */}
         {relatedPosts.length > 0 && (
