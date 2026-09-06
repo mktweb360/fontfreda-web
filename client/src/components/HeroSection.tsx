@@ -35,7 +35,7 @@ export default function HeroSection({
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center max-w-2xl">
+      <div className="relative z-10 container mx-auto px-4 text-center max-w-2xl md:max-w-4xl lg:max-w-6xl">
         <h1 className="text-white mb-4 drop-shadow-lg">{title}</h1>
         <p className="text-lg md:text-xl text-white/95 mb-8 drop-shadow-md font-light">
           {subtitle}
