@@ -179,15 +179,21 @@ primaryCTA: { label: currentHeroSlidesText.slide2CTA, onClick: () => navigate(la
 <ServiceCard title={language === "es" ? "Hotel Canino" : "Dog Hotel"} description={language === "es" ? "Alojamiento puntual para fin de semana y vacaciones cortas" : "Accommodation for weekends and short vacations"} image="/images/dentro-de-casa/hotel-canino-fontfreda-4.jpg" href={language === "es" ? "/residencia-canina" : "/en/residencia-canina"} />
 <ServiceCard title={language === "es" ? "Residencia Felina" : "Cat Boarding"} description={language === "es" ? "Espacio especializado de 180 m² diseñado exclusivamente para gatos" : "Specialized 180 m² space designed exclusively for cats"} image="/images/felina/gato-5.jpg" href={language === "es" ? "/residencia-felina" : "/en/residencia-felina"} />
 </div>
-<div className="mt-12 bg-primary/10 rounded-lg overflow-hidden border-2 border-primary grid grid-cols-1 md:grid-cols-2">
-<div className="h-64 md:h-full min-h-64">
-<img src="/images/dentro-de-casa/labrador-dentro-de-casa.jpg" alt={language === "es" ? "Perro alojado en larga estancia dentro de casa en Residencia Fontfreda" : "Dog on long-term stay inside the house at Residencia Fontfreda"} title={language === "es" ? "Residencia Canina de Larga Estancia" : "Long-Term Dog Boarding"} loading="lazy" decoding="async" width="600" height="400" className="w-full h-full object-cover" />
 </div>
-<div className="p-8">
-<h3 className="text-2xl font-bold text-primary mb-4">{language === "es" ? "Residencia Canina de Larga Estancia" : "Long-Term Dog Boarding"}</h3>
-<p className="text-foreground mb-6">{language === "es" ? "Nos ocupamos de tu perro o gato durante todo el tiempo que necesites. Precios especiales para estancias de meses o años." : "We take care of your dog or cat for as long as you need. Special prices for stays of months or years."}</p>
-<ul className="space-y-2 mb-6">{currentLongStayFeatures.map((feature, index) => (<li key={index} className="flex gap-2"><Check className="w-5 h-5 text-primary flex-shrink-0" /><span className="text-foreground">{feature}</span></li>))}</ul>
-<Link href={language === "es" ? "/larga-estancia" : "/en/larga-estancia"} className="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">{language === "es" ? "Más Información" : "More Information"}</Link>
+</section>
+
+<section className="py-20 bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground">
+<div className="container mx-auto px-4">
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
+<div>
+<span className="inline-flex items-center gap-2 bg-white/15 text-white text-sm font-semibold px-4 py-2 rounded-full mb-6">⭐ {language === "es" ? "Servicio Más Solicitado" : "Most Requested Service"}</span>
+<h2 className="text-3xl lg:text-4xl font-bold mb-6">{language === "es" ? "Residencia de Larga Estancia para Perros y Gatos" : "Long-Term Boarding for Dogs and Cats"}</h2>
+<p className="text-lg text-primary-foreground/90 mb-8">{language === "es" ? "¿Te vas al extranjero, cambias de casa o necesitas una solución estable durante meses? Tu perro o gato vive con nosotros como en casa, todo el tiempo que necesites, con tarifas especiales." : "Moving abroad, relocating, or need a stable solution for months? Your dog or cat lives with us like at home, for as long as you need, with special rates."}</p>
+<ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">{currentLongStayFeatures.map((feature, index) => (<li key={index} className="flex gap-2"><Check className="w-5 h-5 flex-shrink-0" /><span>{feature}</span></li>))}</ul>
+<Link href={language === "es" ? "/larga-estancia" : "/en/larga-estancia"} className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/90 transition-colors">{language === "es" ? "Descubrir Larga Estancia" : "Discover Long-Term Boarding"} →</Link>
+</div>
+<div className="rounded-2xl overflow-hidden shadow-2xl h-72 lg:h-96">
+<img src="/images/dentro-de-casa/labrador-dentro-de-casa.jpg" alt={language === "es" ? "Perro alojado en larga estancia dentro de casa en Residencia Fontfreda" : "Dog on long-term stay inside the house at Residencia Fontfreda"} title={language === "es" ? "Residencia Canina de Larga Estancia" : "Long-Term Dog Boarding"} loading="lazy" decoding="async" width="700" height="500" className="w-full h-full object-cover" />
 </div>
 </div>
 </div>

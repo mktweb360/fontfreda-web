@@ -4,6 +4,7 @@ import ServicePromoBanner from "@/components/ServicePromoBanner";
 import { SchemaMarkup, createBreadcrumbSchema, createServiceSchema } from "@/components/SchemaMarkup";
 import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
+import HeroSection from "@/components/HeroSection";
 import { Clock, Users, Heart, Shield, Zap, CheckCircle } from "lucide-react";
 import { useLocation } from "wouter";
 import { useState } from "react";
@@ -17,7 +18,7 @@ interface FAQItem {
 }
 
 export default function Guarderia() {
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
   const currentPath = location.replace(/^\/en/, "") || "/guarderia";
 
   const getLanguage = () => {
@@ -26,6 +27,7 @@ export default function Guarderia() {
     return path.startsWith("/en") ? "en" : "es";
   };
   const language = getLanguage();
+  const heroImageUrl = "/images/guarderia/guarderia-canina-11.jpg";
 
   const [expandedFAQ, setExpandedFAQ] = useState<string | null>(null);
 
@@ -97,6 +99,7 @@ export default function Guarderia() {
       title: "Guardería Canina - Fontfreda",
       heading: "Guardería Canina",
       subtitle: "Cuidado profesional para tu perro durante el día",
+      descTitle: "Diversión y Cuidado Cada Día",
       description: "Nuestro servicio de guardería canina ofrece un espacio seguro, divertido y estimulante donde tu perro puede pasar el día mientras trabajas. Combinamos ejercicio físico, socialización y estimulación mental en un ambiente profesional.",
       features: [
         {
@@ -165,6 +168,7 @@ export default function Guarderia() {
       title: "Dog Daycare - Fontfreda",
       heading: "Dog Daycare",
       subtitle: "Professional care for your dog during the day",
+      descTitle: "Fun and Care, Every Day",
       description: "Our dog daycare service offers a safe, fun and stimulating space where your dog can spend the day while you work. We combine physical exercise, socialization and mental stimulation in a professional environment.",
       features: [
         {
@@ -269,18 +273,20 @@ export default function Guarderia() {
       <Header />
 
       <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-b from-primary/10 to-background py-12 md:py-16">
-          <div className="container mx-auto px-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-              {lang.heading}
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mb-6">
-              {lang.subtitle}
-            </p>
-            <p className="text-base text-foreground max-w-3xl">
-              {lang.description}
-            </p>
+        <HeroSection
+          title={lang.heading}
+          subtitle={lang.subtitle}
+          backgroundImage={heroImageUrl}
+          primaryCTA={{
+            label: lang.cta.primary,
+            onClick: () => navigate(language === "en" ? "/en/contacto" : "/contacto"),
+          }}
+        />
+
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold text-primary mb-4">{lang.descTitle}</h2>
+            <p className="text-lg text-muted-foreground">{lang.description}</p>
           </div>
         </section>
 

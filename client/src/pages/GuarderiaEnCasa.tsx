@@ -290,7 +290,7 @@ export default function GuarderiaEnCasa() {
           />
           <div className="absolute inset-0 bg-primary/70" />
           <div className="relative container mx-auto px-4">
-            <div className="max-w-2xl mx-auto text-center text-white">
+            <div className="max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto text-center text-white">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
                 {t.title}
               </h1>
