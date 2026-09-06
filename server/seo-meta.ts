@@ -388,4 +388,15 @@ export const LEGACY_REDIRECTS: Array<[RegExp, string]> = [
         [/^\/guarderia\/canina\/?$/, "/guarderia"],
         [/^\/guarderia\/felina\/?$/, "/residencia-felina"],
         [/^\/dogs-cats\/residence\/?$/, "/en"],
+
+    // Anadidos tras auditoria de indexacion (05/09/2026): de las 277 URL
+    // en Soft 404, 6 correspondian a paginas de servicio reales rotas hoy.
+    [/^\/en\/guarderia-canina\/?$/, "/en/guarderia"],
+    [/^\/en\/day-care-dogs\/?$/, "/en/guarderia"],
+    [/^\/en\/larga-estancia-perros-gatos\/?$/, "/en/larga-estancia"],
+    [/^\/en\/politica-de-privacidad\/?$/, "/en/politica-privacidad"],
+    [/^\/residencia-fontfreda\/?$/, "/"],
+    [/^\/valoranos\/?$/, "/contacto"],
+    [/^\/wp-login\.php$/, "/"],
+    [/^\/.+\/feed\/?$/, "/blog"],
   ];
