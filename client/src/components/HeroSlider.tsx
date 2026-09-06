@@ -64,7 +64,7 @@ export default function HeroSlider({ slides, autoplayMs = 7000 }: HeroSliderProp
           >
             <div className="absolute inset-0 bg-black/40" />
 
-            <div className="relative z-10 container mx-auto px-4 text-center max-w-2xl">
+            <div className="relative z-10 container mx-auto px-4 text-center max-w-2xl md:max-w-4xl lg:max-w-6xl">
               {slide.eyebrow && (
                 <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-white/80">
                   {slide.eyebrow}
