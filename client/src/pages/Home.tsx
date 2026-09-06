@@ -174,16 +174,21 @@ primaryCTA: { label: currentHeroSlidesText.slide2CTA, onClick: () => navigate(la
 <h2 className="text-3xl lg:text-4xl font-bold text-center text-primary mb-4">{language === "es" ? "Servicios de Alojamiento para Perros y Gatos" : "Dog and Cat Boarding Services"}</h2>
 <p className="text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto">{language === "es" ? "Ofrecemos diferentes opciones de alojamiento adaptadas a las necesidades de tu perro o gato" : "We offer different accommodation options tailored to your dog or cat's needs"}</p>
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-<ServiceCard title={language === "es" ? "Guardería Canina" : "Dog Daycare"} description={language === "es" ? "Servicio especializado para cachorros con atención específica a sus cuidados y necesidades" : "Specialized service for puppies with specific care and attention"} href={language === "es" ? "/guarderia" : "/en/guarderia"} />
-<ServiceCard title={language === "es" ? "Residencia Canina" : "Dog Boarding"} description={language === "es" ? "Alojamiento para estancias largas con paseos diarios, vigilancia 24h y cuidados veterinarios" : "Accommodation for long stays with daily walks, 24-hour surveillance and veterinary care"} href={language === "es" ? "/residencia-canina" : "/en/residencia-canina"} />
-<ServiceCard title={language === "es" ? "Hotel Canino" : "Dog Hotel"} description={language === "es" ? "Alojamiento puntual para fin de semana y vacaciones cortas" : "Accommodation for weekends and short vacations"} href={language === "es" ? "/residencia-canina" : "/en/residencia-canina"} />
-<ServiceCard title={language === "es" ? "Residencia Felina" : "Cat Boarding"} description={language === "es" ? "Espacio especializado de 180 m² diseñado exclusivamente para gatos" : "Specialized 180 m² space designed exclusively for cats"} href={language === "es" ? "/residencia-felina" : "/en/residencia-felina"} />
+<ServiceCard title={language === "es" ? "Guardería Canina" : "Dog Daycare"} description={language === "es" ? "Servicio especializado para cachorros con atención específica a sus cuidados y necesidades" : "Specialized service for puppies with specific care and attention"} image="/images/guarderia/guarderia-canina-11.jpg" href={language === "es" ? "/guarderia" : "/en/guarderia"} />
+<ServiceCard title={language === "es" ? "Residencia Canina" : "Dog Boarding"} description={language === "es" ? "Alojamiento para estancias largas con paseos diarios, vigilancia 24h y cuidados veterinarios" : "Accommodation for long stays with daily walks, 24-hour surveillance and veterinary care"} image="/images/canina/residencia-canina-11.jpg" href={language === "es" ? "/residencia-canina" : "/en/residencia-canina"} />
+<ServiceCard title={language === "es" ? "Hotel Canino" : "Dog Hotel"} description={language === "es" ? "Alojamiento puntual para fin de semana y vacaciones cortas" : "Accommodation for weekends and short vacations"} image="/images/dentro-de-casa/hotel-canino-fontfreda-4.jpg" href={language === "es" ? "/residencia-canina" : "/en/residencia-canina"} />
+<ServiceCard title={language === "es" ? "Residencia Felina" : "Cat Boarding"} description={language === "es" ? "Espacio especializado de 180 m² diseñado exclusivamente para gatos" : "Specialized 180 m² space designed exclusively for cats"} image="/images/felina/gato-5.jpg" href={language === "es" ? "/residencia-felina" : "/en/residencia-felina"} />
 </div>
-<div className="mt-12 bg-primary/10 rounded-lg p-8 border-2 border-primary">
+<div className="mt-12 bg-primary/10 rounded-lg overflow-hidden border-2 border-primary grid grid-cols-1 md:grid-cols-2">
+<div className="h-64 md:h-full min-h-64">
+<img src="/images/dentro-de-casa/labrador-dentro-de-casa.jpg" alt={language === "es" ? "Perro alojado en larga estancia dentro de casa en Residencia Fontfreda" : "Dog on long-term stay inside the house at Residencia Fontfreda"} title={language === "es" ? "Residencia Canina de Larga Estancia" : "Long-Term Dog Boarding"} loading="lazy" decoding="async" width="600" height="400" className="w-full h-full object-cover" />
+</div>
+<div className="p-8">
 <h3 className="text-2xl font-bold text-primary mb-4">{language === "es" ? "Residencia Canina de Larga Estancia" : "Long-Term Dog Boarding"}</h3>
 <p className="text-foreground mb-6">{language === "es" ? "Nos ocupamos de tu perro o gato durante todo el tiempo que necesites. Precios especiales para estancias de meses o años." : "We take care of your dog or cat for as long as you need. Special prices for stays of months or years."}</p>
 <ul className="space-y-2 mb-6">{currentLongStayFeatures.map((feature, index) => (<li key={index} className="flex gap-2"><Check className="w-5 h-5 text-primary flex-shrink-0" /><span className="text-foreground">{feature}</span></li>))}</ul>
 <Link href={language === "es" ? "/larga-estancia" : "/en/larga-estancia"} className="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">{language === "es" ? "Más Información" : "More Information"}</Link>
+</div>
 </div>
 </div>
 </section>

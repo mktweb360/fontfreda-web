@@ -35,6 +35,7 @@ const blogPosts: BlogPost[] = [
     category: "Perros",
     categoryEn: "Dogs",
     slug: "como-cuidar-perro-verano",
+    image: "/images/canina/area-recreo-caninos-5.jpg",
   },
   {
     id: "2",
@@ -49,6 +50,7 @@ const blogPosts: BlogPost[] = [
     category: "Convivencia",
     categoryEn: "Coexistence",
     slug: "convivencia-perros-gatos-embarazo",
+    image: "/images/canina/perro_suelto_recinto_recreo.jpeg",
   },
   {
     id: "3",
@@ -63,6 +65,7 @@ const blogPosts: BlogPost[] = [
     category: "Gatos",
     categoryEn: "Cats",
     slug: "tiempo-gato-solo",
+    image: "/images/felina/gato-sillon-residencia.jpeg",
   },
   {
     id: "4",
@@ -77,6 +80,7 @@ const blogPosts: BlogPost[] = [
     category: "Salud",
     categoryEn: "Health",
     slug: "sindrome-pica-perros-gatos",
+    image: "/images/trust/recepcion-perro-con-dueno.jpg",
   },
   {
     id: "5",
@@ -91,6 +95,7 @@ const blogPosts: BlogPost[] = [
     category: "Perros",
     categoryEn: "Dogs",
     slug: "cachorro-solo-casa",
+    image: "/images/dentro-de-casa/teckel-inside.jpg",
   },
   {
     id: "6",
@@ -105,6 +110,7 @@ const blogPosts: BlogPost[] = [
     category: "Residencia",
     categoryEn: "Boarding",
     slug: "beneficios-larga-estancia",
+    image: "/images/dentro-de-casa/residencia-canina-12.jpg",
   },
   {
     id: "7",
@@ -119,6 +125,7 @@ const blogPosts: BlogPost[] = [
     category: "Perros",
     categoryEn: "Dogs",
     slug: "comportamiento-perros-residencia",
+    image: "/images/canina/perros_espadio_recreo.jpeg",
   },
   {
     id: "8",
@@ -133,6 +140,7 @@ const blogPosts: BlogPost[] = [
     category: "Gatos",
     categoryEn: "Cats",
     slug: "preparar-gato-residencia",
+    image: "/images/felina/gato-2-residencia-felina.jpeg",
   },
   {
     id: "9",
@@ -147,6 +155,7 @@ const blogPosts: BlogPost[] = [
     category: "Salud",
     categoryEn: "Health",
     slug: "vacunacion-perros-guia",
+    image: "/images/canina/residencia-canina-8.jpg",
   },
   {
     id: "10",
@@ -161,6 +170,7 @@ const blogPosts: BlogPost[] = [
     category: "Salud",
     categoryEn: "Health",
     slug: "desparasitacion-externa",
+    image: "/images/felina/gato-8.jpg",
   },
   {
     id: "11",
@@ -175,6 +185,7 @@ const blogPosts: BlogPost[] = [
     category: "Perros",
     categoryEn: "Dogs",
     slug: "socializacion-cachorros",
+    image: "/images/guarderia/guarderia-canina-4.jpg",
   },
 ];
 
@@ -230,12 +241,27 @@ export default function Blog() {
                     key={post.id}
                     className="bg-white border border-border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col"
                   >
-                    <div className="w-full h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-4xl mb-2">📚</div>
-                        <p className="text-xs text-muted-foreground">{displayCategory}</p>
+                    {post.image ? (
+                      <div className="w-full h-48 overflow-hidden bg-muted">
+                        <img
+                          src={post.image}
+                          alt={displayTitle}
+                          title={displayTitle}
+                          loading="lazy"
+                          decoding="async"
+                          width="400"
+                          height="192"
+                          className="w-full h-full object-cover"
+                        />
                       </div>
-                    </div>
+                    ) : (
+                      <div className="w-full h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-4xl mb-2">📚</div>
+                          <p className="text-xs text-muted-foreground">{displayCategory}</p>
+                        </div>
+                      </div>
+                    )}
 
                     <div className="p-6 flex flex-col flex-grow">
                       <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-3 w-fit">
