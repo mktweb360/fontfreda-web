@@ -8,9 +8,11 @@ import { HrefLang } from "@/components/HrefLang";
 import { Check, MapPin, Heart, Utensils, Pill, Users } from "lucide-react";
 import ServicePromoBanner from "@/components/ServicePromoBanner";
 import { useLocation } from "wouter";
+import { useState } from "react";
 
 export default function ResidenciaCanina() {
   const [location, navigate] = useLocation();
+  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
   const isEnglish = location.startsWith("/en");
   const currentPath = isEnglish ? location.replace(/^\/en/, "") || "/residencia-canina" : "/residencia-canina";
 
@@ -311,11 +313,22 @@ export default function ResidenciaCanina() {
             <h2 className="text-3xl font-bold text-primary mb-4 text-center">{t.faqTitle}</h2>
             <p className="text-center text-muted-foreground mb-12">{t.faqSubtitle}</p>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {t.faqItems.map((item, index) => (
-                <div key={index} className="bg-white border border-border rounded-lg p-6">
-                  <h3 className="font-semibold text-foreground mb-3">{item.question}</h3>
-                  <p className="text-muted-foreground text-sm">{item.answer}</p>
+                <div key={index} className="border border-border rounded-lg overflow-hidden bg-white hover:border-primary transition-colors">
+                  <button
+                    onClick={() => setExpandedFAQ(expandedFAQ === index ? null : index)}
+                    className="w-full px-6 py-4 flex items-center justify-between hover:bg-secondary transition-colors"
+                  >
+                    <h3 className="font-semibold text-foreground text-left">{item.question}</h3>
+                    <span className={`text-primary transition-transform ${expandedFAQ === index ? "rotate-180" : ""}`}>▼</span>
+                  </button>
+
+                  {expandedFAQ === index && (
+                    <div className="px-6 py-4 bg-secondary border-t border-border">
+                      <p className="text-muted-foreground text-sm">{item.answer}</p>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

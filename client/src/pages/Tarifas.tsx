@@ -5,9 +5,11 @@ import { SEO } from "@/components/SEO";
 import { HrefLang } from "@/components/HrefLang";
 import { Check, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
+import { useState } from "react";
 
 export default function Tarifas() {
   const [location] = useLocation();
+  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
   const currentPath = location.replace(/^\/en/, "") || "/tarifas";
 
   const getLanguage = () => {
@@ -406,15 +408,26 @@ export default function Tarifas() {
             <h2 className="text-3xl font-bold text-primary mb-12">
               {language === "es" ? "Preguntas Frecuentes" : "Frequently Asked Questions"}
             </h2>
-            <div className="space-y-6 max-w-3xl">
+            <div className="space-y-4 max-w-3xl">
               {lang.faq.map((item, idx) => (
-                <div key={idx} className="bg-background p-6 rounded-lg border border-border">
-                  <h3 className="font-semibold text-primary mb-3">
-                    {item.question}
-                  </h3>
-                  <p className="text-foreground text-sm leading-relaxed">
-                    {item.answer}
-                  </p>
+                <div key={idx} className="border border-border rounded-lg overflow-hidden bg-background hover:border-primary transition-colors">
+                  <button
+                    onClick={() => setExpandedFAQ(expandedFAQ === idx ? null : idx)}
+                    className="w-full px-6 py-4 flex items-center justify-between hover:bg-secondary transition-colors"
+                  >
+                    <h3 className="font-semibold text-primary text-left">
+                      {item.question}
+                    </h3>
+                    <span className={`text-primary transition-transform ${expandedFAQ === idx ? "rotate-180" : ""}`}>▼</span>
+                  </button>
+
+                  {expandedFAQ === idx && (
+                    <div className="px-6 py-4 bg-secondary border-t border-border">
+                      <p className="text-foreground text-sm leading-relaxed">
+                        {item.answer}
+                      </p>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
