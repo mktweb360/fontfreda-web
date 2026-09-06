@@ -60,29 +60,50 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PB35J3M');</script>
-    <!-- End Google Tag Manager -->
+
+    <!-- Google Tag Manager + gtag.js (GA4 + Google Ads) -->
+    <!-- Carga diferida (tras interaccion del usuario o inactividad del navegador) para no bloquear el render inicial. -->
+    <!-- dataLayer y gtag() se definen de inmediato: cualquier evento de conversion disparado antes de la carga -->
+    <!-- (envio de formulario, clic en telefono/WhatsApp) queda en cola y se envia en cuanto carguen los scripts. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+      gtag('js', new Date());
+      gtag('config', 'G-JR3N422110');
+      gtag('config', 'AW-1010676556');
+
+      var ffTagsLoaded = false;
+      function ffLoadTags() {
+        if (ffTagsLoaded) return;
+        ffTagsLoaded = true;
+
+        var gtmScript = document.createElement('script');
+        gtmScript.async = true;
+        gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-PB35J3M';
+        document.body.appendChild(gtmScript);
+
+        var gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JR3N422110';
+        document.body.appendChild(gtagScript);
+      }
+
+      var ffInteractionEvents = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+      ffInteractionEvents.forEach(function (evt) {
+        window.addEventListener(evt, ffLoadTags, { once: true, passive: true });
+      });
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(ffLoadTags, { timeout: 4000 });
+      } else {
+        setTimeout(ffLoadTags, 4000);
+      }
+    </script>
 
     <!-- Google Tag Manager (noscript fallback) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PB35J3M" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Google tag (gtag.js) - GA4 + Google Ads (single config, no duplicates) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JR3N422110"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-JR3N422110');
-      gtag('config', 'AW-1010676556');
-    </script>
-    
   </body>
 
 </html>
