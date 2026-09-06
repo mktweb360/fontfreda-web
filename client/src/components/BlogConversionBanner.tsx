@@ -13,7 +13,7 @@ export default function BlogConversionBanner({
   // Determine the target service based on article category
   const getServiceLink = () => {
     const baseUrl = language === "en" ? "/en" : "";
-    
+
     switch (category?.toLowerCase()) {
       case "residencia":
         return `${baseUrl}/residencia-canina`;
@@ -41,7 +41,6 @@ export default function BlogConversionBanner({
       benefits: [
         "Vigilancia 24 horas",
         "Paseos diarios en naturaleza",
-        "Atención veterinaria",
         "Espacios climatizados",
       ],
       cta: "Conocer Nuestros Servicios",
@@ -54,7 +53,6 @@ export default function BlogConversionBanner({
       benefits: [
         "24-hour supervision",
         "Daily walks in nature",
-        "Veterinary care",
         "Climate-controlled spaces",
       ],
       cta: "Learn About Our Services",

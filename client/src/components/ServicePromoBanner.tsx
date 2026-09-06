@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 interface ServicePromoBannerProps {
   variant: "dentro-de-casa" | "larga-estancia";
   language: "es" | "en";
+  layout?: "horizontal" | "vertical";
 }
 
 const CONTENT = {
@@ -47,9 +48,35 @@ const CONTENT = {
   },
 };
 
-export default function ServicePromoBanner({ variant, language }: ServicePromoBannerProps) {
+export default function ServicePromoBanner({ variant, language, layout = "horizontal" }: ServicePromoBannerProps) {
   const config = CONTENT[variant];
   const t = config[language];
+
+  if (layout === "vertical") {
+    return (
+      <div className="flex flex-col rounded-2xl overflow-hidden border border-border bg-secondary/50">
+        <div className="w-full h-40 flex-shrink-0">
+          <img
+            src={config.image}
+            alt={t.imgAlt}
+            loading="lazy"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="p-5 flex flex-col gap-2">
+          <h3 className="text-base font-bold text-foreground">{t.title}</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">{t.desc}</p>
+          <Link
+            href={t.link}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary/80 transition-colors self-start mt-1"
+          >
+            {t.cta}
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col md:flex-row rounded-2xl overflow-hidden border border-border bg-secondary/50">
