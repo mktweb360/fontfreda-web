@@ -187,6 +187,110 @@ const blogPosts: BlogPost[] = [
     slug: "socializacion-cachorros",
     image: "/images/guarderia/guarderia-canina-4.jpg",
   },
+    {
+    id: "12",
+    title: "Perro senior en residencia canina: cuidados especiales para mascotas mayores",
+    excerpt: "Tu perro mayor se merece una residencia que entienda su edad. Te contamos qué cuidados necesita un perro senior y cómo los cubrimos en Fontfreda.",
+    content: `# Perro senior en residencia canina: cuidados especiales para mascotas mayores
+
+En Fontfreda sabemos que un perro mayor no es un perro cualquiera. Con los años, su salud, su alimentación y su forma de relacionarse cambian, y dejarlo en una residencia exige elegir un centro que de verdad entienda esas diferencias. Por eso hemos diseñado nuestros cuidados pensando también en mascotas senior. En esta guía te contamos qué necesita un perro mayor y cómo lo cubrimos.
+
+## Cuándo se considera que un perro es senior o geriátrico
+
+Un perro se considera **senior** a partir de los 7-8 años en razas medianas, antes en razas grandes y más tarde en razas pequeñas. Se habla de fase **geriátrica** cuando el animal supera aproximadamente el 75% de su esperanza de vida estimada; en perros pequeños esto ocurre a partir de los 11-12 años.
+
+Esto significa que un perro mayor puede presentar artrosis, pérdida de visión o audición, problemas dentales o enfermedades crónicas que requieren medicación diaria. Su estancia en una residencia debe tener en cuenta estas particularidades, y por eso en Fontfreda tomamos nota de cada detalle desde el primer contacto.
+
+## Necesidades especiales del perro senior
+
+Un perro mayor no es un perro joven al que simplemente se le da menos ejercicio. Sus cuidados giran en torno a varios ejes que en Fontfreda cuidamos con especial atención:
+
+- **Articulaciones y movilidad:** la artrosis es muy frecuente y requiere suelos antideslizantes, paseos moderados y evitar saltos bruscos.
+- **Alimentación adaptada:** necesita dietas de mayor calidad proteica, control del peso y, en muchos casos, aportes de omega-3 para las articulaciones.
+- **Medicación:** muchos perros seniors reciben tratamiento para dolor crónico, insuficiencia renal o cardiopatías; la residencia debe poder administrarlo con rigor.
+- **Revisiones veterinarias:** conveniencia de chequeos más frecuentes y control de la condición corporal.
+- **Manejo del estrés:** los cambios de entorno pueden afectar más a un perro mayor, por lo que la adaptación debe ser progresiva.
+- **Salud dental:** los problemas bucodentales son más prevalentes en perros mayores y pueden dificultar la alimentación.
+
+## Qué debe ofrecer una residencia para perros mayores
+
+No todas las residencias están preparadas para un perro senior. Antes de reservar, conviene comprobar que el centro ofrezca:
+
+1. **Atención de necesidades especiales y administración de medicación** por personal formado, con visita veterinaria disponible.
+2. **Habitaciones individuales con calefacción**, fundamentales para perros mayores que toleran peor el frío y las corrientes de aire.
+3. **Paseos adaptados** en cantidad y intensidad, no rutinas agotadoras.
+4. **Trato personalizado** que tenga en cuenta la anatomía y la salud del animal, no un manejo estándar para todos.
+5. **Espacio natural** donde el perro pueda moverse con seguridad sin agresiones de otros animales.
+6. **Seguimiento** de alimentación, medicación y evolución durante la estancia.
+
+En Fontfreda cumplimos todos estos puntos. Porque tu perro mayor no es un número más, es parte de nuestra familia durante su estancia.
+
+## Por qué Fontfreda es la residencia ideal para tu perro senior
+
+La **Residencia Canina y Felina Fontfreda**, ubicada en el entorno natural del Alt Penedès, ofrece un servicio pensado también para mascotas que necesitan un segundo hogar de forma habitual o por periodos largos. Entre nuestros servicios destacan la atención de necesidades especiales, la administración de medicamentos y la visita del veterinario, junto con habitaciones individuales cubiertas con calefacción y cinco paseos diarios en amplias zonas de recreo.
+
+Para perros mayores con artrosis o problemas de movilidad, el hecho de disponer de un entorno natural y paseos regulares y controlados es un beneficio claro frente a estancias prolongadas en pisos o en espacios reducidos. Además, el servicio de residencia dentro de la casa está pensado para los animales que requieren un trato más cercano y cariñoso.
+
+## Checklist para preparar a tu perro senior antes del ingreso
+
+- Visita al veterinario unos días antes para revisar su estado general y ajustar la medicación.
+- Lleva su dieta habitual y las instrucciones de administración de fármacos (dosis, horarios, vía).
+- Comunica a nuestro equipo cualquier limitación de movilidad, alergia o comportamiento.
+- Si es posible, realiza una visita previa para que el perro conozca el entorno.
+- Deja un objeto con tu olor para reducir el estrés.
+- Informa de la pauta de ejercicio habitual para que la respetemos.
+- Entrega la cartilla de vacunación y desparasitación al día.
+
+## Qué comunicarnos sobre tu perro senior
+
+Al reservar la estancia, cuéntanos toda la información relevante para el cuidado de tu perro mayor:
+
+- La medicación que toma, con dosis, horarios y vía de administración.
+- La dieta habitual y cualquier alergia o intolerancia alimentaria.
+- Problemas de movilidad o dolor articular, para adaptar los paseos.
+- Problemas sensoriales (pérdida de visión o audición).
+- Comportamientos especiales (miedo a ruidos, agresividad por dolor).
+- El contacto de tu veterinario habitual.
+
+En Fontfreda cubrimos necesidades especiales y administramos medicación durante la estancia, por lo que esta información es clave para una estancia segura y tranquila.
+
+## Errores frecuentes al dejar a un perro mayor en residencia
+
+- No informar de la medicación completa o de los horarios exactos.
+- Cambiar la dieta días antes del ingreso, lo que provoca trastornos digestivos.
+- Elegir un centro sin calefacción ni habitaciones individuales.
+- Exigir el mismo nivel de ejercicio que a un perro joven.
+- No dejar objetos conocidos que reduzcan el estrés.
+
+## Cuándo consultar al veterinario antes de la estancia
+
+Antes de reservar, conviene una revisión veterinaria si el perro presenta dificultad respiratoria, cojera reciente, pérdida de peso inexplicada, aumento de la ingesta de agua o cambios de comportamiento. Estas señales pueden indicar un problema de salud que debe estabilizarse antes del ingreso.
+
+## Preguntas frecuentes
+
+**¿Puedo dejar a mi perro mayor con medicación en Fontfreda?**
+Sí. Disponemos de personal formado y servicio veterinario. En Fontfreda administramos medicación y cubrimos necesidades especiales con trato personalizado.
+
+**¿A partir de qué edad un perro necesita cuidados de senior?**
+Depende del tamaño: en razas grandes a partir de los 6-7 años y en razas pequeñas a partir de los 8-10 años.
+
+**¿La residencia es segura para un perro con artrosis?**
+Sí. Ofrecemos paseos adaptados, habitaciones con calefacción y un entorno natural donde moverse con seguridad. Te invitamos a visitar las instalaciones antes de reservar.
+
+**¿Mi perro senior se estresará en la residencia?**
+Con una preparación adecuada, objetos con olor familiar y nuestro equipo de paseos y compañía, la mayoría de perros mayores se adaptan bien e incluso disfrutan de la estancia.
+
+## Conclusión
+
+Un perro senior necesita una residencia canina que entienda su edad y su salud. Elegir un centro con atención veterinaria, medicación, habitaciones con calefacción y paseos adaptados marca la diferencia entre una estancia tranquila y una experiencia estresante. En Fontfreda cuidamos de tu perro mayor como lo harías tú. Si necesitas alojamiento para tu perro senior, **contacta con la Residencia Fontfreda** y te explicamos las opciones de larga estancia y residencia dentro de casa.
+
+---
+*Aviso: este artículo es informativo. Para cualquier decisión sobre la salud de tu mascota senior, consulta siempre con tu veterinario.*`,
+    author: "Mkt Web 360",
+    date: "06 September 2026",
+    category: "Perros",
+    slug: "perro-senior-residencia-canina-cuidados",
+  },
 ];
 
 export { blogPosts };
