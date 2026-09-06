@@ -10,6 +10,7 @@ import { HrefLang } from "@/components/HrefLang";
 import { Calendar, User, ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 import { blogPosts } from "./Blog";
+import { Streamdown } from "streamdown";
 
 export default function BlogPost() {
   const [location] = useLocation();
@@ -35,17 +36,17 @@ export default function BlogPost() {
         <Header />
         <main className="flex-grow container mx-auto px-4 py-20 text-center">
           <h1 className="text-3xl font-bold text-foreground mb-4">
-            {language === "es" ? "Artículo no encontrado" : "Article not found"}
+            {language === "es" ? "ArtÃ­culo no encontrado" : "Article not found"}
           </h1>
           <p className="text-muted-foreground mb-8">
             {language === "es"
-              ? "Lo sentimos, el artículo que buscas no existe."
+              ? "Lo sentimos, el artÃ­culo que buscas no existe."
               : "Sorry, the article you are looking for does not exist."}
           </p>
           <Link href={language === "es" ? "/blog" : "/en/blog"} className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              {language === "es" ? "Volver al Blog" : "Back to Blog"}
-            </Link>
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            {language === "es" ? "Volver al Blog" : "Back to Blog"}
+          </Link>
         </main>
         <Footer />
       </div>
@@ -83,8 +84,8 @@ export default function BlogPost() {
   const translations = {
     es: {
       backToBlog: "Volver al Blog",
-      relatedArticles: "Artículos Relacionados",
-      noRelated: "No hay artículos relacionados",
+      relatedArticles: "ArtÃ­culos Relacionados",
+      noRelated: "No hay artÃ­culos relacionados",
       author: "Autor",
       published: "Publicado",
     },
@@ -127,9 +128,9 @@ export default function BlogPost() {
         <section className="py-12 bg-secondary border-b border-border">
           <div className="container mx-auto px-4">
             <Link href={language === "es" ? "/blog" : "/en/blog"} className="inline-flex items-center text-primary hover:text-primary/80 transition-colors mb-6">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                {t.backToBlog}
-              </Link>
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              {t.backToBlog}
+            </Link>
 
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
               {post.title}
@@ -172,9 +173,7 @@ export default function BlogPost() {
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 {post.excerpt}
               </p>
-              <p className="text-base text-foreground mb-6 leading-relaxed whitespace-pre-wrap">
-                {post.content}
-              </p>
+              <Streamdown>{post.content}</Streamdown>
             </div>
           </div>
         </section>
