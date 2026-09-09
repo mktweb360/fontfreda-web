@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import { Check, Clock, Heart, Home, Shield, Users } from "lucide-react";
 import { useState } from "react";
 import FloatingCTA from "@/components/FloatingCTA";
@@ -18,9 +19,26 @@ export default function LandingResidenciaCanina() {
     mensaje: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Formulario enviado:", formData);
+    setSubmitStatus("loading");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, asunto: "Residencia Canina (landing legacy /ads)" }),
+      });
+      if (!res.ok) throw new Error("server_error");
+      setSubmitStatus("success");
+      toast.success("Solicitud enviada correctamente. Nos pondremos en contacto pronto.");
+      setFormData({ nombre: "", email: "", telefono: "", mensaje: "" });
+      setTimeout(() => setSubmitStatus("idle"), 4000);
+    } catch {
+      setSubmitStatus("idle");
+      toast.error("Error al enviar la solicitud. Intenta de nuevo o llámanos al +34 93 779 03 11.");
+    }
   };
 
   const features = [
@@ -343,9 +361,10 @@ export default function LandingResidenciaCanina() {
 
             <Button
               type="submit"
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg font-semibold"
+              disabled={submitStatus === "loading"}
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg font-semibold disabled:opacity-60"
             >
-              Enviar Solicitud
+              {submitStatus === "loading" ? "Enviando..." : "Enviar Solicitud"}
             </Button>
 
             <p className="text-xs text-muted-foreground text-center">
