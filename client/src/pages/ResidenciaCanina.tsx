@@ -365,12 +365,12 @@ export default function ResidenciaCanina() {
             <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">{t.ctaFinalDesc}</p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+34937790311">
+              <a href="tel:+34937790311" onClick={() => { import("@/lib/conversionTracking").then((m) => m.trackPhoneClick("residencia_canina_cta_final")); }}>
                 <Button className="bg-primary-foreground hover:bg-primary-foreground/90 text-primary px-8 py-6 text-base">
                   {t.callNow}
                 </Button>
               </a>
-              <a href="https://wa.me/34609732211" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/34609732211" target="_blank" rel="noopener noreferrer" onClick={() => { import("@/lib/conversionTracking").then((m) => m.trackWhatsAppClick("residencia_canina_cta_final")); }}>
                 <Button
                   variant="outline"
                   className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 px-8 py-6 text-base"
