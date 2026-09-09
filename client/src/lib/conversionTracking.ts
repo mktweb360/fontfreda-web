@@ -77,7 +77,7 @@ export function trackPhoneClick(origen?: string) {
   });
 
   safeGtag("event", "conversion", {
-    send_to: "AW-1010676556/phone_click",
+    send_to: "AW-1010676556/udGVCJPl__EcEMzm9uED",
     value: 1.0,
     currency: "EUR",
   });
