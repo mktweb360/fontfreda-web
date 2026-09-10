@@ -37,7 +37,14 @@ async function startServer() {
         try {
                 const data: ContactFormData = req.body;
 
-          if (!data.nombre || !data.email || !data.telefono || !data.asunto || !data.mensaje) {
+          // "mensaje" no es obligatorio en el formulario de varias landings
+          // (no lleva asterisco), pero antes se exigia igualmente aqui: si
+          // el usuario lo dejaba vacio, la peticion fallaba con 400 y el
+          // lead se perdia sin ningun aviso claro. Se normaliza a cadena
+          // vacia en vez de rechazar. Fix 10/09/2026.
+          data.mensaje = data.mensaje || "";
+
+          if (!data.nombre || !data.email || !data.telefono || !data.asunto) {
                     return res.status(400).json({ error: "Missing required fields" });
           }
 
